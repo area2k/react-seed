@@ -1,8 +1,17 @@
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
+
+import GlobalStyle from '@/components/GlobalStyle'
+import Input from '@/components/Input'
 
 const App = () => {
   return (
-    <span>Hello World</span>
+    <ThemeProvider theme={{ primary500: 'blue' }}>
+      <GlobalStyle />
+      <Input
+        placeholder='Text goes here'
+      />
+    </ThemeProvider>
   )
 }
 

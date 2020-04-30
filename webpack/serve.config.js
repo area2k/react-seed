@@ -22,11 +22,11 @@ const serveConfig = {
   },
   resolve: {
     alias: {
+      'react': require.resolve('../node_modules/react'),
       'react-dom': '@hot-loader/react-dom'
     }
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new DuplicatePackageCheckerPlugin({ verbose: true })
   ]

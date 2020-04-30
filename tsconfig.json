@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+		"strict": true,
+    "target": "esnext",
+    "types": ["node"]
+	},
+	"include": [
+		"src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

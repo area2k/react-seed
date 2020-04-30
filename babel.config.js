@@ -11,7 +11,11 @@ module.exports = function (api) {
     ['react-hot-loader/babel'],
     ['@babel/plugin-proposal-class-properties', { loose: false }],
     ['@babel/plugin-proposal-object-rest-spread'],
-    ['@babel/plugin-proposal-optional-chainging'],
+    ['@babel/plugin-proposal-optional-chaining'],
+    ['module-resolver', {
+      root: ['.'],
+      alias: { '@': './src' }
+    }],
     ['styled-components']
   ]
 

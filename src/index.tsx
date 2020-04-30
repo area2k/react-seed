@@ -9,7 +9,7 @@ import App from '@/pages/App'
 import Config from '@/config'
 
 // TODO: create custom font awesome library
-import './icons'
+// import './icons'
 
 const root = document.querySelector('#root')
 
