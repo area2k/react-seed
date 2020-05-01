@@ -1,4 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
+import { LocalizationProvider } from '@area2k/use-localization'
 import { ModalProvider } from '@area2k/use-modal'
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -13,6 +14,8 @@ import Main from '@/pages/Main'
 
 import client from '@/util/apollo'
 
+import Locales from '@/locales'
+
 // NOTE: assigned to const ref for perf reasons
 const theme = {}
 
@@ -23,13 +26,15 @@ const App = () => {
         <GlobalStyle />
         <Router>
           <RouterDebug />
-          <ModalProvider>
-            <Switch>
-              <Route path='/'>
-                <Main />
-              </Route>
-            </Switch>
-          </ModalProvider>
+          <LocalizationProvider defaultLocale={Locales.default}>
+            <ModalProvider>
+              <Switch>
+                <Route path='/'>
+                  <Main />
+                </Route>
+              </Switch>
+            </ModalProvider>
+          </LocalizationProvider>
         </Router>
       </ThemeProvider>
     </ApolloProvider>

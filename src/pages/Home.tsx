@@ -1,3 +1,4 @@
+import useLocale, { Locale, DictionaryEntry } from '@area2k/use-localization'
 import useModal from '@area2k/use-modal'
 import React from 'react'
 
@@ -13,13 +14,17 @@ interface ModalProps {
   hideModal: () => void
 }
 
-const TestModal = ({ name = 'World', hideModal }: ModalProps) => (
-  <Overlay>
-    <Modal title='Testing modal' onClose={hideModal}>
-      Hello, {name}!
-    </Modal>
-  </Overlay>
-)
+const TestModal = ({ name = 'World', hideModal }: ModalProps) => {
+  const { formatDate, translate } = useLocale()
+
+  return (
+    <Overlay>
+      <Modal title='Testing modal' onClose={hideModal}>
+        {translate('testModal', { name })} It's currently: {formatDate(new Date(), 'HH:mm zzz')}
+      </Modal>
+    </Overlay>
+  )
+}
 
 const Home = () => {
   const [showModal, hideModal] = useModal(({ name }: Partial<ModalProps>) => (

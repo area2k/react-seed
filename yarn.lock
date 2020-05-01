@@ -25,6 +25,11 @@
     "@apollo/client" "^3.0.0-beta.23"
     tslib "^1.9.3"
 
+"@area2k/use-localization@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@area2k/use-localization/-/use-localization-0.0.2.tgz#4812a72d29b0ed668be3af3c39ded12d7a77ca62"
+  integrity sha512-Y6IWR8gOUwy+goww6ACc3x7hqvHsLaGpEUIeLJmJyiaLpdjY4f49hsTcNknDY2mxVKsWkG3F2mMkv9nIdr68qQ==
+
 "@area2k/use-modal@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@area2k/use-modal/-/use-modal-0.0.1.tgz#4486387e696079c45a703c2d3be529566b982ccd"
