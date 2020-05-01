@@ -14,7 +14,7 @@ interface Palette {
   selectionColor: string
 }
 
-interface Props
+export interface Props
   extends Partial<Palette> {
   palette: 'default' | 'danger' | 'success' | 'warn'
 }
@@ -44,13 +44,14 @@ const palette = variantGroup<Props, 'palette', keyof Palette>('palette', {
   }
 })
 
-const Input = styled.input.withConfig<Props>({
+export const StyledInput = styled.input.withConfig<Props>({
   shouldForwardProp: (prop) => !transientProps.includes(prop)
 })`
   height: 2.625rem;
   padding: 0.625rem 0.75rem;
   width: 100%;
 
+  background-color: white;
   border: 1px solid ${palette.borderColor};
   border-radius: 0.375rem;
   outline: none;
@@ -62,7 +63,6 @@ const Input = styled.input.withConfig<Props>({
   transition: box-shadow 150ms ease;
 
   &:focus {
-    background-color: white;
     border-color: ${palette.activeBorderColor};
     box-shadow: 0 0 0px 4px ${grey50};
   }
@@ -81,6 +81,6 @@ const Input = styled.input.withConfig<Props>({
   }
 `
 
-export default withDefaultProps(Input, {
+export default withDefaultProps(StyledInput, {
   palette: 'default'
 })

@@ -1,30 +1,36 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-// import List from '@/components/List'
-// import Table from '@/components/Table'
+import Table from '@/components/Table'
+
+import { withDefaultProps } from '@/util/styles'
+
+import { grey200, grey400 } from '@/theme/colors'
 
 interface Props {
-
+  bgColor: string
+  borderColor: string
 }
 
-const borderedStyles = css`
-  border-bottom: 1px solid ${p => p.theme.grey200};
-`
+const transientProps = ['bgColor', 'borderColor']
 
-const Card = styled.div`
+export const StyledCard = styled.div.withConfig<Props>({
+  shouldForwardProp: (prop) => !transientProps.includes(prop)
+})`
   width: 100%;
 
-  background-color: white;
-  border: 1px solid ${p => p.theme.grey400};
+  background-color: ${p => p.bgColor};
+  border: 1px solid ${p => p.borderColor};
   border-radius: 0.375rem;
 `
 
-export const Body = styled.div`
+export const StyledBody = styled.div.withConfig<Props>({
+  shouldForwardProp: (prop) => !transientProps.includes(prop)
+})`
   padding: 1.5rem;
 
   position: relative;
 
-  background-color: ${p => p.theme[p.bgColor]};
+  background-color: ${p => p.bgColor};
 
   &:first-child {
     border-top-left-radius: 0.375rem;
@@ -36,21 +42,29 @@ export const Body = styled.div`
     border-bottom-right-radius: 0.375rem;
   }
 
-  & + &,
-  ${List} + & {
-    border-top: 1px solid ${p => p.theme.grey200};
+  & + & {
+    border-top: 1px solid ${p => p.borderColor};
   }
 
   ${Table} + & {
-    border-top: 1px solid ${p => p.theme.grey100};
+    border-top: 1px solid ${p => p.borderColor};
   }
 `
+export const Body = withDefaultProps(StyledBody, {
+  bgColor: 'transparent',
+  borderColor: grey200
+})
 
-Body.defaultProps = {
-  bgColor: 'white'
+interface HeaderProps
+  extends Props {
+  align: 'flex-start' | 'center' | 'baseline' | 'flex-end'
 }
 
-export const Header = styled.div`
+const headerTransientProps = transientProps.concat('align')
+
+export const StyledHeader = styled.div.withConfig<HeaderProps>({
+  shouldForwardProp: (prop) => !headerTransientProps.includes(prop)
+})`
   align-items: ${p => p.align};
   display: flex;
   justify-content: space-between;
@@ -70,13 +84,15 @@ export const Header = styled.div`
   & + ${Body} {
     padding-top: 0.25rem;
   }
-
-  ${p => p.bordered && borderedStyles};
 `
 
-Header.defaultProps = {
+export const Header = withDefaultProps(StyledHeader, {
   align: 'center',
-  bordered: false
-}
+  bgColor: 'transparent',
+  borderColor: grey200
+})
 
-export default Card
+export default withDefaultProps(StyledCard, {
+  bgColor: 'white',
+  borderColor: grey400
+})

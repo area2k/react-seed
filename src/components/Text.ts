@@ -18,7 +18,7 @@ const uppercaseStyles = css`
   text-transform: uppercase;
 `
 
-const Text = styled.span.withConfig<Props>({
+export const StyledText = styled.span.withConfig<Props>({
   shouldForwardProp: (prop) => !transientProps.includes(prop)
 })`
   color: ${p => p.color};
@@ -31,7 +31,7 @@ const Text = styled.span.withConfig<Props>({
   ${p => p.uppercase && uppercaseStyles};
 `
 
-export default withDefaultProps(Text, {
+export default withDefaultProps(StyledText, {
   color: grey700,
   lineHeight: 1.15,
   size: 1,

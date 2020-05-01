@@ -56,3 +56,9 @@ export const variantGroup = <
 
   return value
 }
+
+export const doNotForward = <
+  P extends {}
+>(transientProps: (keyof P)[]) => (
+  (prop: keyof P) => !transientProps.includes(prop)
+)

@@ -59,7 +59,7 @@ const isColumn = (direction: FlexDirection) => (
   direction === 'column' || direction === 'column-reverse'
 )
 
-const Flex = styled.div.withConfig<Props>({
+export const StyledFlex = styled.div.withConfig<Props>({
   shouldForwardProp: (prop) => !transientProps.includes(prop)
 })`
   align-items: ${p => p.align ? p.align : isColumn(p.direction) ? 'flex-start' : 'center'};
@@ -73,7 +73,7 @@ const Flex = styled.div.withConfig<Props>({
   ${p => p.wrap && wrapStyles};
 `
 
-export default withDefaultProps(Flex, {
+export default withDefaultProps(StyledFlex, {
   direction: 'row',
   fit: false,
   full: false,
