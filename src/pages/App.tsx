@@ -6,6 +6,8 @@ import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '@/components/GlobalStyle'
 
+import RouterDebug from '@/widgets/RouterDebug'
+
 import Main from '@/pages/Main'
 
 import client from '@/util/apollo'
@@ -17,8 +19,9 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Router>
-          <GlobalStyle />
+          <RouterDebug />
           <Switch>
             <Route path='/'>
               <Main />

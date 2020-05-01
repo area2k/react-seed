@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { withDefaultProps } from '@/util/styles'
 
 export const navbarHeight = 4.5

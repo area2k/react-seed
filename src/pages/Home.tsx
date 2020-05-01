@@ -1,12 +1,27 @@
 import React from 'react'
 
-import Text from '@/components/Text'
+import Banner from '@/widgets/Banner'
+import Content from '@/widgets/Content'
+import Tab from '@/widgets/Tab'
 
 const Home = () => {
   return (
-    <Text size={2}>
-      Hello world!
-    </Text>
+    <>
+      <Banner
+        tabs={
+          <>
+            <Tab
+              icon={{ iconName: 'icons-alt', prefix: 'far' }}
+              title='Testing'
+              to={{ pathname: '/testing' }}
+            />
+          </>
+        }
+        titleText='Home page'
+      />
+      <Content>
+      </Content>
+    </>
   )
 }
 

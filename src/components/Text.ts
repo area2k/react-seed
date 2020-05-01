@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { withDefaultProps } from '@/util/styles'
 
 import { grey700 } from '@/theme/colors'
+import { regularWeight } from '@/theme/typography'
 
 interface Props {
   color: string
@@ -36,5 +37,5 @@ export default withDefaultProps(StyledText, {
   lineHeight: 1.15,
   size: 1,
   uppercase: false,
-  weight: 400
+  weight: regularWeight
 })
