@@ -1,4 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
+import { ModalProvider } from '@area2k/use-modal'
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -22,11 +23,13 @@ const App = () => {
         <GlobalStyle />
         <Router>
           <RouterDebug />
-          <Switch>
-            <Route path='/'>
-              <Main />
-            </Route>
-          </Switch>
+          <ModalProvider>
+            <Switch>
+              <Route path='/'>
+                <Main />
+              </Route>
+            </Switch>
+          </ModalProvider>
         </Router>
       </ThemeProvider>
     </ApolloProvider>

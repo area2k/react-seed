@@ -25,6 +25,11 @@
     "@apollo/client" "^3.0.0-beta.23"
     tslib "^1.9.3"
 
+"@area2k/use-modal@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@area2k/use-modal/-/use-modal-0.0.1.tgz#4486387e696079c45a703c2d3be529566b982ccd"
+  integrity sha512-wU2Uq8OrjrYv/3prK/J9e0GjBtruNHfLk+ZKfc4I/xHCkhVlsb4laStDRL82ICez+Ce0AJg312oL8fXR5pXu5g==
+
 "@babel/cli@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.8.4.tgz#505fb053721a98777b2b175323ea4f090b7d3c1c"
