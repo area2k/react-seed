@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react'
 
+import { grey600 } from '@/theme/colors'
+
 import { Body } from '@/components/Card'
 import Text from '@/components/Text'
 
@@ -11,7 +13,7 @@ interface Props {
 const ListLoader = ({ list, empty }: Props) => (
   empty ?
     <Body>
-      <Text color='grey600' size={0.875}>
+      <Text color={grey600} size={0.875}>
         <em>No items</em>
       </Text>
     </Body>

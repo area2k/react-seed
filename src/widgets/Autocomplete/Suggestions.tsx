@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import { grey800 } from '@/theme/colors'
+
 import Flex from '@/components/Flex'
 import Icon from '@/components/Icon'
 import Text from '@/components/Text'
@@ -54,7 +56,7 @@ const Suggestions = ({
       <>
         {isLoading &&
           <Loading justify='center'>
-            <Text color='grey800' size={0.875}>
+            <Text color={grey800} size={0.875}>
               <Icon spin name='circle-notch' />
             </Text>
             <Text size={0.875}>

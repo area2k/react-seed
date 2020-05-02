@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 
+import { grey800 } from '@/theme/colors'
+
 import useDebouncedValue from '@/hooks/useDebouncedValue'
 
 import Flex from '@/components/Flex'
@@ -154,7 +156,7 @@ const Autocomplete = <T extends any>({
         justify='space-between'
         onClick={() => handleSelect(null)}
       >
-        <Text color='grey800' size={0.875}>
+        <Text color={grey800} size={0.875}>
           {itemToString(value)}
         </Text>
         <Text size={0.75}>

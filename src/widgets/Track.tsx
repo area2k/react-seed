@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { grey600, grey800 } from '@/theme/colors'
+
 import Flex from '@/components/Flex'
 import Icon from '@/components/Icon'
 import Text from '@/components/Text'
@@ -68,7 +70,7 @@ interface Props {
 }
 
 const Track = ({
-  activeColor, activeStep, completedColor = 'grey800', steps
+  activeColor, activeStep, completedColor = grey800, steps
 }: Props) => {
   activeColor = activeColor || completedColor
 
@@ -89,7 +91,7 @@ const Track = ({
             <Flex>
               <StepNumber
                 uppercase
-                color={isActive ? activeColor : 'grey600'}
+                color={isActive ? activeColor : grey600}
                 size={0.875}
                 weight={600}
               >
@@ -97,7 +99,7 @@ const Track = ({
               </StepNumber>
               <Text
                 uppercase
-                color={isActive ? activeColor : 'grey600'}
+                color={isActive ? activeColor : grey600}
                 size={0.875}
                 weight={600}
               >
@@ -105,7 +107,7 @@ const Track = ({
               </Text>
             </Flex>
             <StepIcon
-              color={isActive ? activeColor : (isCompleted ? completedColor : 'grey600')}
+              color={isActive ? activeColor : (isCompleted ? completedColor : grey600)}
               name={step.icon}
               prefix='far'
             />
@@ -114,7 +116,7 @@ const Track = ({
       })}
       <FinalStep>
         <StepIcon
-          color={isTrackComplete ? completedColor : 'grey600'}
+          color={isTrackComplete ? completedColor : grey600}
           name='check-circle'
           prefix={isTrackComplete ? 'fas' : 'far'}
         />

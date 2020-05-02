@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { grey800 } from '@/theme/colors'
+
 import Card, { Body, Header } from '@/components/Card'
 import Icon from '@/components/Icon'
 import IconButton from '@/components/IconButton'
@@ -13,7 +15,7 @@ interface Props {
 const Modal: React.FC<Props> = ({ children, title, onClose }) => (
   <Card>
     <Header>
-      <Text uppercase color='grey800' size={0.75} weight={600}>
+      <Text uppercase color={grey800} size={0.75} weight={600}>
         {title}
       </Text>
       <IconButton

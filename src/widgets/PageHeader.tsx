@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { grey500, grey700, grey800 } from '@/theme/colors'
+
 import Flex from '@/components/Flex'
 import Icon from '@/components/Icon'
 import SubtleLink from '@/components/SubtleLink'
@@ -45,15 +47,15 @@ const PageHeader = ({ actions, back, backTo, title, subactions }: Props) => (
         <Back
           small
           as={SubtleLink}
-          color='grey500'
-          hoverColor='grey700'
+          color={grey500}
+          hoverColor={grey700}
           to={backTo}
         >
           <Icon name='arrow-left' prefix='far' />
           {back}
         </Back>
       }
-      <Text color='grey800' size={2.25} weight={600}>
+      <Text color={grey800} size={2.25} weight={600}>
         {title}
       </Text>
       {subactions &&

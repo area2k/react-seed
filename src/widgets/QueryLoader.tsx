@@ -2,6 +2,8 @@ import { QueryResult } from '@apollo/client'
 import React from 'react'
 import styled from 'styled-components'
 
+import { danger600 } from '@/theme/colors'
+
 import Alert from '@/components/Alert'
 import Flex from '@/components/Flex'
 import Icon from '@/components/Icon'
@@ -25,7 +27,7 @@ const Wrapper = styled(Flex)`
 
 const Error = () => (
   <Wrapper justify='center'>
-    <Alert bgColor='danger600'>
+    <Alert palette='danger'>
       <Icon name='exclamation-triangle' />
       Error while loading query
     </Alert>

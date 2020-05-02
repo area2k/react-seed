@@ -3,6 +3,8 @@ import { toDate } from 'date-fns-tz'
 import React, { ReactText } from 'react'
 import parseUA from 'ua-parser-js'
 
+import { danger100, danger800, grey800 } from '@/theme/colors'
+
 import Flex from '@/components/Flex'
 import Icon from '@/components/Icon'
 import IconButton from '@/components/IconButton'
@@ -59,7 +61,7 @@ const DeviceRow = ({ device, onClick }: Props) => {
       <Cell>
         {userAgent.ua === '<unknown>'
           ? <Flex gutter={1.5}>
-              <Text color='grey800' size={1.25}>
+              <Text color={grey800} size={1.25}>
                 <Icon fixedWidth name='question-square' prefix='far' />
               </Text>
               <TextStack
@@ -68,7 +70,7 @@ const DeviceRow = ({ device, onClick }: Props) => {
               />
             </Flex>
           : <Flex gutter={1.5}>
-              <Text color='grey800' size={1.25}>
+              <Text color={grey800} size={1.25}>
                 <Icon fixedWidth name={iconName} prefix='far' />
               </Text>
               <TextStack
@@ -92,8 +94,8 @@ const DeviceRow = ({ device, onClick }: Props) => {
       </Cell>
       <Cell right>
         <IconButton
-          hoverBg='danger100'
-          hoverColor='danger800'
+          hoverBg={danger100}
+          hoverColor={danger800}
           padding={0.875}
           size={0.875}
           onClick={onClick}

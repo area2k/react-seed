@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { grey700 } from '@/theme/colors'
+
 import useTranslate from '@/hooks/useTranslate'
 
 import Button from '@/components/Button'
@@ -20,18 +22,18 @@ const Pager = ({ page, totalPages, onNext, onPrevious }: Props) => {
   return (
     <Flex gutter={1.5} justify='space-around'>
       <Button
-        compact
+        size='compact'
         disabled={page === 1}
         onClick={onPrevious}
       >
         <Icon name='arrow-left' />
         {translate('prev')}
       </Button>
-      <Text color='grey700' size={0.875} weight={600}>
+      <Text color={grey700} size={0.875} weight={600}>
         {translate('page', { page, totalPages })}
       </Text>
       <Button
-        compact
+        size='compact'
         disabled={page === totalPages}
         onClick={onNext}
       >
