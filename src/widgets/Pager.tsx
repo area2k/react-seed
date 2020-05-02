@@ -26,7 +26,7 @@ const Pager = ({ page, totalPages, onNext, onPrevious }: Props) => {
         disabled={page === 1}
         onClick={onPrevious}
       >
-        <Icon name='arrow-left' />
+        <Icon icon='arrow-left' />
         {translate('prev')}
       </Button>
       <Text color={grey700} size={0.875} weight={600}>
@@ -37,7 +37,7 @@ const Pager = ({ page, totalPages, onNext, onPrevious }: Props) => {
         disabled={page === totalPages}
         onClick={onNext}
       >
-        <Icon name='arrow-right' />
+        <Icon icon='arrow-right' />
         {translate('next')}
       </Button>
     </Flex>

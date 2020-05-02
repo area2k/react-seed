@@ -62,7 +62,7 @@ const DeviceRow = ({ device, onClick }: Props) => {
         {userAgent.ua === '<unknown>'
           ? <Flex gutter={1.5}>
               <Text color={grey800} size={1.25}>
-                <Icon fixedWidth name='question-square' prefix='far' />
+                <Icon fixedWidth icon={['far', 'question-square']} />
               </Text>
               <TextStack
                 subtitle='Unknown browser'
@@ -71,7 +71,7 @@ const DeviceRow = ({ device, onClick }: Props) => {
             </Flex>
           : <Flex gutter={1.5}>
               <Text color={grey800} size={1.25}>
-                <Icon fixedWidth name={iconName} prefix='far' />
+                <Icon fixedWidth icon={['far', iconName]} />
               </Text>
               <TextStack
                 subtitle={`${userAgent.browser.name} ${userAgent.browser.version}`}
@@ -100,7 +100,7 @@ const DeviceRow = ({ device, onClick }: Props) => {
           size={0.875}
           onClick={onClick}
         >
-          <Icon name='ban' prefix='far' />
+          <Icon icon={['far', 'ban']} />
         </IconButton>
       </Cell>
     </Row>

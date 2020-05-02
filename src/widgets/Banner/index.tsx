@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Content from '@/widgets/Content'
 import PageHeader from '@/widgets/PageHeader'
 
+import { grey200 } from '@/theme/colors'
+
 const Wrapper = styled.div`
   margin-bottom: 2.5rem;
 
@@ -28,7 +30,7 @@ interface Props {
   track?: ReactElement
 }
 
-const Banner = ({ bgColor = 'white', borderColor = 'grey200', tabs, track, ...rest }: Props) => (
+const Banner = ({ bgColor = 'white', borderColor = grey200, tabs, track, ...rest }: Props) => (
   <Wrapper
     bgColor={bgColor}
     borderColor={borderColor}

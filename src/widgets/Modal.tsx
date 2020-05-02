@@ -23,7 +23,7 @@ const Modal: React.FC<Props> = ({ children, title, onClose }) => (
         size={0.875}
         onClick={onClose}
       >
-        <Icon name='times' prefix='far' />
+        <Icon icon={['far', 'times']} />
       </IconButton>
     </Header>
     <Body>

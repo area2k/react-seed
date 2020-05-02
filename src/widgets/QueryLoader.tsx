@@ -28,7 +28,7 @@ const Wrapper = styled(Flex)`
 const Error = () => (
   <Wrapper justify='center'>
     <Alert palette='danger'>
-      <Icon name='exclamation-triangle' />
+      <Icon icon='exclamation-triangle' />
       Error while loading query
     </Alert>
   </Wrapper>
@@ -36,7 +36,7 @@ const Error = () => (
 
 const Loading = () => (
   <Wrapper justify='center'>
-    <Icon spin name='circle-notch' />
+    <Icon spin icon='circle-notch' />
     <Text>
       Loading...
     </Text>

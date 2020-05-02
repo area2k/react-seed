@@ -14,7 +14,7 @@ interface Props
 const LoadingButton = ({ children, icon = 'circle-notch', isLoading, prompt, ...rest }: Props) => (
   <Button disabled={isLoading} {...rest}>
     {isLoading &&
-      <Icon spin name={icon} />
+      <Icon spin icon={icon} />
     }
     {isLoading
       ? prompt || children

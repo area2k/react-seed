@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
+import { IconName } from '@fortawesome/fontawesome-common-types'
+
 import Icon from '@/components/Icon'
 import Text from '@/components/Text'
 
@@ -41,7 +43,7 @@ const Wrapper = styled(NavLink)`
 `
 
 interface Props {
-  icon: string
+  icon: IconName
   prefix: 'fas' | 'far' | 'fal' | 'fab'
   title: string
   to: string
@@ -53,8 +55,7 @@ const Tab = ({ icon, prefix, title, to }: Props) => (
       <Icon
         fixedWidth
         mr={0.75}
-        name={icon}
-        prefix={prefix}
+        icon={[prefix, icon]}
       />
     </Text>
     <Text uppercase size={0.75} weight={600}>

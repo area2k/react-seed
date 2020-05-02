@@ -83,7 +83,7 @@ const PlacesAutocomplete = React.forwardRef(({ placeholder, required, ...rest }:
           <SuggestionList>
             {loading &&
               <Loading>
-                <Icon spin name='circle-notch' />
+                <Icon spin icon='circle-notch' />
                 Loading...
               </Loading>
             }

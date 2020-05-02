@@ -160,7 +160,7 @@ const Autocomplete = <T extends any>({
           {itemToString(value)}
         </Text>
         <Text size={0.75}>
-          <Icon name='times' />
+          <Icon icon='times' />
         </Text>
       </Item>
     )

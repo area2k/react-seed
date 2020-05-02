@@ -51,7 +51,7 @@ const PageHeader = ({ actions, back, backTo, title, subactions }: Props) => (
           hoverColor={grey700}
           to={backTo}
         >
-          <Icon name='arrow-left' prefix='far' />
+          <Icon icon={['far', 'arrow-left']} />
           {back}
         </Back>
       }
