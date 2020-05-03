@@ -7,6 +7,7 @@ const commonConfig = require('./common.config')
 const serveConfig = {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
+  entry: ['react-hot-loader/patch', './src'],
   output: {
     filename: '[name].bundle.js'
   },
