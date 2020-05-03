@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { black48 } from '@/theme/colors'
+const defaultBgColor = 'rgba(173, 181, 189,0.5)'
 
 interface WrapperProps {
   bgColor: string
@@ -45,7 +45,7 @@ const Inner = styled.div.withConfig<InnerProps>({
 
 type Props = Partial<WrapperProps> & Partial<InnerProps>
 
-const Overlay: React.FC<Props> = ({ children, bgColor = black48, vPadding = 8, width = 54 }) => (
+const Overlay: React.FC<Props> = ({ children, bgColor = defaultBgColor, vPadding = 8, width = 42 }) => (
   <Wrapper bgColor={bgColor}>
     <Inner vPadding={vPadding} width={width}>
       {children}

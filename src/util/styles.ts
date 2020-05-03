@@ -1,5 +1,8 @@
+import { StyledComponent } from "styled-components"
+
+// TODO: figure out how to make this work better
 type WithDefaultProps<C, P> = C & { defaultProps: P }
-export const withDefaultProps = <C, P>(component: C, defaultProps: P): WithDefaultProps<C, P> => {
+export const withDefaultProps = <C, P>(component: C, defaultProps: P) => {
   (component as WithDefaultProps<C, P>).defaultProps = defaultProps
   return component as WithDefaultProps<C, P>
 }
@@ -62,3 +65,12 @@ export const doNotForward = <
 >(transientProps: (keyof P)[]) => (
   (prop: keyof P) => !transientProps.includes(prop)
 )
+
+export type TypeOfStyled<T extends StyledComponent<any, any, any, any>>
+  = T extends StyledComponent<infer U, any, any, any> ? U : never
+
+export type PropsOfStyled<T extends StyledComponent<any, any, any, any>>
+  = T extends StyledComponent<any, any, infer U, any> ? U : never
+
+export type FullPropsOfStyled<T extends StyledComponent<any, any, any, any>>
+  = Parameters<T>[0]

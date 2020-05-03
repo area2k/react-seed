@@ -6,5 +6,10 @@ export const key = 'en-US'
 export const date = enUS
 
 export const dictionary: Dictionary = {
+  pager: {
+    next: 'Next',
+    page: ({ page, totalPages }) => `Page ${page} of ${totalPages}`,
+    previous: 'Previous'
+  },
   testModal: ({ name }) => `Hello, ${name}!`
 }

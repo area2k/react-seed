@@ -87,4 +87,3 @@ export const white2 = 'rgba(255,255,255,0.02)'
 // export const backgroundGrey = '#f8fafe'
 export const backgroundGrey = 'white'
 export const hoverGrey = grey50
-

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { variantGroup, withDefaultProps } from '@/util/styles'
 
-import { grey50, grey400, grey600, grey700, primary500, primary600 } from '@/theme/colors'
+import { grey50, grey300, grey600, grey700, primary500, primary600 } from '@/theme/colors'
 import { raisedMore } from '@/theme/shadows'
 
 interface Palette {
@@ -47,9 +47,9 @@ const palette = variantGroup<Props, 'palette', keyof Palette>('palette', {
     bgColor: primary500,
     borderColor: 'transparent',
     color: 'white',
-    disabledBgColor: grey400,
+    disabledBgColor: grey300,
     disabledBorderColor: 'transparent',
-    disabledColor: 'white',
+    disabledColor: grey600,
     hoverBgColor: primary500,
     hoverBorderColor: 'transparent',
     hoverColor: 'white'
@@ -61,9 +61,9 @@ const palette = variantGroup<Props, 'palette', keyof Palette>('palette', {
     bgColor: 'white',
     borderColor: grey600,
     color: grey700,
-    disabledBgColor: grey400,
-    disabledBorderColor: 'grey600',
-    disabledColor: 'white',
+    disabledBgColor: grey300,
+    disabledBorderColor: grey600,
+    disabledColor: grey600,
     hoverBgColor: 'white',
     hoverBorderColor: grey600,
     hoverColor: grey700
@@ -91,7 +91,7 @@ const size = variantGroup<Props, 'size', keyof Size>('size', {
   }
 })
 
-const Button = styled.button.withConfig<Props>({
+export const StyledButton = styled.button.withConfig<Props>({
   shouldForwardProp: (prop) => !transientProps.includes(prop)
 })`
   align-items: center;
@@ -126,9 +126,20 @@ const Button = styled.button.withConfig<Props>({
     border-color: ${palette.activeBorderColor};
     color: ${palette.activeColor};
   }
+
+  &[disabled] {
+    background-color: ${palette.disabledBgColor};
+    border-color: ${palette.disabledBorderColor};
+    color: ${palette.disabledColor};
+    cursor: not-allowed;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
 `
 
-export default withDefaultProps(Button, {
+export default withDefaultProps(StyledButton, {
   palette: 'default',
   size: 'default'
 })

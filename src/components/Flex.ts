@@ -10,13 +10,14 @@ interface Props {
   align?: FlexAlign
   direction: FlexDirection
   fit: boolean
+  flex: string | number
   full: boolean
   gutter: number
   inline: boolean
   justify: FlexJustify
   wrap: boolean
 }
-const transientProps = ['align', 'direction', 'fit', 'full', 'gutter', 'inline', 'justify', 'wrap']
+const transientProps = ['align', 'direction', 'fit', 'flex', 'full', 'gutter', 'inline', 'justify', 'wrap']
 
 const columnStyles = css<Props>`
   > * + * {
@@ -65,6 +66,7 @@ export const StyledFlex = styled.div.withConfig<Props>({
   align-items: ${p => p.align ? p.align : isColumn(p.direction) ? 'flex-start' : 'center'};
   display: ${p => p.inline ? 'inline-flex' : 'flex'};
   justify-content: ${p => p.justify};
+  flex: ${p => p.flex};
   flex-direction: ${p => p.direction};
 
   ${p => isColumn(p.direction) ? columnStyles : rowStyles};
@@ -76,6 +78,7 @@ export const StyledFlex = styled.div.withConfig<Props>({
 export default withDefaultProps(StyledFlex, {
   direction: 'row',
   fit: false,
+  flex: 'initial',
   full: false,
   gutter: 1,
   inline: false,

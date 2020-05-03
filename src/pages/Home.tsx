@@ -1,4 +1,4 @@
-import useLocale, { Locale, DictionaryEntry } from '@area2k/use-localization'
+import useLocale from '@area2k/use-localization'
 import useModal from '@area2k/use-modal'
 import React from 'react'
 
