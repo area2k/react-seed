@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 4rem 0 3rem;
+  padding: 3rem 0 3rem;
 `
 
 const Subactions = styled(Flex)`

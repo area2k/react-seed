@@ -8,6 +8,9 @@ import Tab from '@/widgets/Tab'
 import Overlay from '@/widgets/Overlay'
 import Modal from '@/widgets/Modal'
 import Button from '@/components/Button'
+import Track from '@/widgets/Track'
+
+import { primary600 } from '@/theme/colors'
 
 interface ModalProps {
   name?: string
@@ -47,6 +50,20 @@ const Home = () => {
               icon={{ iconName: 'icons-alt', prefix: 'far' }}
               title='Testing'
               to={{ pathname: '/testing' }}
+            />
+          </>
+        }
+        track={
+          <>
+            <Track
+              hideInactiveSteps
+              activeStep={2}
+              steps={[
+                { icon: { iconName: 'paper-plane', prefix: 'far' }, title: 'Step one' },
+                { icon: { iconName: 'dollar-sign', prefix: 'far' }, title: 'Step two' },
+                { icon: { iconName: 'box-check', prefix: 'far' }, title: 'Step three' },
+                { icon: { iconName: 'h2', prefix: 'far' }, title: 'Step four' }
+              ]}
             />
           </>
         }
