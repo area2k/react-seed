@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { withDefaultProps } from '@/util/styles'
 
 import { grey700 } from '@/theme/colors'
-import { regularWeight } from '@/theme/typography'
+import { font, regularWeight } from '@/theme/typography'
 
 interface Props {
   color: string
@@ -24,7 +24,7 @@ export const StyledText = styled.span.withConfig<Props>({
 })`
   color: ${p => p.color};
 
-  font-family: ${p => p.theme.font};
+  font-family: ${font};
   font-size: ${p => p.size}rem;
   font-weight: ${p => p.weight};
   line-height: ${p => p.lineHeight};
