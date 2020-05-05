@@ -6,7 +6,7 @@ type FlexAlign = 'flex-start' | 'center' | 'flex-end' | 'baseline' | 'stretch'
 type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 type FlexJustify = 'flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around'
 
-interface Props {
+export interface Props {
   align?: FlexAlign
   direction: FlexDirection
   fit: boolean
@@ -75,7 +75,7 @@ export const StyledFlex = styled.div.withConfig<Props>({
   ${p => p.wrap && wrapStyles};
 `
 
-export default withDefaultProps(StyledFlex, {
+export const DefaultFlexProps = {
   direction: 'row',
   fit: false,
   flex: 'initial',
@@ -84,4 +84,6 @@ export default withDefaultProps(StyledFlex, {
   inline: false,
   justify: 'flex-start',
   wrap: false
-})
+}
+
+export default withDefaultProps(StyledFlex, DefaultFlexProps)

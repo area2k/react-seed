@@ -78,7 +78,7 @@ export const StyledHeader = styled.div.withConfig<HeaderProps>({
   }
 
   ${Body} + & {
-    border-top: 1px solid ${p => p.theme.grey200};
+    border-top: 1px solid ${grey200};
   }
 
   & + ${Body} {
