@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import { variantGroup, withDefaultProps } from '@/util/styles'
 
-import { grey50, grey300, grey600, grey700, primary500, primary600 } from '@/theme/colors'
-import { raisedMore } from '@/theme/shadows'
+import { grey100, grey200, grey300, grey500, grey600, grey700, primary500, primary600, success600, success500, success400, primary400 } from '@/theme/colors'
 
 interface Palette {
   activeBgColor: string
@@ -29,8 +28,8 @@ interface Size {
 
 interface Props
   extends Partial<Palette & Size> {
-  palette: 'default' | 'white'
-  size: 'compact' | 'default' | 'small'
+  palette: 'clear' | 'default' | 'success' | 'outline'
+  size: 'big' | 'compact' | 'default' | 'small'
 }
 
 const transientProps = [
@@ -40,6 +39,20 @@ const transientProps = [
 ]
 
 const palette = variantGroup<Props, 'palette', keyof Palette>('palette', {
+  clear: {
+    activeBgColor: grey300,
+    activeBorderColor: 'transparent',
+    activeColor: grey700,
+    bgColor: 'white',
+    borderColor: 'transparent',
+    color: grey700,
+    disabledBgColor: 'transparent',
+    disabledBorderColor: grey200,
+    disabledColor: grey600,
+    hoverBgColor: grey200,
+    hoverBorderColor: 'transparent',
+    hoverColor: grey700
+  },
   default: {
     activeBgColor: primary600,
     activeBorderColor: 'transparent',
@@ -49,28 +62,48 @@ const palette = variantGroup<Props, 'palette', keyof Palette>('palette', {
     color: 'white',
     disabledBgColor: grey300,
     disabledBorderColor: 'transparent',
-    disabledColor: grey600,
-    hoverBgColor: primary500,
+    disabledColor: grey500,
+    hoverBgColor: primary400,
     hoverBorderColor: 'transparent',
     hoverColor: 'white'
   },
-  white: {
-    activeBgColor: grey50,
-    activeBorderColor: grey600,
+  success: {
+    activeBgColor: success600,
+    activeBorderColor: 'transparent',
+    activeColor: 'white',
+    bgColor: success500,
+    borderColor: 'transparent',
+    color: 'white',
+    disabledBgColor: grey300,
+    disabledBorderColor: 'transparent',
+    disabledColor: grey500,
+    hoverBgColor: success400,
+    hoverBorderColor: 'transparent',
+    hoverColor: 'white'
+  },
+  outline: {
+    activeBgColor: grey200,
+    activeBorderColor: grey500,
     activeColor: grey700,
     bgColor: 'white',
-    borderColor: grey600,
+    borderColor: grey500,
     color: grey700,
     disabledBgColor: grey300,
     disabledBorderColor: grey600,
-    disabledColor: grey600,
-    hoverBgColor: 'white',
-    hoverBorderColor: grey600,
+    disabledColor: grey500,
+    hoverBgColor: grey100,
+    hoverBorderColor: grey500,
     hoverColor: grey700
   }
 })
 
 const size = variantGroup<Props, 'size', keyof Size>('size', {
+  big: {
+    fontSize: 1,
+    hPadding: 1.5,
+    lineHeight: 1.25,
+    vPadding: 0.75
+  },
   compact: {
     fontSize: 0.75,
     hPadding: 0.875,
@@ -116,7 +149,6 @@ export const StyledButton = styled.button.withConfig<Props>({
   &:hover {
     background-color: ${palette.hoverBgColor};
     border-color: ${palette.hoverBorderColor};
-    box-shadow: ${raisedMore};
     color: ${palette.hoverColor};
   }
 

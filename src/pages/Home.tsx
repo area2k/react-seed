@@ -10,8 +10,6 @@ import Modal from '@/widgets/Modal'
 import Button from '@/components/Button'
 import Track from '@/widgets/Track'
 
-import { primary600 } from '@/theme/colors'
-
 interface ModalProps {
   name?: string
   hideModal: () => void
@@ -39,7 +37,7 @@ const Home = () => {
       <Banner
         actions={
           <>
-            <Button onClick={() => showModal({ name: 'Andrew' })}>
+            <Button disabled palette='clear' onClick={() => showModal({ name: 'Andrew' })}>
               Show modal
             </Button>
           </>

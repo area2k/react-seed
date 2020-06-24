@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { variantGroup, withDefaultProps } from '@/util/styles'
 
 import {
-  danger100, danger700, grey50, grey300, grey500, primary200, primary700,
+  danger100, danger700, grey100, grey300, grey500, primary200, primary700,
   success100, success700, warn100, warn700
 } from '@/theme/colors'
 import { font } from '@/theme/typography'
@@ -64,7 +64,7 @@ export const StyledInput = styled.input.withConfig<Props>({
 
   &:focus {
     border-color: ${palette.activeBorderColor};
-    box-shadow: 0 0 0px 4px ${grey50};
+    box-shadow: 0 0 0px 4px ${grey100};
   }
 
   &::-webkit-input-placeholder {
@@ -76,7 +76,7 @@ export const StyledInput = styled.input.withConfig<Props>({
   }
 
   &[disabled] {
-    background-color: ${grey50};
+    background-color: ${grey100};
     cursor: not-allowed;
   }
 `

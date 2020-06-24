@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { backgroundGrey, grey700 } from '@/theme/colors'
+import { backgroundGrey, grey600 } from '@/theme/colors'
 import { font, regularWeight } from '@/theme/typography'
 
 const GlobalStyle = createGlobalStyle`
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: auto;
 
     background-color: ${backgroundGrey};
-    color: ${grey700};
+    color: ${grey600};
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
