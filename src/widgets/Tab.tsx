@@ -10,6 +10,7 @@ import Text from '@/components/Text'
 import { withDefaultProps } from '@/util/styles'
 
 import { grey200, grey600, grey700, primary700 } from '@/theme/colors'
+import { smallDesktop } from '@/theme/mediaQueries'
 import { boldWeight } from '@/theme/typography'
 
 interface WrapperProps {
@@ -33,13 +34,14 @@ const activeStyles = css<WrapperProps>`
 const StyledWrapper = styled(NavLink).withConfig<WrapperProps>({
   shouldForwardProp: (prop) => !transientProps.includes(prop)
 })`
-  padding: 0.5rem 1.5rem 0.875rem;
+  padding: 0.5rem 1rem 0.875rem;
 
   border-bottom: 3px solid transparent;
   color: ${p => p.color};
   cursor: pointer;
 
   text-decoration: none;
+  white-space: nowrap;
 
   ${Text} {
     color: ${p => p.color};
@@ -60,6 +62,11 @@ const StyledWrapper = styled(NavLink).withConfig<WrapperProps>({
 
   &.active {
     ${activeStyles};
+  }
+
+  ${smallDesktop} {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   ${p => p.isActive && activeStyles};

@@ -105,10 +105,10 @@ const size = variantGroup<Props, 'size', keyof Size>('size', {
     vPadding: 0.75
   },
   compact: {
-    fontSize: 0.75,
+    fontSize: 0.875,
     hPadding: 0.875,
     lineHeight: 1.15,
-    vPadding: 0.375
+    vPadding: 0.5
   },
   default: {
     fontSize: 0.875,
@@ -120,7 +120,7 @@ const size = variantGroup<Props, 'size', keyof Size>('size', {
     fontSize: 0.75,
     hPadding: 0.5,
     lineHeight: 1,
-    vPadding: 0.25
+    vPadding: 0.5
   }
 })
 

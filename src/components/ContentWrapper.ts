@@ -37,6 +37,6 @@ export const StyledContentWrapper = styled.div.withConfig<Props>({
 export default withDefaultProps(StyledContentWrapper, {
   bgColor: 'transparent',
   bPadding: 0,
-  maxWidth: 74,
+  maxWidth: 64,
   tPadding: 0
 })

@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Content: React.FC<Props> = ({
-  children, bgColor = 'transparent', bPadding = 0, maxWidth = 74, tPadding = 0
+  children, bgColor = 'transparent', bPadding = 0, maxWidth = 64, tPadding = 0
 }) => (
   <ContentWrapper
     bgColor={bgColor}

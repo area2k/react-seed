@@ -37,13 +37,38 @@ const Home = () => {
       <Banner
         actions={
           <>
-            <Button disabled palette='clear' onClick={() => showModal({ name: 'Andrew' })}>
+            <Button onClick={() => showModal({ name: 'Andrew' })}>
               Show modal
             </Button>
           </>
         }
         tabs={
           <>
+            <Tab
+              icon={{ iconName: 'icons-alt', prefix: 'far' }}
+              title='Testing'
+              to={{ pathname: '/testing' }}
+            />
+            <Tab
+              icon={{ iconName: 'icons-alt', prefix: 'far' }}
+              title='Testing'
+              to={{ pathname: '/testing' }}
+            />
+            <Tab
+              icon={{ iconName: 'icons-alt', prefix: 'far' }}
+              title='Testing'
+              to={{ pathname: '/testing' }}
+            />
+            <Tab
+              icon={{ iconName: 'icons-alt', prefix: 'far' }}
+              title='Testing'
+              to={{ pathname: '/testing' }}
+            />
+            <Tab
+              icon={{ iconName: 'icons-alt', prefix: 'far' }}
+              title='Testing'
+              to={{ pathname: '/testing' }}
+            />
             <Tab
               icon={{ iconName: 'icons-alt', prefix: 'far' }}
               title='Testing'

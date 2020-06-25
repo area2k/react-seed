@@ -5,6 +5,7 @@ import Content from '@/widgets/Content'
 import PageHeader, { Props as PageHeaderProps } from '@/widgets/PageHeader'
 
 import { grey200 } from '@/theme/colors'
+import { smallDesktop } from '@/theme/mediaQueries'
 
 const Wrapper = styled.div`
   margin-bottom: 2.5rem;
@@ -16,7 +17,15 @@ const Wrapper = styled.div`
 const TabsWrapper = styled.div`
   align-items: center;
   display: flex;
-  margin: 0 -1.5rem -1px;
+  margin: 0 -1rem -1px;
+  width: 100%;
+
+  overflow-x: auto;
+
+  ${smallDesktop} {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
 `
 
 const TrackWrapper = styled.div`

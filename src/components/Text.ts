@@ -5,7 +5,7 @@ import { withDefaultProps } from '@/util/styles'
 import { grey700 } from '@/theme/colors'
 import { font, regularWeight } from '@/theme/typography'
 
-interface Props {
+export interface Props {
   color: string
   lineHeight: number
   size: number
