@@ -6,6 +6,7 @@ import SidebarLayout from '@/components/SidebarLayout'
 
 // import LoadingScreen from '@/widgets/LoadingScreen'
 
+import Drag from '@/pages/Drag'
 import Home from '@/pages/Home'
 
 import AppFooter from './AppFooter'
@@ -21,6 +22,9 @@ const Main = () => {
         <Switch>
           <Route exact path='/'>
             <Home />
+          </Route>
+          <Route exact path='/drag'>
+            <Drag />
           </Route>
         </Switch>
       </SidebarLayout>

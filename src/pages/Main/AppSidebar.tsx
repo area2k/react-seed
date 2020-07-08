@@ -15,6 +15,10 @@ const AppSidebar = () => {
           <Icon icon={{ iconName: 'home', prefix: 'far' }} />
           Home
         </Item>
+        <Item exact to='/drag'>
+          <Icon icon={{ iconName: 'grip-lines', prefix: 'far' }} />
+          Drag
+        </Item>
       </Group>
     </Sidebar>
   )
