@@ -2,12 +2,14 @@ import useLocale from '@area2k/use-localization'
 import useModal from '@area2k/use-modal'
 import React from 'react'
 
+import Button from '@/components/Button'
+
 import Banner from '@/widgets/Banner'
 import Content from '@/widgets/Content'
-import Tab from '@/widgets/Tab'
-import Overlay from '@/widgets/Overlay'
+import Dropdown, { Divider, Menu, Item, Trigger } from '@/widgets/Dropdown'
 import Modal from '@/widgets/Modal'
-import Button from '@/components/Button'
+import Overlay from '@/widgets/Overlay'
+import Tab from '@/widgets/Tab'
 import Track from '@/widgets/Track'
 
 interface ModalProps {
@@ -93,6 +95,50 @@ const Home = () => {
         titleText='Home page'
       />
       <Content>
+        <Dropdown>
+          <Trigger>
+            <Button>
+              Click for dropdown
+            </Button>
+          </Trigger>
+          <Menu>
+            <Item icon={{ iconName: 'cog', prefix: 'far' }}>
+              Account
+            </Item>
+            <Divider />
+            <Item icon={{ iconName: 'sign-out', prefix: 'far' }}>
+              Sign out
+            </Item>
+            <Item icon={{ iconName: 'cog', prefix: 'far' }}>
+              Account
+            </Item>
+            <Divider />
+            <Item icon={{ iconName: 'sign-out', prefix: 'far' }}>
+              Sign out
+            </Item>
+            <Item icon={{ iconName: 'cog', prefix: 'far' }}>
+              Account
+            </Item>
+            <Divider />
+            <Item icon={{ iconName: 'sign-out', prefix: 'far' }}>
+              Sign out
+            </Item>
+            <Item icon={{ iconName: 'cog', prefix: 'far' }}>
+              Account
+            </Item>
+            <Divider />
+            <Item icon={{ iconName: 'sign-out', prefix: 'far' }}>
+              Sign out
+            </Item>
+            <Item icon={{ iconName: 'cog', prefix: 'far' }}>
+              Account
+            </Item>
+            <Divider />
+            <Item icon={{ iconName: 'sign-out', prefix: 'far' }}>
+              Sign out
+            </Item>
+          </Menu>
+        </Dropdown>
       </Content>
     </>
   )
