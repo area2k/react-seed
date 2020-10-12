@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+		"strict": true,
+    "target": "es5",
+    "types": ["node"]
+	},
+	"include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

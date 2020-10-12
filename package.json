@@ -1,0 +1,50 @@
+{
+  "name": "@area2k/react-seed",
+  "version": "0.0.1",
+  "description": "React starter kit for Area2K graphql-based projects",
+  "author": "Area2K",
+  "license": "MIT",
+  "private": false,
+  "main": "src/index.tsx",
+  "scripts": {
+    "build": "webpack --progress --colors --display-error-details --config webpack/build.config.ts",
+    "start": "webpack-dev-server --open --config webpack/serve.config.ts",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "core-js": "~3.6.5",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "regenerator-runtime": "~0.13.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.11.6",
+    "@babel/core": "7.11.6",
+    "@babel/plugin-proposal-object-rest-spread": "~7.11.0",
+    "@babel/plugin-proposal-optional-chaining": "~7.11.0",
+    "@babel/preset-env": "~7.11.5",
+    "@babel/preset-react": "~7.10.4",
+    "@babel/preset-typescript": "~7.10.4",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.2",
+    "@types/react": "^16.9.52",
+    "@types/react-dom": "^16.9.8",
+    "@types/terser-webpack-plugin": "^4.2.0",
+    "@types/webpack-dev-server": "^2.9.4",
+    "babel-loader": "~8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "~4.5.0",
+    "react-refresh": "~0.8.3",
+    "source-map-loader": "^1.1.1",
+    "terser-webpack-plugin": "^4.2.3",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.4.3",
+    "webpack": "~5.0.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
