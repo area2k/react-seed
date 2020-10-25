@@ -12,6 +12,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@stitches/react": "0.0.3.canary.3",
     "core-js": "~3.6.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
