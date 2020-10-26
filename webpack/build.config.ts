@@ -49,4 +49,4 @@ const buildConfig: Configuration = {
   ]
 }
 
-module.exports = merge(commonConfig, buildConfig)
+export default merge(commonConfig, buildConfig)

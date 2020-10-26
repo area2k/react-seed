@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { resolve } from 'path'
 
-import webpack, { Configuration } from 'webpack'
+import { Configuration } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 // const DotenvPlugin = require('dotenv-webpack')
 // const GitRevisionPlugin = require('git-revision-webpack-plugin')

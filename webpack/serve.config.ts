@@ -1,5 +1,6 @@
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import webpack, { Configuration } from 'webpack'
+import {} from 'webpack-dev-server' // import for types
 import { merge } from 'webpack-merge'
 // const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
@@ -20,11 +21,6 @@ const serveConfig: Configuration = {
   watchOptions: {
     ignored: ['node_modules']
   },
-  resolve: {
-    alias: {
-      'react': require.resolve('../node_modules/react')
-    }
-  },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new ReactRefreshPlugin()
@@ -32,4 +28,11 @@ const serveConfig: Configuration = {
   ]
 }
 
-module.exports = merge(commonConfig, serveConfig)
+// can fix duplicate versions of react, but breaks new jsx runtime
+// resolve: {
+//   alias: {
+//     'react': require.resolve('../node_modules/react')
+//   }
+// },
+
+export default merge(commonConfig, serveConfig)

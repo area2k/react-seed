@@ -2,8 +2,8 @@ export default function (api) {
   api.cache.using(() => process.env.NODE_ENV)
 
   const presets = [
-    ['@babel/react'],
     ['@babel/typescript'],
+    ['@babel/react', { runtime: 'automatic' }],
     ['@babel/env', { modules: false, useBuiltIns: 'usage', corejs: { version: 3, proposals: true } }]
   ]
 
