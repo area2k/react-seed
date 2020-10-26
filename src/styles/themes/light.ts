@@ -173,12 +173,15 @@ const theme = {
   $backgroundDangerLevel3: colors.$COLORNAME,
   $backgroundDangerLevel4: colors.$COLORNAME,
 
-  $textBasic: colors.$N800,
-  $textAlternate: 'white',
+  $textDefault: colors.$N800,
   $textDisabled: colors.$N100,
-  $textControl: 'white',
-  $textControlDisabled: 'rgba(255, 255, 255, 0.8)',
   $textHint: colors.$N200,
+
+  $textLight: 'white',
+  $textLightDisabled: 'rgba(255, 255, 255, 0.8)',
+
+  $textDark: colors.$N800,
+  $textDarkDisabled: colors.$N100,
 
   $textPrimary: colors.$P500,
   $textPrimaryFocus: colors.$P500,

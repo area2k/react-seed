@@ -6,11 +6,11 @@ const Button = styled('button', {
   justifyContent: 'center',
   padding: '0.625rem 1.25rem',
 
-  backgroundColor: '$P400',
+  backgroundColor: '$primaryDefault',
   border: '1px solid transparent',
   borderColor: 'transparent',
   borderRadius: '0.375rem',
-  color: '$textControl',
+  color: '$textLight',
   cursor: 'pointer',
   outline: 'none',
   overflow: 'hidden',
@@ -20,9 +20,22 @@ const Button = styled('button', {
   fontWeight: 700,
   lineHeight: 1.25,
   textDecoration: 'none',
+  whiteSpace: 'nowrap',
 
+  '&:hover': {
+    backgroundColor: '$primaryHover'
+  },
+  '&:active': {
+    backgroundColor: '$primaryActive'
+  },
   '&[disabled]': {
-    cursor: 'not-allowed'
+    backgroundColor: '$primaryDisabled',
+    color: '$textLightDisabled',
+    cursor: 'not-allowed',
+
+    '&:hover': {
+      backgroundColor: '$primaryDisabled'
+    }
   },
 
   variants: {
@@ -41,7 +54,7 @@ const Button = styled('button', {
         },
         '&[disabled]': {
           backgroundColor: '$primaryDisabled',
-          color: '$textControlDisabled',
+          color: '$textLightDisabled',
           '&:hover': {
             backgroundColor: '$primaryDisabled'
           }
@@ -49,7 +62,7 @@ const Button = styled('button', {
       },
       basic: {
         backgroundColor: '$basicDefault',
-        color: '$textBasic',
+        color: '$textDark',
         '&:hover': {
           backgroundColor: '$basicHover'
         },
@@ -58,7 +71,7 @@ const Button = styled('button', {
         },
         '&[disabled]': {
           backgroundColor: '$basicDisabled',
-          color: '$textDisabled',
+          color: '$textDarkDisabled',
           '&:hover': {
             backgroundColor: '$basicDisabled'
           }
@@ -66,7 +79,7 @@ const Button = styled('button', {
       },
       warn: {
         backgroundColor: '$warningDefault',
-        color: '$textBasic',
+        color: '$textDark',
         '&:hover': {
           backgroundColor: '$warningHover'
         },
@@ -75,7 +88,7 @@ const Button = styled('button', {
         },
         '&[disabled]': {
           backgroundColor: '$warningDisabled',
-          color: '$textDisabled',
+          color: '$textDarkDisabled',
           '&:hover': {
             backgroundColor: '$warningDisabled'
           }
@@ -83,7 +96,7 @@ const Button = styled('button', {
       },
       danger: {
         backgroundColor: '$dangerDefault',
-        color: '$textControl',
+        color: '$textLight',
         '&:hover': {
           backgroundColor: '$dangerHover'
         },
@@ -92,7 +105,7 @@ const Button = styled('button', {
         },
         '&[disabled]': {
           backgroundColor: '$dangerDisabled',
-          color: '$textControlDisabled',
+          color: '$textLightDisabled',
           '&:hover': {
             backgroundColor: '$dangerDisabled'
           }
@@ -109,7 +122,7 @@ const Button = styled('button', {
         },
         '&[disabled]': {
           backgroundColor: '$successDisabled',
-          color: '$textControlDisabled',
+          color: '$textLightDisabled',
           '&:hover': {
             backgroundColor: '$successDisabled'
           }
@@ -168,7 +181,7 @@ const OutlineButton = styled(Button, {
       basic: {
         backgroundColor: '$basicTransparentDefault',
         borderColor: '$basicTransparentDefaultBorder',
-        color: '$textBasic',
+        color: '$textDark',
         '&:hover': {
           backgroundColor: '$basicTransparentHover',
           borderColor: '$basicTransparentHoverBorder'

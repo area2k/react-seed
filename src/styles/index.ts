@@ -13,11 +13,11 @@ const styledConfig = {
     }
   },
   breakpoints: {
-    phoneOnly: (rule: string) => `@media(max-width: 559px) { ${rule} }`,
-    tablet: (rule: string) => `@media(min-width: 600px) { ${rule} }`,
-    smallDesktop: (rule: string) => `@media(min-width: 900px) { ${rule} }`,
-    desktop: (rule: string) => `@media(min-width: 1200px) { ${rule} }`,
-    largeDesktop: (rule: string) => `@media(min-width: 1800px) { ${rule} }`
+    mediaPhoneOnly: (rule: string) => `@media(max-width: 559px) { ${rule} }`,
+    mediaTablet: (rule: string) => `@media(min-width: 600px) { ${rule} }`,
+    mediaSmallDesktop: (rule: string) => `@media(min-width: 900px) { ${rule} }`,
+    mediaDesktop: (rule: string) => `@media(min-width: 1200px) { ${rule} }`,
+    mediaLargeDesktop: (rule: string) => `@media(min-width: 1800px) { ${rule} }`
   }
 }
 
@@ -34,13 +34,14 @@ css.global({
   '*': {
     boxSizing: 'border-box'
   },
-  'html, body': {
+  'html, body, #root': {
     display: 'initial',
+    height: '100%',
     minHeight: '100%',
     width: '100vw',
 
     fontSize: '1rem',
-    lineHeight: 1.15
+    lineHeight: 1.71429
   },
   body: {
     margin: 0,
