@@ -1,6 +1,8 @@
 export const ACCESS_TOKEN_KEY = '$accessToken'
 export const DEVICE_TOKEN_KEY = '$deviceToken'
 
+export const DEBUG_FLAG_KEY = 'debug'
+
 export default {
   clear: () => localStorage.clear(),
   get: (key: string) => localStorage.getItem(key),
