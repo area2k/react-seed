@@ -28,6 +28,11 @@ export default {
         test: /(\.ts|\.tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: ['graphql-tag/loader']
       }
     ]
   },
