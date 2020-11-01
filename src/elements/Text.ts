@@ -3,7 +3,7 @@ import styled from '@/styles'
 const Text = styled('span', {
   color: '$textDefault',
 
-  fontSize: '0.875rem',
+  fontSize: '$md',
   fontWeight: 400,
   lineHeight: 1.71429,
 
@@ -23,18 +23,18 @@ const Text = styled('span', {
       }
     },
     size: {
-      s: {
-        fontSize: '0.75rem'
+      sm: {
+        fontSize: '$sm'
       },
-      l: {
-        fontSize: '1rem'
+      lg: {
+        fontSize: '$lg'
       },
       xl: {
-        fontSize: '1.25rem',
+        fontSize: '$xl',
         lineHeight: '24px'
       },
       xxl: {
-        fontSize: '1.5rem',
+        fontSize: '$xxl',
         lineHeight: '28px'
       }
     },

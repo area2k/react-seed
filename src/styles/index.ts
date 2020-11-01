@@ -5,11 +5,31 @@ import { font } from '@/styles/typography'
 
 import light from '@/styles/themes/light'
 
-const styledConfig = {
+const { styled, css } = createStyled({
   tokens: {
     colors: {
       ...colors,
       ...light
+    },
+    fontSizes: {
+      $sm: '0.75rem',
+      $md: '0.875rem',
+      $lg: '1rem',
+      $xl: '1.25rem',
+      $xxl: '1.5rem'
+    },
+    radii: {
+      $none: '0px',
+      $sm: '2px',
+      $md: '3px',
+      $lg: '4px',
+      $xl: '6px',
+      $round: '9999px'
+    },
+    zIndices: {
+      $sidebar: '1000',
+      $modal: '10000',
+      $navbar: '1000'
     }
   },
   breakpoints: {
@@ -19,15 +39,6 @@ const styledConfig = {
     mediaDesktop: (rule: string) => `@media(min-width: 1200px) { ${rule} }`,
     mediaLargeDesktop: (rule: string) => `@media(min-width: 1800px) { ${rule} }`
   }
-}
-
-type StyledConfig = typeof styledConfig
-
-const { styled, css } = createStyled({
-  tokens: {
-    colors: { ...styledConfig.tokens.colors }
-  },
-  breakpoints: { ...styledConfig.breakpoints }
 })
 
 css.global({
@@ -61,6 +72,9 @@ css.global({
     fontSize: '1rem',
     fontWeight: 400
   },
+  small: {
+    fontSize: '$sm'
+  },
   ul: {
     margin: 0,
     padding: 0
@@ -79,19 +93,19 @@ css.global({
 //   }
 // })
 
-export const mixinAlpha = (colorName: keyof StyledConfig['tokens']['colors'], alpha: number) => {
-  const hexColor = styledConfig.tokens.colors[colorName]
-  console.log('hexColor', hexColor)
+// export const mixinAlpha = (colorName: keyof StyledConfig['tokens']['colors'], alpha: number) => {
+//   const hexColor = styledConfig.tokens.colors[colorName]
+//   console.log('hexColor', hexColor)
 
-  const hexParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexColor)
+//   const hexParts = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexColor)
 
-  const rgbParts = hexParts
-    ? [parseInt(hexParts[1], 16), parseInt(hexParts[2], 16), parseInt(hexParts[3], 16)]
-    : [0, 0, 0]
-  rgbParts.push(alpha / 100)
+//   const rgbParts = hexParts
+//     ? [parseInt(hexParts[1], 16), parseInt(hexParts[2], 16), parseInt(hexParts[3], 16)]
+//     : [0, 0, 0]
+//   rgbParts.push(alpha / 100)
 
-  return `rgba(${rgbParts[0]}, ${rgbParts[1]}, ${rgbParts[2]}, ${rgbParts[3]})`
-}
+//   return `rgba(${rgbParts[0]}, ${rgbParts[1]}, ${rgbParts[2]}, ${rgbParts[3]})`
+// }
 
 export { css }
 export default styled

@@ -4,12 +4,12 @@ const Button = styled('button', {
   alignItems: 'center',
   display: 'inline-flex',
   justifyContent: 'center',
-  padding: '0.625rem 1.25rem',
+  padding: '0.25rem 1.5rem',
 
   backgroundColor: '$primaryDefault',
   border: '1px solid transparent',
   borderColor: 'transparent',
-  borderRadius: '0.375rem',
+  borderRadius: '$md',
   color: '$textLight',
   cursor: 'pointer',
   outline: 'none',
@@ -18,9 +18,11 @@ const Button = styled('button', {
   fontFamily: '-apple-system, system-ui',
   fontSize: '0.875rem',
   fontWeight: 700,
-  lineHeight: 1.25,
+  lineHeight: '28px',
   textDecoration: 'none',
   whiteSpace: 'nowrap',
+
+  transition: 'background-color 100ms ease-out 0s',
 
   '&:hover': {
     backgroundColor: '$primaryHover'
@@ -40,8 +42,39 @@ const Button = styled('button', {
 
   variants: {
     appearance: {
-      ghost: {},
-      outline: {}
+      glass: {
+        backgroundColor: '$NA4',
+        color: '$textSubtle',
+        '&:hover': {
+          backgroundColor: '$primaryTransparentHover',
+          color: '$textPrimary'
+        },
+        '&:active': {
+          backgroundColor: '$primaryTransparentActive'
+        }
+      },
+      outline: {
+        backgroundColor: '$primaryTransparentDefault',
+        borderColor: '$primaryTransparentDefaultBorder',
+        color: '$textPrimary',
+        '&:hover': {
+          backgroundColor: '$primaryTransparentHover',
+          borderColor: '$primaryTransparentHoverBorder'
+        },
+        '&:active': {
+          backgroundColor: '$primaryTransparentActive',
+          borderColor: '$primaryTransparentActiveBorder'
+        },
+        '&[disabled]': {
+          backgroundColor: '$primaryTransparentDisabled',
+          borderColor: '$primaryTransparentDisabledBorder',
+          color: '$textPrimaryDisabled',
+          '&:hover': {
+            backgroundColor: '$primaryTransparentDisabled',
+            borderColor: '$primaryTransparentDisabledBorder'
+          }
+        }
+      }
     },
     color: {
       primary: {
@@ -127,12 +160,35 @@ const Button = styled('button', {
             backgroundColor: '$successDisabled'
           }
         }
+      },
+      info: {
+        backgroundColor: '$infoDefault',
+        color: 'white',
+        '&:hover': {
+          backgroundColor: '$infoHover'
+        },
+        '&:active': {
+          backgroundColor: '$infoActive'
+        },
+        '&[disabled]': {
+          backgroundColor: '$infoDisabled',
+          color: '$textLightDisabled',
+          '&:hover': {
+            backgroundColor: '$infoDisabled'
+          }
+        }
       }
     }
   }
 })
 
-const OutlineButton = styled(Button, {
+//
+//  Outline
+//
+
+Button.compoundVariant({
+  appearance: 'outline', color: 'primary'
+}, {
   backgroundColor: '$primaryTransparentDefault',
   borderColor: '$primaryTransparentDefaultBorder',
   color: '$textPrimary',
@@ -152,124 +208,109 @@ const OutlineButton = styled(Button, {
       backgroundColor: '$primaryTransparentDisabled',
       borderColor: '$primaryTransparentDisabledBorder'
     }
-  },
+  }
+})
 
-  variants: {
-    color: {
-      primary: {
-        backgroundColor: '$primaryTransparentDefault',
-        borderColor: '$primaryTransparentDefaultBorder',
-        color: '$textPrimary',
-        '&:hover': {
-          backgroundColor: '$primaryTransparentHover',
-          borderColor: '$primaryTransparentHoverBorder'
-        },
-        '&:active': {
-          backgroundColor: '$primaryTransparentActive',
-          borderColor: '$primaryTransparentActiveBorder'
-        },
-        '&[disabled]': {
-          backgroundColor: '$primaryTransparentDisabled',
-          borderColor: '$primaryTransparentDisabledBorder',
-          color: '$textPrimaryDisabled',
-          '&:hover': {
-            backgroundColor: '$primaryTransparentDisabled',
-            borderColor: '$primaryTransparentDisabledBorder'
-          }
-        }
-      },
-      basic: {
-        backgroundColor: '$basicTransparentDefault',
-        borderColor: '$basicTransparentDefaultBorder',
-        color: '$textDark',
-        '&:hover': {
-          backgroundColor: '$basicTransparentHover',
-          borderColor: '$basicTransparentHoverBorder'
-        },
-        '&:active': {
-          backgroundColor: '$basicTransparentActive',
-          borderColor: '$basicTransparentActiveBorder'
-        },
-        '&[disabled]': {
-          backgroundColor: '$basicTransparentDisabled',
-          borderColor: '$basicTransparentDisabledBorder',
-          color: '$textDisabled',
-          '&:hover': {
-            backgroundColor: '$basicTransparentDisabled',
-            borderColor: '$basicTransparentDisabledBorder'
-          }
-        }
-      },
-      warn: {
-        backgroundColor: '$warningTransparentDefault',
-        borderColor: '$warningTransparentDefaultBorder',
-        color: '$textWarning',
-        '&:hover': {
-          backgroundColor: '$warningTransparentHover',
-          borderColor: '$warningTransparentHoverBorder'
-        },
-        '&:active': {
-          backgroundColor: '$warningTransparentActive',
-          borderColor: '$warningTransparentActiveBorder'
-        },
-        '&[disabled]': {
-          backgroundColor: '$warningTransparentDisabled',
-          borderColor: '$warningTransparentDisabledBorder',
-          color: '$textWarningDisabled',
-          '&:hover': {
-            backgroundColor: '$warningTransparentDisabled',
-            borderColor: '$warningTransparentDisabledBorder'
-          }
-        }
-      },
-      danger: {
-        backgroundColor: '$dangerTransparentDefault',
-        borderColor: '$dangerTransparentDefaultBorder',
-        color: '$textDanger',
-        '&:hover': {
-          backgroundColor: '$dangerTransparentHover',
-          borderColor: '$dangerTransparentHoverBorder'
-        },
-        '&:active': {
-          backgroundColor: '$dangerTransparentActive',
-          borderColor: '$dangerTransparentActiveBorder'
-        },
-        '&[disabled]': {
-          backgroundColor: '$dangerTransparentDisabled',
-          borderColor: '$dangerTransparentDisabledBorder',
-          color: '$textDangerDisabled',
-          '&:hover': {
-            backgroundColor: '$dangerTransparentDisabled',
-            borderColor: '$dangerTransparentDisabledBorder'
-          }
-        }
-      },
-      success: {
-        backgroundColor: '$successTransparentDefault',
-        borderColor: '$successTransparentDefaultBorder',
-        color: '$textSuccess',
-        '&:hover': {
-          backgroundColor: '$successTransparentHover',
-          borderColor: '$successTransparentHoverBorder'
-        },
-        '&:active': {
-          backgroundColor: '$successTransparentActive',
-          borderColor: '$successTransparentActiveBorder'
-        },
-        '&[disabled]': {
-          backgroundColor: '$successTransparentDisabled',
-          borderColor: '$successTransparentDisabledBorder',
-          color: '$textSuccessDisabled',
-          '&:hover': {
-            backgroundColor: '$successTransparentDisabled',
-            borderColor: '$successTransparentDisabledBorder'
-          }
-        }
-      }
+Button.compoundVariant({
+  appearance: 'outline', color: 'basic',
+}, {
+  backgroundColor: '$basicTransparentDefault',
+  borderColor: '$basicTransparentDefaultBorder',
+  color: '$textDark',
+  '&:hover': {
+    backgroundColor: '$basicTransparentHover',
+    borderColor: '$basicTransparentHoverBorder'
+  },
+  '&:active': {
+    backgroundColor: '$basicTransparentActive',
+    borderColor: '$basicTransparentActiveBorder'
+  },
+  '&[disabled]': {
+    backgroundColor: '$basicTransparentDisabled',
+    borderColor: '$basicTransparentDisabledBorder',
+    color: '$textDisabled',
+    '&:hover': {
+      backgroundColor: '$basicTransparentDisabled',
+      borderColor: '$basicTransparentDisabledBorder'
     }
   }
 })
 
-export { OutlineButton }
+Button.compoundVariant({
+  appearance: 'outline', color: 'success'
+}, {
+  backgroundColor: '$successTransparentDefault',
+  borderColor: '$successTransparentDefaultBorder',
+  color: '$textSuccess',
+  '&:hover': {
+    backgroundColor: '$successTransparentHover',
+    borderColor: '$successTransparentHoverBorder'
+  },
+  '&:active': {
+    backgroundColor: '$successTransparentActive',
+    borderColor: '$successTransparentActiveBorder'
+  },
+  '&[disabled]': {
+    backgroundColor: '$successTransparentDisabled',
+    borderColor: '$successTransparentDisabledBorder',
+    color: '$textSuccessDisabled',
+    '&:hover': {
+      backgroundColor: '$successTransparentDisabled',
+      borderColor: '$successTransparentDisabledBorder'
+    }
+  }
+})
+
+Button.compoundVariant({
+  appearance: 'outline', color: 'danger'
+}, {
+  backgroundColor: '$dangerTransparentDefault',
+  borderColor: '$dangerTransparentDefaultBorder',
+  color: '$textDanger',
+  '&:hover': {
+    backgroundColor: '$dangerTransparentHover',
+    borderColor: '$dangerTransparentHoverBorder'
+  },
+  '&:active': {
+    backgroundColor: '$dangerTransparentActive',
+    borderColor: '$dangerTransparentActiveBorder'
+  },
+  '&[disabled]': {
+    backgroundColor: '$dangerTransparentDisabled',
+    borderColor: '$dangerTransparentDisabledBorder',
+    color: '$textDangerDisabled',
+    '&:hover': {
+      backgroundColor: '$dangerTransparentDisabled',
+      borderColor: '$dangerTransparentDisabledBorder'
+    }
+  }
+})
+
+Button.compoundVariant({
+  appearance: 'outline', color: 'info'
+}, {
+  backgroundColor: '$infoTransparentDefault',
+  borderColor: '$infoTransparentDefaultBorder',
+  color: '$textInfo',
+  '&:hover': {
+    backgroundColor: '$infoTransparentHover',
+    borderColor: '$infoTransparentHoverBorder'
+  },
+  '&:active': {
+    backgroundColor: '$infoTransparentActive',
+    borderColor: '$infoTransparentActiveBorder'
+  },
+  '&[disabled]': {
+    backgroundColor: '$infoTransparentDisabled',
+    borderColor: '$infoTransparentDisabledBorder',
+    color: '$textInfoDisabled',
+    '&:hover': {
+      backgroundColor: '$infoTransparentDisabled',
+      borderColor: '$infoTransparentDisabledBorder'
+    }
+  }
+})
+
+Button.displayName = 'Button'
 
 export default Button
