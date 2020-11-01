@@ -17,19 +17,25 @@ const Button = styled('button', {
 
   fontFamily: '-apple-system, system-ui',
   fontSize: '0.875rem',
-  fontWeight: 700,
+  fontWeight: 600,
   lineHeight: '28px',
   textDecoration: 'none',
   whiteSpace: 'nowrap',
 
   transition: 'background-color 100ms ease-out 0s',
 
+  '&:focus': {
+    boxShadow: '0 0 0px 3px $BA32'
+  },
+
   '&:hover': {
     backgroundColor: '$primaryHover'
   },
+
   '&:active': {
     backgroundColor: '$primaryActive'
   },
+
   '&[disabled]': {
     backgroundColor: '$primaryDisabled',
     color: '$textLightDisabled',
@@ -43,14 +49,25 @@ const Button = styled('button', {
   variants: {
     appearance: {
       glass: {
-        backgroundColor: '$NA4',
+        backgroundColor: '$NA8',
         color: '$textSubtle',
         '&:hover': {
-          backgroundColor: '$primaryTransparentHover',
+          backgroundColor: '$BA16',
           color: '$textPrimary'
         },
         '&:active': {
           backgroundColor: '$primaryTransparentActive'
+        }
+      },
+      subtle: {
+        backgroundColor: 'transparent',
+        color: '$textHint',
+        '&:hover': {
+          backgroundColor: '$NA4',
+          color: '$textDefault'
+        },
+        '&:active': {
+          backgroundColor: '$NA8'
         }
       },
       outline: {

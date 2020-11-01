@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
-    "@stitches/react": "0.0.3.canary.3",
+    "@area2k/use-form": "^0.0.1",
+    "@stitches/react": "0.0.3-canary.4",
     "core-js": "~3.6.5",
     "graphql": "^15.4.0",
     "history": "5",

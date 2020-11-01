@@ -27,11 +27,12 @@ const Text = styled('span', {
         fontSize: '$sm'
       },
       lg: {
-        fontSize: '$lg'
+        fontSize: '$lg',
+        lineHeight: '28px'
       },
       xl: {
         fontSize: '$xl',
-        lineHeight: '24px'
+        lineHeight: '28px'
       },
       xxl: {
         fontSize: '$xxl',
@@ -39,11 +40,14 @@ const Text = styled('span', {
       }
     },
     weight: {
+      medium: {
+        fontWeight: 500
+      },
       semibold: {
         fontWeight: 600
       },
       bold: {
-        fontWeight: 600
+        fontWeight: 700
       }
     }
   }

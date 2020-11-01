@@ -1,12 +1,12 @@
 import styled from '@/styles'
 
 const Input = styled('input', {
-  padding: '0.25rem 0.625rem',
+  padding: '0.375rem 0.625rem',
   width: '100%',
 
-  backgroundColor: 'transparent',
-  border: '1px solid $basicDefaultBorder',
-  borderRadius: '3px',
+  backgroundColor: '$NA4',
+  border: '1px solid $N40',
+  borderRadius: '$md',
   color: '$textDefault',
   outline: 'none',
 
@@ -21,17 +21,17 @@ const Input = styled('input', {
   },
 
   '&::-webkit-input-placeholder': {
-    color: '$textHint'
+    color: '$NA48'
   },
 
   '&[disabled]': {
-    backgroundColor: '$basicTransparentDisabled',
-    borderColor: '$basicTransparentDisabledBorder',
+    backgroundColor: '$NA16',
+    borderColor: '$N50',
     color: '$textDisabled',
     cursor: 'not-allowed',
 
     '&::-webkit-input-placeholder': {
-      color: '$textHintDisabled'
+      color: '$NA32'
     },
   },
 

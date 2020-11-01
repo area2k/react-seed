@@ -26,6 +26,10 @@ const { styled, css } = createStyled({
       $xl: '6px',
       $round: '9999px'
     },
+    shadows: {
+      $0: 'none',
+      $1: `0 3px 6px ${colors.$NA8}`
+    },
     zIndices: {
       $sidebar: '1000',
       $modal: '10000',
@@ -52,13 +56,15 @@ css.global({
     width: '100vw',
 
     fontSize: '1rem',
-    lineHeight: 1.71429
+    lineHeight: 1.71429,
+
+    WebkitTapHighlightColor: '$BA4'
   },
   body: {
     margin: 0,
     WebkitOverflowScrolling: 'touch',
 
-    backgroundColor: 'white',
+    backgroundColor: '$N20',
     color: 'black',
     overflowY: 'auto',
 
