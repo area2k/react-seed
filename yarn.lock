@@ -26,6 +26,11 @@
   resolved "https://registry.yarnpkg.com/@area2k/use-form/-/use-form-0.0.1.tgz#a43b137661fb01e558f342222b9cd7ca88cee40e"
   integrity sha512-VfYYJPRdmjYIrFtuhoMkd+NKMgM+3e8DUn+iKHn/bIxMcceV2devSEAWIfRDax5UvWWbjm7ZkN6idYcxTeydJA==
 
+"@area2k/use-modal@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@area2k/use-modal/-/use-modal-0.0.1.tgz#4486387e696079c45a703c2d3be529566b982ccd"
+  integrity sha512-wU2Uq8OrjrYv/3prK/J9e0GjBtruNHfLk+ZKfc4I/xHCkhVlsb4laStDRL82ICez+Ce0AJg312oL8fXR5pXu5g==
+
 "@babel/cli@7.11.6":
   version "7.11.6"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.11.6.tgz#1fcbe61c2a6900c3539c06ee58901141f3558482"
@@ -1005,14 +1010,14 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.32"
 
-"@fortawesome/free-regular-svg-icons@^5.15.1":
+"@fortawesome/free-regular-svg-icons@5.15.1":
   version "5.15.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.15.1.tgz#a8897d0ce325352dbba0e943101323e0175ee2b2"
   integrity sha512-eD9NWFy89e7SVVtrLedJUxIpCBGhd4x7s7dhesokjyo1Tw62daqN5UcuAGu1NrepLLq1IeAYUVfWwnOjZ/j3HA==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.32"
 
-"@fortawesome/free-solid-svg-icons@^5.15.1":
+"@fortawesome/free-solid-svg-icons@5.15.1":
   version "5.15.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.1.tgz#e1432676ddd43108b41197fee9f86d910ad458ef"
   integrity sha512-EFMuKtzRMNbvjab/SvJBaOOpaqJfdSap/Nl6hst7CgrJxwfORR1drdTV6q1Ib/JVzq4xObdTDcT6sqTaXMqfdg==

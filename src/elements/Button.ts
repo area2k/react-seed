@@ -25,7 +25,7 @@ const Button = styled('button', {
   transition: 'background-color 100ms ease-out 0s',
 
   '&:focus': {
-    boxShadow: '0 0 0px 3px $BA32'
+    boxShadow: '$focus'
   },
 
   '&:hover': {

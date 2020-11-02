@@ -28,11 +28,13 @@ const { styled, css } = createStyled({
     },
     shadows: {
       $0: 'none',
-      $1: `0 3px 6px ${colors.$NA8}`
+      $1: `0 3px 6px ${colors.$NA8}`,
+      $2: `0 4px 8px ${colors.$NA12}`,
+      $focus: `0 0 0px 3px ${colors.$BA32}`,
     },
     zIndices: {
       $sidebar: '1000',
-      $modal: '10000',
+      $overlay: '10000',
       $navbar: '1001'
     }
   },
@@ -70,7 +72,11 @@ css.global({
 
     fontFamily: font,
     fontWeight: 400,
-    textRendering: 'optimizeLegibility'
+    textRendering: 'optimizeLegibility',
+
+    '&.noscroll': {
+      overflow: 'hidden'
+    }
   },
   'p, h1, h2, h3, h4, h5': {
     margin: 0,

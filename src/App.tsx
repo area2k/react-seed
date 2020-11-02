@@ -1,4 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
+import { ModalProvider } from '@area2k/use-modal'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import RouterDebug from '@/components/RouterDebug'
@@ -15,14 +16,16 @@ const App = () => {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <RouterDebug />
-        <Routes basename='/'>
-          <Route element={<Root />}>
-            <Route element={<Authenticated />}>
-              <Route element={<Dashboard />} path='/' />
+        <ModalProvider>
+          <Routes basename='/'>
+            <Route element={<Root />}>
+              <Route element={<Authenticated />}>
+                <Route element={<Dashboard />} path='/' />
+              </Route>
+              <Route element={<Login />} path='login' />
             </Route>
-            <Route element={<Login />} path='login' />
-          </Route>
-        </Routes>
+          </Routes>
+        </ModalProvider>
       </BrowserRouter>
     </ApolloProvider>
   )

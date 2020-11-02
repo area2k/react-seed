@@ -8,7 +8,6 @@ const Wrapper = styled('main', {
   display: 'grid',
   gridTemplateAreas: '"lgutter content rgutter"',
   gridTemplateColumns: `${GUTTER_WIDTH} 1fr ${GUTTER_WIDTH}`,
-  height: '100%',
 
   mediaSmallDesktop: {
     gridTemplateColumns: '1fr 40rem 1fr'
