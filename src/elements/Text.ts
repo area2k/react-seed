@@ -37,6 +37,10 @@ const Text = styled('span', {
       xxl: {
         fontSize: '$xxl',
         lineHeight: '28px'
+      },
+      inherit: {
+        fontSize: 'inherit',
+        lineHeight: 'inherit'
       }
     },
     weight: {
@@ -48,6 +52,9 @@ const Text = styled('span', {
       },
       bold: {
         fontWeight: 700
+      },
+      inherit: {
+        fontWeight: 'inherit'
       }
     }
   }

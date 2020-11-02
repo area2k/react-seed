@@ -5,7 +5,7 @@ import styled from '@/styles'
 const NAVBAR_HEIGHT = '3rem'
 const MOBILE_NAVBAR_HEIGHT = '4rem'
 
-const SIDEBAR_WIDTH = '16rem'
+const SIDEBAR_WIDTH = '18rem'
 
 const Wrapper = styled('main', {
   display: 'grid',
@@ -25,6 +25,12 @@ const NavbarContainer = styled('nav', {
   display: 'flex',
   gridArea: 'navbar',
 
+  zIndex: '$navbar',
+
+  '> *': {
+    flex: 1
+  },
+
   mediaSmallDesktop: {
     height: NAVBAR_HEIGHT,
 
@@ -32,16 +38,15 @@ const NavbarContainer = styled('nav', {
     position: 'fixed',
     right: 0,
     top: 0,
-  },
-
-  '> *': {
-    flex: 1
   }
 })
 
 const SidebarContainer = styled('aside', {
   display: 'none',
   width: SIDEBAR_WIDTH,
+
+  backgroundColor: '$N30',
+  boxShadow: '1px 0 0 $NA12',
 
   bottom: 0,
   left: 0,

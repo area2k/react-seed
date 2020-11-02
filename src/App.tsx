@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import RouterDebug from '@/components/RouterDebug'
 
+import Authenticated from '@/routes/Authenticated'
+import Dashboard from '@/routes/Dashboard'
 import Login from '@/routes/Login'
 import Root from '@/routes/Root'
 
@@ -15,7 +17,9 @@ const App = () => {
         <RouterDebug />
         <Routes basename='/'>
           <Route element={<Root />}>
-            <Route element={<div>Hello world from router!</div>} />
+            <Route element={<Authenticated />}>
+              <Route element={<Dashboard />} path='/' />
+            </Route>
             <Route element={<Login />} path='login' />
           </Route>
         </Routes>

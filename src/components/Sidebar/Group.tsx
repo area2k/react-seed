@@ -7,7 +7,7 @@ import styled from '@/styles'
 const Wrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  padding: '1.5rem 0'
+  margin: '1.5rem 0 0'
 })
 
 const Title = styled(Text, {

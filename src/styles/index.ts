@@ -33,7 +33,7 @@ const { styled, css } = createStyled({
     zIndices: {
       $sidebar: '1000',
       $modal: '10000',
-      $navbar: '1000'
+      $navbar: '1001'
     }
   },
   breakpoints: {
