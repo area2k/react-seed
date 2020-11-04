@@ -20,6 +20,7 @@ const TextField = ({ fieldId, label, ...props }: Props) => {
       <Input
         {...props}
         id={fieldId}
+        name={fieldId}
         value={value}
         onChange={(ev) => setValue(ev.currentTarget.value)}
       />

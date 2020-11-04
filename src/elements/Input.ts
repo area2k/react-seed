@@ -10,6 +10,7 @@ const Input = styled('input', {
   color: '$textDefault',
   outline: 'none',
 
+  fontFamily: '$system',
   fontSize: '0.875rem',
   lineHeight: '28px',
 

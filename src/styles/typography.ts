@@ -1,1 +1,1 @@
-export const font = `-apple-system, system-ui`
+export const systemFont = `-apple-system, system-ui`

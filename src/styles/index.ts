@@ -1,7 +1,7 @@
 import { createStyled } from '@stitches/react'
 
 import colors from '@/styles/colors'
-import { font } from '@/styles/typography'
+import { systemFont } from '@/styles/typography'
 
 import light from '@/styles/themes/light'
 
@@ -10,6 +10,9 @@ const { styled, css } = createStyled({
     colors: {
       ...colors,
       ...light
+    },
+    fonts: {
+      $system: systemFont
     },
     fontSizes: {
       $sm: '0.75rem',
@@ -30,12 +33,15 @@ const { styled, css } = createStyled({
       $0: 'none',
       $1: `0 3px 6px ${colors.$NA8}`,
       $2: `0 4px 8px ${colors.$NA12}`,
+      $3: `0 12px 24px ${colors.$NA12}, 0 4px 8px ${colors.$NA24}`,
+      $4: `0 16px 32px ${colors.$NA32}, 0 4px 8px ${colors.$NA48}`,
       $focus: `0 0 0px 3px ${colors.$BA32}`,
     },
     zIndices: {
       $sidebar: '1000',
       $overlay: '10000',
-      $navbar: '1001'
+      $navbar: '1001',
+      $popover: '2000'
     }
   },
   breakpoints: {
@@ -70,7 +76,7 @@ css.global({
     color: 'black',
     overflowY: 'auto',
 
-    fontFamily: font,
+    fontFamily: '$system',
     fontWeight: 400,
     textRendering: 'optimizeLegibility',
 

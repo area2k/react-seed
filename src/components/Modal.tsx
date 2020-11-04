@@ -19,15 +19,19 @@ const Wrapper = styled('div', {
 })
 
 type Props = {
+  disableClickout?: boolean
   size?: ComponentProps<typeof SingleColumnLayout>['size']
   title: string,
   onRequestClose: () => void
 }
 
-const Modal: FC<Props> = ({ children, size = 'md', title, onRequestClose }) => {
+const Modal: FC<Props> = ({ children, disableClickout = false, size = 'md', title, onRequestClose }) => {
   useDisableBodyScroll()
 
-  const clickoutRef = useClickout<HTMLDivElement>(onRequestClose)
+  const clickoutRef = useClickout<HTMLDivElement>(onRequestClose, {
+    debugName: `Modal(${title})`,
+    isActive: !disableClickout
+  })
 
   return (
     <Overlay>

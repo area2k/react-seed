@@ -1,4 +1,5 @@
 import Form, { SubmitHelpers } from '@area2k/use-form'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { useCallback } from 'react'
 
 import styled from '@/styles'
@@ -12,6 +13,7 @@ import Text from '@/elements/Text'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
 import Version from '@/components/Version'
 
+import FormErrorAlerts from '@/form/FormErrorAlerts'
 import TextField from '@/form/TextField'
 
 const Wrapper = styled('div', {
@@ -31,6 +33,11 @@ const initialValues: FormValues = { email: '', password: '' }
 const Login = () => {
   const handleSubmit = useCallback(async (values: FormValues, { setFormError }: SubmitHelpers) => {
     console.log('submit:', values)
+    setFormError('testError', {
+      icon: faExclamationTriangle,
+      message: 'Your email address or password is incorrect.',
+      title: 'Incorrect login'
+    })
   }, [])
 
   return (
@@ -47,6 +54,7 @@ const Login = () => {
               initialValues={initialValues}
               onSubmit={handleSubmit}
             >
+              <FormErrorAlerts />
               <TextField
                 required
                 fieldId='email'
