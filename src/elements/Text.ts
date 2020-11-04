@@ -20,6 +20,9 @@ const Text = styled('span', {
       },
       dark: {
         color: '$textDark'
+      },
+      danger: {
+        color: '$textDanger'
       }
     },
     size: {

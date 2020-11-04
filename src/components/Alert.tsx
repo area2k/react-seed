@@ -1,4 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { StitchesProps } from '@stitches/react'
 
 import styled from '@/styles'
 
@@ -12,8 +13,21 @@ const Wrapper = styled('div', {
   backgroundColor: '$YA32',
   borderRadius: '$md',
 
-  fontSize: '1.25rem'
+  fontSize: '1.25rem',
+
+  variants: {
+    status: {
+      warning: {
+        backgroundColor: '$YA32'
+      },
+      danger: {
+        backgroundColor: '$RA16'
+      }
+    }
+  }
 })
+
+Wrapper.displayName = 'Alert-Wrapper'
 
 const TextContent = styled('div', {
   display: 'flex',
@@ -22,15 +36,17 @@ const TextContent = styled('div', {
   paddingLeft: '1.5rem'
 })
 
-type Props = {
+TextContent.displayName = 'Alert-TextContent'
+
+type Props = StitchesProps<typeof Wrapper> & {
   description: string
   icon: IconDefinition
   title: string
 }
 
-const Alert = ({ description, icon, title }: Props) => {
+const Alert = ({ description, icon, title, ...props }: Props) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <div>
         <Icon icon={icon} />
       </div>

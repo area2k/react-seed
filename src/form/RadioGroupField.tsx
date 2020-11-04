@@ -30,7 +30,7 @@ const RadioGroupField = ({ fieldId, label, options, ...props }: Props) => {
       }
       <div style={{ marginLeft: '2rem' }}>
         {options.map((option, index) => (
-          <div style={{ marginBottom: '0.75rem' }}>
+          <div key={`${fieldId}${index}`} style={{ marginBottom: '0.75rem' }}>
             <RadioButton
               {...props}
               checked={value === option.value}

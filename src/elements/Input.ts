@@ -49,6 +49,7 @@ const Input = styled('input', {
       }
     },
     status: {
+      basic: {},
       danger: {
         backgroundColor: '$dangerTransparentDefault',
         borderColor: '$dangerDefaultBorder',

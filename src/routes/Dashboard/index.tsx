@@ -1,3 +1,4 @@
+import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
 
 import Button from '@/elements/Button'
@@ -10,7 +11,7 @@ import Popover from '@/components/Popover'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
 
 import Form from '@/form'
-import FormColumns from '@/form/FormColumns'
+import MaskedInputField from '@/form/MaskedInputField'
 import RadioGroupField from '@/form/RadioGroupField'
 import SwitchField from '@/form/SwitchField'
 import TextField from '@/form/TextField'
@@ -18,13 +19,14 @@ import TextSelectField from '@/form/TextSelectField'
 
 type FormValues = {
   radioGroup: string
+  masked: string
   switch: boolean
   text: string
   textSelect: string
 }
 
 const initialValues: FormValues = {
-  radioGroup: 'radio2', switch: false, text: '', textSelect: ''
+  radioGroup: '', masked: '', switch: false, text: '', textSelect: ''
 }
 
 const Dashboard = () => {
@@ -38,6 +40,14 @@ const Dashboard = () => {
 
   const handleSubmit = async (values: FormValues) => {
     console.log('submit:', values)
+  }
+
+  const handleSubmitWithErrors = async (_values: FormValues, _errors: FieldErrorMap<FormValues>, { setFormError }: SubmitHelpers) => {
+    setFormError('fieldErrors', {
+      title: 'Form contains errors',
+      message: 'Please fix the highlighted fields to continue.',
+      status: 'danger'
+    })
   }
 
   return (
@@ -70,6 +80,7 @@ const Dashboard = () => {
             <Form
               initialValues={initialValues}
               onSubmit={handleSubmit}
+              onSubmitWithErrors={handleSubmitWithErrors}
             >
               <TextField
                 fieldId='text'
@@ -87,8 +98,6 @@ const Dashboard = () => {
               </TextSelectField>
               <SwitchField fieldId='switch' label='Switch field' />
               <RadioGroupField
-                disabled
-                required
                 fieldId='radioGroup'
                 label='Select the most important radio:'
                 options={[
@@ -96,6 +105,14 @@ const Dashboard = () => {
                   { label: 'Radio 2', value: 'radio2' },
                   { label: 'Radio 3', value: 'radio3' },
                 ]}
+              />
+              <MaskedInputField
+                required
+                fieldId='masked'
+                label='Phone number'
+                mask='(000) 000-0000'
+                placeholder='Enter phone number'
+                onComplete={(value, inputMask) => console.log('onComplete:', value, inputMask.masked.isComplete)}
               />
               <FormFooter>
                 <Button type='submit'>
