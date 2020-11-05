@@ -66,7 +66,7 @@ css.global({
     fontSize: '1rem',
     lineHeight: 1.71429,
 
-    WebkitTapHighlightColor: '$BA4'
+    WebkitTapHighlightColor: colors.$BA32
   },
   body: {
     margin: 0,

@@ -15,7 +15,7 @@ import SingleColumnLayout from '@/components/SingleColumnLayout'
 import IconicButton from '@/elements/IconicButton'
 
 const Wrapper = styled('div', {
-  padding: '10vh 0'
+  padding: '15vh 0'
 })
 
 type Props = {

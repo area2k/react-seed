@@ -6,8 +6,8 @@ import Card, { Body, Heading } from '@/elements/Card'
 import FormFooter from '@/elements/FormFooter'
 import Text from '@/elements/Text'
 
+import Dropdown, { Content, Trigger } from '@/components/Dropdown'
 import Modal from '@/components/Modal'
-import Popover from '@/components/Popover'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
 
 import Form from '@/form'
@@ -129,16 +129,18 @@ const Dashboard = () => {
             </Text>
           </Heading>
           <Body>
-            <div style={{ position: 'relative', display: 'inline-block' }}>
-              <Button>
-                Open up
-              </Button>
-              <Popover align='below' isOpen={true} onRequestClose={() => console.log('close dropdown')}>
-                <div style={{ padding: '4rem' }}>
+            <Dropdown id='test-dropdown'>
+              <Trigger>
+                <Button>
+                  Open up
+                </Button>
+              </Trigger>
+              <Content align='below'>
+                <div style={{ padding: '1rem', width: '12rem' }}>
                   dropdown menu
                 </div>
-              </Popover>
-            </div>
+              </Content>
+            </Dropdown>
           </Body>
         </Card>
       </SingleColumnLayout>

@@ -68,14 +68,15 @@ Wrapper.compoundVariant({
 
 Wrapper.displayName = 'Popover-Wrapper'
 
-type Props = StitchesVariants<typeof Wrapper> & {
+type Props = Omit<StitchesVariants<typeof Wrapper>, 'status'> & {
+  id?: string
   isOpen: boolean
   onRequestClose: () => void
 }
 
-const Popover: FC<Props> = ({ align = 'top', children, isOpen, justify = 'left', onRequestClose }) => {
+const Popover: FC<Props> = ({ align = 'top', children, id, isOpen, justify = 'left', onRequestClose }) => {
   const clickoutRef = useClickout<HTMLDivElement>(onRequestClose, {
-    debugName: 'Popover',
+    debugName: `Popover(${id || '<no id>'})`,
     isActive: isOpen
   })
 
@@ -83,6 +84,8 @@ const Popover: FC<Props> = ({ align = 'top', children, isOpen, justify = 'left',
     <Wrapper
       ref={clickoutRef}
       align={align}
+      aria-hidden={!isOpen}
+      id={id}
       justify={justify}
       status={isOpen ? 'open' : 'closed'}
     >
