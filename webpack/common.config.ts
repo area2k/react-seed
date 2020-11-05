@@ -39,7 +39,7 @@ export default {
   plugins: [
     new DotenvPlugin({
       path: envConfigPath,
-      safe: true,
+      safe: false,
       systemvars: true
     }),
     gitRevisionPlugin,
