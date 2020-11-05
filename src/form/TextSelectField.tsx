@@ -9,9 +9,10 @@ type TextSelectProps = Omit<ComponentProps<typeof TextSelect>, 'id' | 'status' |
 type Props = TextSelectProps & {
   fieldId: string
   label?: string
+  placeholder?: string
 }
 
-const TextSelectField: FC<Props> = ({ children, fieldId, label, ...props }) => {
+const TextSelectField: FC<Props> = ({ children, fieldId, label, placeholder, ...props }) => {
   const { value, setValue } = useField<string>(fieldId)
 
   return (
@@ -23,6 +24,9 @@ const TextSelectField: FC<Props> = ({ children, fieldId, label, ...props }) => {
         value={value}
         onChange={(ev) => setValue(ev.currentTarget.value)}
       >
+        {placeholder &&
+          <option disabled value=''>{placeholder}</option>
+        }
         {children}
       </TextSelect>
     </FormElement>

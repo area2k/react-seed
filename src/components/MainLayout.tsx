@@ -14,6 +14,8 @@ const Wrapper = styled('main', {
   gridTemplateRows: `${MOBILE_NAVBAR_HEIGHT} 1fr auto`,
   height: '100%',
 
+  overflowX: 'hidden',
+
   mediaSmallDesktop: {
     gridTemplateAreas: '"navbar navbar" "sidebar content" "sidebar footer"',
     gridTemplateColumns: `${SIDEBAR_WIDTH} 1fr`,

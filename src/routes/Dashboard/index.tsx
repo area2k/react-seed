@@ -12,6 +12,7 @@ import Modal from '@/components/Modal'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
 
 import Form from '@/form'
+import CheckboxGroupField from '@/form/CheckboxGroupField'
 import MaskedInputField from '@/form/MaskedInputField'
 import RadioGroupField from '@/form/RadioGroupField'
 import SwitchField from '@/form/SwitchField'
@@ -19,6 +20,7 @@ import TextField from '@/form/TextField'
 import TextSelectField from '@/form/TextSelectField'
 
 type FormValues = {
+  checkboxGroup: string[]
   radioGroup: string
   masked: string
   switch: boolean
@@ -27,7 +29,7 @@ type FormValues = {
 }
 
 const initialValues: FormValues = {
-  radioGroup: '', masked: '', switch: false, text: '', textSelect: ''
+  checkboxGroup: [], radioGroup: '', masked: '', switch: false, text: '', textSelect: ''
 }
 
 const Dashboard = () => {
@@ -41,14 +43,6 @@ const Dashboard = () => {
 
   const handleSubmit = async (values: FormValues) => {
     console.log('submit:', values)
-  }
-
-  const handleSubmitWithErrors = async (_values: FormValues, _errors: FieldErrorMap<FormValues>, { setFormError }: SubmitHelpers) => {
-    setFormError('fieldErrors', {
-      title: 'Form contains errors',
-      message: 'Please fix the highlighted fields to continue.',
-      status: 'danger'
-    })
   }
 
   return (
@@ -138,7 +132,6 @@ const Dashboard = () => {
             <Form
               initialValues={initialValues}
               onSubmit={handleSubmit}
-              onSubmitWithErrors={handleSubmitWithErrors}
             >
               <TextField
                 fieldId='text'
@@ -148,8 +141,8 @@ const Dashboard = () => {
               <TextSelectField
                 fieldId='textSelect'
                 label='Text select field'
+                placeholder='Select an option...'
               >
-                <option disabled value=''>Select an option...</option>
                 <option value='opt1'>Option 1</option>
                 <option value='opt2'>Option 2</option>
                 <option value='opt3'>Option 3</option>
@@ -170,7 +163,15 @@ const Dashboard = () => {
                 label='Phone number'
                 mask='(000) 000-0000'
                 placeholder='Enter phone number'
-                onComplete={(value, inputMask) => console.log('onComplete:', value, inputMask.masked.isComplete)}
+              />
+              <CheckboxGroupField
+                fieldId='checkboxGroup'
+                label='Select all that apply:'
+                options={[
+                  { label: 'Checkbox 1', value: 'check1' },
+                  { label: 'Checkbox 2', value: 'check2' },
+                  { label: 'Checkbox 3', value: 'check3' }
+                ]}
               />
               <FormFooter>
                 <Button type='submit'>

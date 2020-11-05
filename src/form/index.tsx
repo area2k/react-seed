@@ -3,7 +3,11 @@ import { useCallback } from 'react'
 
 import FormErrorAlerts from '@/form/FormErrorAlerts'
 
-const Form = <V extends FormValues>({ children, onSubmitWithErrors, ...props }: FormProps<V>) => {
+type Props<V> = Omit<FormProps<V>, 'onSubmitWithErrors'> & {
+  onSubmitWithErrors?: FormProps<V>['onSubmitWithErrors']
+}
+
+const Form = <V extends FormValues>({ children, onSubmitWithErrors, ...props }: Props<V>) => {
   const handleSubmitWithErrors = useCallback(async (values: V, errors: FieldErrorMap<V>, helpers: SubmitHelpers) => {
     if (onSubmitWithErrors) return onSubmitWithErrors(values, errors, helpers)
 

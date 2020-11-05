@@ -1,4 +1,4 @@
-import { faBug, faCog, faPlay, faProjectDiagram, faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBug, faChartBar, faCog, faExclamationTriangle, faPlay, faProjectDiagram, faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
 import { FC } from 'react'
 
 import Group from './Group'
@@ -38,6 +38,18 @@ const Sidebar: FC<Props> = ({ children }) => {
           icon={faBug}
           title='Test'
           to='/test'
+        />
+      </Group>
+      <Group>
+        <Item
+          icon={faExclamationTriangle}
+          title='Diagnostics'
+          to='/diagnostics'
+        />
+        <Item
+          icon={faChartBar}
+          title='Analytics'
+          to='/analytics'
         />
       </Group>
       <Group>
