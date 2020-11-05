@@ -1,7 +1,7 @@
 import styled from '@/styles'
 import { ComponentProps } from 'react'
 
-const Track = styled('label', {
+const Target = styled('label', {
   display: 'inline-flex',
 
   position: 'relative',
@@ -15,7 +15,7 @@ const Track = styled('label', {
     display: 'block',
     height: '18px',
     margin: '2px 12px 2px 2px',
-    width: '48px',
+    width: '18px',
 
     backgroundColor: '$NA4',
     border: '1px solid $NA48',
@@ -25,17 +25,15 @@ const Track = styled('label', {
   '&::after': {
     content: '""',
     display: 'block',
-    height: '10px',
-    width: '10px',
+    height: '8px',
+    width: '8px',
 
-    left: 7,
+    left: 8,
     position: 'absolute',
-    top: 7,
+    top: 8,
 
-    backgroundColor: '$NA32',
+    backgroundColor: 'transparent',
     borderRadius: '$round',
-
-    transition: 'transform 300ms ease-in-out'
   },
 
   '&:hover': {
@@ -44,7 +42,7 @@ const Track = styled('label', {
     },
 
     '&::after': {
-      backgroundColor: '$NA48'
+      backgroundColor: '$NA32'
     }
   },
 
@@ -67,20 +65,18 @@ const Track = styled('label', {
 
   'input:checked + &': {
     '&::before': {
-      backgroundColor: '$B500',
-      borderColor: '$B500'
+      borderColor: '$B500',
+      backgroundColor: '$B400'
     },
 
     '&::after': {
       backgroundColor: 'white',
-
-      transform: 'translateX(30px)'
     },
 
     '&:hover': {
       '&::before': {
         borderColor: '$B400',
-        backgroundColor: '$B400'
+        backgroundColor: '$B300'
       },
 
       '&::after': {
@@ -90,7 +86,7 @@ const Track = styled('label', {
   }
 })
 
-Track.displayName = 'Switch-Track'
+Target.displayName = 'Bullseye-Target'
 
 const Wrapper = styled('div', {
   display: 'inline-block',
@@ -112,7 +108,7 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'Switch-Wrapper'
+Wrapper.displayName = 'Bullseye-Wrapper'
 
 type InputProps = ComponentProps<'input'>
 
@@ -121,15 +117,15 @@ type Props = InputProps & {
   label?: string
 }
 
-const Switch = ({ id, label, ...props }: Props) => {
+const Bullseye = ({ id, label, ...props }: Props) => {
   return (
     <Wrapper>
       <input {...props} id={id} />
-      <Track htmlFor={id}>
+      <Target htmlFor={id}>
         {label}
-      </Track>
+      </Target>
     </Wrapper>
   )
 }
 
-export default Switch
+export default Bullseye
