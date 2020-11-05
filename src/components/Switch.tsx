@@ -1,5 +1,5 @@
 import styled from '@/styles'
-import { StitchesProps } from '@stitches/react'
+import { ComponentProps } from 'react'
 
 const Track = styled('label', {
   display: 'inline-flex',
@@ -48,6 +48,23 @@ const Track = styled('label', {
     }
   },
 
+  'input[disabled] + &': {
+    '&::before': {
+      backgroundColor: '$NA16',
+      cursor: 'not-allowed'
+    },
+
+    '&:hover': {
+      '&::before': {
+        borderColor: '$NA48'
+      },
+
+      '&::after': {
+        backgroundColor: '$NA48'
+      }
+    }
+  },
+
   'input:checked + &': {
     '&::before': {
       backgroundColor: '$B500',
@@ -80,41 +97,36 @@ const Wrapper = styled('div', {
   height: 24,
 
   position: 'relative',
+
+  borderRadius: '$md',
+
+  '> input': {
+    height: 1,
+    margin: 0,
+    pointerEvents: 'none',
+    width: 1,
+
+    opacity: 0,
+
+    left: 48,
+    position: 'absolute',
+    top: 24
+  }
 })
 
 Wrapper.displayName = 'Switch-Wrapper'
 
-const HiddenInput = styled('input', {
-  height: 1,
-  margin: 0,
-  pointerEvents: 'none',
-  width: 1,
+type InputProps = ComponentProps<'input'>
 
-  opacity: 0,
-
-  left: 48,
-  position: 'absolute',
-  top: 24
-})
-
-HiddenInput.displayName = 'Switch-HiddenInput'
-
-type Props = Omit<StitchesProps<typeof HiddenInput>, 'id' | 'value'> & {
+type Props = InputProps & {
   id: string
   label?: string
-  value: boolean
 }
 
-const Switch = ({ id, label, value, onChange, ...props }: Props) => {
+const Switch = ({ id, label, ...props }: Props) => {
   return (
     <Wrapper>
-      <HiddenInput
-        {...props}
-        checked={value}
-        id={id}
-        type='checkbox'
-        onChange={onChange}
-      />
+      <input {...props} id={id} />
       <Track htmlFor={id}>
         {label}
       </Track>

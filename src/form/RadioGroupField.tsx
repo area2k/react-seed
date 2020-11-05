@@ -2,11 +2,11 @@ import { useField } from '@area2k/use-form'
 import { ComponentProps } from 'react'
 
 import FormElement from '@/components/FormElement'
-import RadioButton from '@/components/RadioButton'
+import Switch from '@/components/Switch'
 
 import Text from '@/elements/Text'
 
-type SwitchProps = Omit<ComponentProps<typeof RadioButton>, 'checked' | 'id' | 'name' | 'value' | 'onChange'>
+type SwitchProps = Omit<ComponentProps<typeof Switch>, 'checked' | 'id' | 'name' | 'value' | 'onChange'>
 
 type RadioOption = { label: string, value: string }
 
@@ -31,12 +31,13 @@ const RadioGroupField = ({ fieldId, label, options, ...props }: Props) => {
       <div style={{ marginLeft: '2rem' }}>
         {options.map((option, index) => (
           <div key={`${fieldId}${index}`} style={{ marginBottom: '0.75rem' }}>
-            <RadioButton
+            <Switch
               {...props}
               checked={value === option.value}
               id={`${fieldId}${index}`}
               label={option.label}
               name={fieldId}
+              type='radio'
               value={option.value}
               onChange={(ev) => setValue(ev.currentTarget.value)}
             />

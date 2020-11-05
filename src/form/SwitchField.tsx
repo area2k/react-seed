@@ -19,9 +19,10 @@ const SwitchField = ({ fieldId, label, ...props }: Props) => {
       <Switch
         {...props}
         id={fieldId}
+        checked={value}
         label={label}
         name={fieldId}
-        value={value}
+        type='checkbox'
         onChange={(ev) => setValue(ev.currentTarget.checked)}
       />
     </FormElement>
