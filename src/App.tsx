@@ -11,13 +11,15 @@ import Root from '@/routes/Root'
 
 import client from '@/util/apollo/client'
 
+import Config from '@/config'
+
 const App = () => {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
         <RouterDebug />
         <ModalProvider>
-          <Routes basename='/'>
+          <Routes basename={Config.BASEPATH}>
             <Route element={<Root />}>
               <Route element={<Authenticated />}>
                 <Route element={<Dashboard />} path='/' />
