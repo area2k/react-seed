@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
-    "@area2k/use-form": "^0.0.1",
+    "@area2k/use-form": "0.0.2",
     "@area2k/use-modal": "^0.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-regular-svg-icons": "5.15.1",

@@ -1,9 +1,15 @@
 import styled from '@/styles'
 
+import Table from '@/elements/Table'
+
 const Card = styled('div', {
   backgroundColor: '$N0',
   borderRadius: '$lg',
-  boxShadow: '$1'
+  boxShadow: '$1',
+
+  [`> ${Table}`]: {
+    paddingBottom: '64px'
+  }
 })
 
 const Heading = styled('div', {

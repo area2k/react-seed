@@ -21,10 +21,10 @@
     tslib "^1.10.0"
     zen-observable "^0.8.14"
 
-"@area2k/use-form@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@area2k/use-form/-/use-form-0.0.1.tgz#a43b137661fb01e558f342222b9cd7ca88cee40e"
-  integrity sha512-VfYYJPRdmjYIrFtuhoMkd+NKMgM+3e8DUn+iKHn/bIxMcceV2devSEAWIfRDax5UvWWbjm7ZkN6idYcxTeydJA==
+"@area2k/use-form@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@area2k/use-form/-/use-form-0.0.2.tgz#7190ef522b89846e74c16f68a816b435187c3104"
+  integrity sha512-sE2A/CC4+C9txNKPRKuOXMSnVwChRwCV2iuvJ1/WILF97FiR31jUS2EylVFxCBx2txCHttO+ZBf18jILeuTDOg==
 
 "@area2k/use-modal@^0.0.1":
   version "0.0.1"

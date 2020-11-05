@@ -4,6 +4,7 @@ import useModal from '@area2k/use-modal'
 import Button from '@/elements/Button'
 import Card, { Body, Heading } from '@/elements/Card'
 import FormFooter from '@/elements/FormFooter'
+import Table, { TableCell, TableHead, TableHeading, TableRow } from '@/elements/Table'
 import Text from '@/elements/Text'
 
 import Dropdown, { Content, Trigger } from '@/components/Dropdown'
@@ -69,6 +70,63 @@ const Dashboard = () => {
               Open up
             </Button>
           </Body>
+        </Card>
+        <Card css={{ marginTop: '2rem' }}>
+          <Heading>
+            <Text size='lg' weight='medium'>
+              Table content
+            </Text>
+          </Heading>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeading style={{ width: '40%' }}>
+                  Name
+                </TableHeading>
+                <TableHeading style={{ width: '40%' }}>
+                  Email
+                </TableHeading>
+                <TableHeading style={{ width: '20%' }}>
+                  Admin?
+                </TableHeading>
+              </TableRow>
+            </TableHead>
+            <tbody>
+              <TableRow>
+                <TableCell>
+                  Andrew Rempe
+                </TableCell>
+                <TableCell>
+                  arempe@area2k.com
+                </TableCell>
+                <TableCell>
+                  Yes
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  Eric Ashman
+                </TableCell>
+                <TableCell>
+                  eashman@area2k.com
+                </TableCell>
+                <TableCell>
+                  Yes
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  Bill Story
+                </TableCell>
+                <TableCell>
+                  bstory@area2k.com
+                </TableCell>
+                <TableCell>
+                  No
+                </TableCell>
+              </TableRow>
+            </tbody>
+          </Table>
         </Card>
         <Card css={{ marginTop: '2rem' }}>
           <Heading>
