@@ -21,6 +21,7 @@ jobs:
       run: npm run build
       env:
         GRAPHQL_ENDPOINT: https://api.github.com/graphql
+        BASEPATH: /react-seed
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
