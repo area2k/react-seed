@@ -18,7 +18,7 @@ const clientVersion = `${Config.BUILD_VERSION}-${Config.BUILD_COMMIT}`
 // HTTP config
 // ==
 const httpLink = new HttpLink({
-  uri: Config.GRAPHQL_ENDOINT
+  uri: Config.GRAPHQL_ENDPOINT
 })
 
 // ==

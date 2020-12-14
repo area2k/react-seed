@@ -14,6 +14,7 @@ const serveConfig: Configuration = {
     filename: '[name].bundle.js'
   },
   devServer: {
+    disableHostCheck: true,
     historyApiFallback: true,
     port: 8080,
     hot: true
@@ -28,7 +29,7 @@ const serveConfig: Configuration = {
   ]
 }
 
-// can fix duplicate versions of react, but breaks new jsx runtime
+// NOTE: this can fix duplicate versions of react, but breaks new jsx runtime
 // resolve: {
 //   alias: {
 //     'react': require.resolve('../node_modules/react')
