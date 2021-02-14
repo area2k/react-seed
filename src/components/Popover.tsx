@@ -57,14 +57,21 @@ const Wrapper = styled('div', {
         display: 'block'
       }
     }
-  }
+  },
+  compoundVariants: [{
+    align: 'middle',
+    justify: 'center',
+    css: {
+      transform: 'translate(-50%, -50%) perspective(1px)'
+    }
+  }]
 })
 
-Wrapper.compoundVariant({
-  align: 'middle', justify: 'center'
-}, {
-  transform: 'translate(-50%, -50%) perspective(1px)'
-})
+// Wrapper.compoundVariant({
+//   align: 'middle', justify: 'center'
+// }, {
+//   transform: 'translate(-50%, -50%) perspective(1px)'
+// })
 
 Wrapper.displayName = 'Popover-Wrapper'
 

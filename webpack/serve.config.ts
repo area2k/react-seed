@@ -14,10 +14,11 @@ const serveConfig: Configuration = {
     filename: '[name].bundle.js'
   },
   devServer: {
-    disableHostCheck: true,
+    // @ts-ignore
+    firewall: false,
     historyApiFallback: true,
-    port: 8080,
-    hot: true
+    host: 'localhost',
+    port: 8080
   },
   watchOptions: {
     ignored: ['node_modules']

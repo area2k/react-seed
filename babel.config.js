@@ -3,7 +3,7 @@ export default function (api) {
 
   const presets = [
     ['@babel/typescript'],
-    ['@babel/react', { runtime: 'automatic' }],
+    ['@babel/react', { runtime: 'automatic', development: process.env.NODE_ENV == 'development' }],
     ['@babel/env', { modules: false, useBuiltIns: 'usage', corejs: { version: 3, proposals: true } }]
   ]
 

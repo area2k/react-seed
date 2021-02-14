@@ -16,10 +16,12 @@ const Wrapper = styled('main', {
 
   overflowX: 'hidden',
 
-  mediaSmallDesktop: {
-    gridTemplateAreas: '"navbar navbar" "sidebar content" "sidebar footer"',
-    gridTemplateColumns: `${SIDEBAR_WIDTH} 1fr`,
-    gridTemplateRows: `${NAVBAR_HEIGHT} 1fr auto`
+  when: {
+    mediaSmallDesktop: {
+      gridTemplateAreas: '"navbar navbar" "sidebar content" "sidebar footer"',
+      gridTemplateColumns: `${SIDEBAR_WIDTH} 1fr`,
+      gridTemplateRows: `${NAVBAR_HEIGHT} 1fr auto`
+    }
   }
 })
 
@@ -33,13 +35,15 @@ const NavbarContainer = styled('nav', {
     flex: 1
   },
 
-  mediaSmallDesktop: {
-    height: NAVBAR_HEIGHT,
+  when: {
+    mediaSmallDesktop: {
+      height: NAVBAR_HEIGHT,
 
-    left: 0,
-    position: 'fixed',
-    right: 0,
-    top: 0,
+      left: 0,
+      position: 'fixed',
+      right: 0,
+      top: 0,
+    }
   }
 })
 
@@ -63,8 +67,10 @@ const SidebarContainer = styled('aside', {
     flex: 1
   },
 
-  mediaSmallDesktop: {
-    display: 'flex'
+  when: {
+    mediaSmallDesktop: {
+      display: 'flex'
+    }
   }
 })
 

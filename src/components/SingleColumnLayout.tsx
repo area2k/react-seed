@@ -9,25 +9,33 @@ const Wrapper = styled('main', {
   gridTemplateAreas: '"lgutter content rgutter"',
   gridTemplateColumns: `${GUTTER_WIDTH} 1fr ${GUTTER_WIDTH}`,
 
-  mediaSmallDesktop: {
-    gridTemplateColumns: '1fr 40rem 1fr'
+  when: {
+    mediaSmallDesktop: {
+      gridTemplateColumns: '1fr 40rem 1fr'
+    }
   },
 
   variants: {
     size: {
       sm: {
-        mediaSmallDesktop: {
-          gridTemplateColumns: '1fr 32rem 1fr'
+        when: {
+          mediaSmallDesktop: {
+            gridTemplateColumns: '1fr 32rem 1fr'
+          }
         }
       },
       md: {
-        mediaSmallDesktop: {
-          gridTemplateColumns: '1fr 40rem 1fr'
+        when: {
+          mediaSmallDesktop: {
+            gridTemplateColumns: '1fr 40rem 1fr'
+          }
         }
       },
       lg: {
-        mediaSmallDesktop: {
-          gridTemplateColumns: '1fr 48rem 1fr'
+        when: {
+          mediaSmallDesktop: {
+            gridTemplateColumns: '1fr 48rem 1fr'
+          }
         }
       }
     }

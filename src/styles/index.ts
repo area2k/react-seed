@@ -1,59 +1,59 @@
-import { createStyled } from '@stitches/react'
+import { createCss } from '@stitches/react'
 
 import colors from '@/styles/colors'
 import { systemFont } from '@/styles/typography'
 
 import light from '@/styles/themes/light'
 
-const { styled, css } = createStyled({
-  tokens: {
+const { styled, css, global } = createCss({
+  theme: {
     colors: {
       ...colors,
       ...light
     },
     fonts: {
-      $system: systemFont
+      system: systemFont
     },
     fontSizes: {
-      $sm: '0.75rem',
-      $md: '0.875rem',
-      $lg: '1rem',
-      $xl: '1.25rem',
-      $xxl: '1.5rem'
+      sm: '0.75rem',
+      md: '0.875rem',
+      lg: '1rem',
+      xl: '1.25rem',
+      xxl: '1.5rem'
     },
     radii: {
-      $none: '0px',
-      $sm: '2px',
-      $md: '3px',
-      $lg: '4px',
-      $xl: '6px',
-      $round: '9999px'
+      none: '0px',
+      sm: '2px',
+      md: '3px',
+      lg: '4px',
+      xl: '6px',
+      round: '9999px'
     },
     shadows: {
-      $0: 'none',
-      $1: `0 3px 6px ${colors.$NA8}`,
-      $2: `0 4px 8px ${colors.$NA12}`,
-      $3: `0 12px 24px ${colors.$NA12}, 0 4px 8px ${colors.$NA24}`,
-      $4: `0 16px 32px ${colors.$NA32}, 0 4px 8px ${colors.$NA48}`,
-      $focus: `0 0 0px 3px ${colors.$BA32}`,
+      0: 'none',
+      1: `0 3px 6px ${colors.NA8}`,
+      2: `0 4px 8px ${colors.NA12}`,
+      3: `0 12px 24px ${colors.NA12}, 0 4px 8px ${colors.NA24}`,
+      4: `0 16px 32px ${colors.NA32}, 0 4px 8px ${colors.NA48}`,
+      focus: `0 0 0px 3px ${colors.BA32}`,
     },
     zIndices: {
-      $sidebar: '1000',
-      $overlay: '10000',
-      $navbar: '1001',
-      $popover: '2000'
+      sidebar: '1000',
+      overlay: '10000',
+      navbar: '1001',
+      popover: '2000'
     }
   },
-  breakpoints: {
-    mediaPhoneOnly: (rule: string) => `@media(max-width: 559px) { ${rule} }`,
-    mediaTablet: (rule: string) => `@media(min-width: 600px) { ${rule} }`,
-    mediaSmallDesktop: (rule: string) => `@media(min-width: 900px) { ${rule} }`,
-    mediaDesktop: (rule: string) => `@media(min-width: 1200px) { ${rule} }`,
-    mediaLargeDesktop: (rule: string) => `@media(min-width: 1800px) { ${rule} }`
+  conditions: {
+    mediaPhoneOnly: '@media(max-width: 559px)',
+    mediaTablet: '@media(min-width: 600px)',
+    mediaSmallDesktop: '@media(min-width: 900px)',
+    mediaDesktop: '@media(min-width: 1200px)',
+    mediaLargeDesktop: '@media(min-width: 1800px)'
   }
 })
 
-css.global({
+global({
   '*': {
     boxSizing: 'border-box'
   },
@@ -66,7 +66,7 @@ css.global({
     fontSize: '1rem',
     lineHeight: 1.71429,
 
-    WebkitTapHighlightColor: colors.$BA32
+    WebkitTapHighlightColor: colors.BA32
   },
   body: {
     margin: 0,
@@ -101,13 +101,13 @@ css.global({
 
 // export const lightTheme = css.theme({
 //   colors: {
-//     $buttonColor: 'yellow'
+//     buttonColor: 'yellow'
 //   }
 // })
 
 // export const darkTheme = css.theme({
 //   colors: {
-//     $buttonColor: 'red'
+//     buttonColor: 'red'
 //   }
 // })
 
