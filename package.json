@@ -7,8 +7,8 @@
   "private": false,
   "main": "src/index.tsx",
   "scripts": {
-    "build": "webpack --progress --colors --display-error-details --config webpack/build.config.ts",
-    "build:debug": "webpack --progress --colors --display-error-details --config webpack/buildDebug.config.ts",
+    "build": "webpack --progress --node-env production --stats verbose --config webpack/build.config.ts",
+    "build:debug": "webpack --progress --stats verbose --config webpack/buildDebug.config.ts",
     "start": "webpack-dev-server --open --config webpack/serve.config.ts",
     "typecheck": "tsc"
   },
