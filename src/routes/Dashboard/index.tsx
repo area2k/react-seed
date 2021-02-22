@@ -1,6 +1,6 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
-import { faBan, faCheck, faChevronDown, faQuestionCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBan, faCheck, faChevronDown, faCog, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import styled from '@/styles'
 
@@ -11,10 +11,10 @@ import Table, { TableCell, TableHead, TableHeading, TableRow } from '@/elements/
 import Text from '@/elements/Text'
 
 import Button from '@/components/Button'
-import Dropdown, { Content, Trigger } from '@/components/Dropdown'
 import LoadingButton from '@/components/LoadingButton'
 import Modal from '@/components/Modal'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
+import Tooltip from '@/components/Tooltip'
 import { Display, Body as BodyText, Heading as HeadingText, Subheading, Title, Small } from '@/components/Typography'
 
 import Form from '@/form'
@@ -25,6 +25,9 @@ import OptionField from '@/form/OptionField'
 import SingleOptionGroupField from '@/form/SingleOptionGroupField'
 import TextField from '@/form/TextField'
 import TextSelectField from '@/form/TextSelectField'
+import { useState } from 'react'
+import Popover from '@/components/Popover'
+import DropdownMenu from '@/components/DropdownMenu'
 
 type FormValues = {
   checkboxGroup: string[]
@@ -40,6 +43,8 @@ const initialValues: FormValues = {
 }
 
 const Dashboard = () => {
+  const [isTooltipActive, setIsTooltipActive] = useState(false)
+
   const [showModal, hideModal] = useModal(() => (
     <Modal title='Test modal' onRequestClose={hideModal}>
       <div style={{ padding: '2rem' }}>
@@ -68,6 +73,48 @@ const Dashboard = () => {
           </Heading>
           <Body>
             <Button text='Open modal' onClick={() => showModal()} />
+          </Body>
+        </Card>
+        <Card css={{ marginTop: '32px' }}>
+          <Heading>
+            <Subheading>
+              Testing tooltips
+            </Subheading>
+          </Heading>
+          <Body>
+            <Tooltip
+              align='middle'
+              justify='outside-right'
+              id='tooltip-test'
+              text='Click the button, it does nothing'
+            >
+              <Button text='Show tooltip' />
+            </Tooltip>
+          </Body>
+        </Card>
+        <Card css={{ marginTop: '32px' }}>
+          <Heading>
+            <Subheading>
+              Testing dropdown menu
+            </Subheading>
+          </Heading>
+          <Body>
+            <DropdownMenu
+              align='below'
+              id='dropdown-menu-test'
+              items={[
+                [
+                  { icon: faUser, text: 'My profile', onClick: () => console.log('account') },
+                  { icon: faStar, text: 'My stars', onClick: () => console.log('stars') },
+                  { icon: faCog, text: 'Settings', onClick: () => console.log('settings') },
+                ],
+                [
+                  { icon: faSignOutAlt, text: 'Sign out', onClick: () => console.log('signout') }
+                ]
+              ]}
+            >
+              <Button text='Show dropdown' />
+            </DropdownMenu>
           </Body>
         </Card>
         <Card css={{ marginTop: '2rem' }}>
@@ -192,25 +239,6 @@ const Dashboard = () => {
                 />
               </FormFooter>
             </Form>
-          </Body>
-        </Card>
-        <Card css={{ marginTop: '2rem' }}>
-          <Heading>
-            <Text size='lg' weight='medium'>
-              Testing dropdowns
-            </Text>
-          </Heading>
-          <Body>
-            <Dropdown id='test-dropdown'>
-              <Trigger>
-                <Button appearance='secondary' status='danger' text='Open it' />
-              </Trigger>
-              <Content align='below'>
-                <div style={{ padding: '1rem', width: '12rem' }}>
-                  dropdown menu
-                </div>
-              </Content>
-            </Dropdown>
           </Body>
         </Card>
       </SingleColumnLayout>

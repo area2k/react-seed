@@ -36,6 +36,9 @@ const Text = styled('span', {
       },
       inherit: {
         color: 'inherit'
+      },
+      'hi-contrast': {
+        color: 'white'
       }
     },
     size: {

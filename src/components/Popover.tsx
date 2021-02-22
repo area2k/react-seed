@@ -1,5 +1,5 @@
 import { StitchesVariants } from '@stitches/react'
-import { FC } from 'react'
+import { ComponentProps, FC } from 'react'
 
 import styled from '@/styles'
 
@@ -9,10 +9,6 @@ const Wrapper = styled('div', {
   display: 'none',
 
   position: 'absolute',
-
-  backgroundColor: 'white',
-  borderRadius: '$lg',
-  boxShadow: '$3',
 
   zIndex: '$popover',
 
@@ -47,6 +43,27 @@ const Wrapper = styled('div', {
       },
       right: {
         right: 0
+      },
+      'outside-left': {
+        right: 'calc(100% + 8px)'
+      },
+      'outside-right': {
+        left: 'calc(100% + 8px)'
+      }
+    },
+    size: {
+      auto: {},
+      parent: {
+        minWidth: '100%'
+      },
+      sm: {
+        minWidth: '160px'
+      },
+      md: {
+        minWidth: '240px'
+      },
+      lg: {
+        minWidth: '320px'
       }
     },
     status: {
@@ -67,29 +84,25 @@ const Wrapper = styled('div', {
   }]
 })
 
-// Wrapper.compoundVariant({
-//   align: 'middle', justify: 'center'
-// }, {
-//   transform: 'translate(-50%, -50%) perspective(1px)'
-// })
-
 Wrapper.displayName = 'Popover-Wrapper'
 
-type Props = Omit<StitchesVariants<typeof Wrapper>, 'status'> & {
+export type Props = ComponentProps<'div'> & Omit<StitchesVariants<typeof Wrapper>, 'status'> & {
+  disableClickout?: boolean
   id?: string
   isOpen: boolean
   onRequestClose: () => void
 }
 
-const Popover: FC<Props> = ({ align = 'top', children, id, isOpen, justify = 'left', onRequestClose }) => {
+const Popover: FC<Props> = ({ align = 'top', children, disableClickout = false, isOpen, id, justify = 'left', onRequestClose, ...rest }) => {
   const clickoutRef = useClickout<HTMLDivElement>(onRequestClose, {
     debugName: `Popover(${id || '<no id>'})`,
-    isActive: isOpen
+    isActive: !disableClickout && isOpen
   })
 
   return (
     <Wrapper
       ref={clickoutRef}
+      {...rest}
       align={align}
       aria-hidden={!isOpen}
       id={id}
