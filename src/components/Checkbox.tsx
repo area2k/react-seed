@@ -2,10 +2,36 @@ import styled from '@/styles'
 import { ComponentProps } from 'react'
 
 const Box = styled('label', {
+  $$bgColor: 'white',
+  $$borderColor: '$colors$neutralLight',
+  $$textColor: '$colors$textLight',
+
+  $$hoverBgColor: 'white',
+  $$hoverBorderColor: '$colors$themeDefault',
+
+  $$checkedBgColor: '$colors$themeDefault',
+  $$checkedBorderColor: '$colors$themeDefault',
+  $$checkColor: 'white',
+
+  $$checkedHoverBgColor: '$colors$themeDefault',
+  $$checkedHoverBorderColor: '$colors$themeDefault',
+
+  $$disabledBgColor: '$colors$neutralLighter',
+  $$disabledBorderColor: '$colors$neutralLighter',
+  $$disabledCheckColor: '$colors$neutralLighter',
+  $$disabledTextColor: '$colors$textLightest',
+
+  $$disabledCheckedBgColor: '$colors$neutralLight',
+  $$disabledCheckedBorderColor: '$colors$neutralLight',
+  $$disabledCheckedCheckColor: 'white',
+
+  $$focusRingColor: '$colors$themeA24',
+
   display: 'inline-flex',
 
   position: 'relative',
 
+  color: '$$textColor',
   cursor: 'pointer',
 
   fontSize: '$md',
@@ -13,79 +39,100 @@ const Box = styled('label', {
   '&::before': {
     content: '""',
     display: 'block',
-    height: '18px',
-    margin: '2px 12px 2px 2px',
-    width: '18px',
+    height: '19px',
+    margin: '2px 12px 1px 2px',
+    width: '19px',
 
-    backgroundColor: '$NA4',
-    border: '1px solid $NA48',
-    borderRadius: '$md'
+    backgroundColor: '$$bgColor',
+    border: '1px solid $$borderColor',
+    borderRadius: '$lg',
+
+    transition: 'background-color 200ms ease, border-color 300ms ease, box-shadow 300ms ease'
   },
 
   '&::after': {
     content: '""',
     display: 'block',
-    height: '9px',
-    width: '4px',
+    height: '10px',
+    width: '5px',
 
     left: 9,
     position: 'absolute',
     top: 5,
 
     backgroundColor: 'transparent',
-    borderColor: 'transparent',
+    borderColor: '$$checkColor',
     borderStyle: 'solid',
     borderWidth: '0 2px 2px 0',
 
-    transform: 'rotate(45deg)'
+    transform: 'rotate(43deg)'
   },
 
   '&:hover': {
     '&::before': {
-      backgroundColor: '$NA8',
-      borderColor: '$N600'
-    },
+      backgroundColor: '$$hoverBgColor',
+      borderColor: '$$hoverBorderColor',
+      boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor'
+    }
+  },
 
-    '&::after': {
-      borderColor: '$NA48'
+  'input:focus + &': {
+    '&::before': {
+      borderColor: '$$hoverBorderColor',
+      boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor, 0 0 0px 3px $$focusRingColor'
     }
   },
 
   'input[disabled] + &': {
+    color: '$$disabledTextColor',
+    cursor: 'not-allowed',
+
     '&::before': {
-      backgroundColor: '$NA16',
-      cursor: 'not-allowed'
+      backgroundColor: '$$disabledBgColor',
+      borderColor: '$$disabledBorderColor',
+    },
+
+    '&::after': {
+      borderColor: '$$disabledCheckColor'
     },
 
     '&:hover': {
       '&::before': {
-        borderColor: '$NA48'
-      },
+        backgroundColor: '$$disabledBgColor',
+        borderColor: '$$disabledBorderColor',
+        boxShadow: 'none'
+      }
+    }
+  },
 
-      '&::after': {
-        backgroundColor: '$NA48'
+  'input[disabled]:checked + &': {
+    '&::before': {
+      backgroundColor: '$$disabledCheckedBgColor',
+      borderColor: '$$disabledCheckedBorderColor',
+    },
+
+    '&::after': {
+      borderColor: '$$disabledCheckedCheckColor'
+    },
+
+    '&:hover': {
+      '&::before': {
+        backgroundColor: '$$disabledCheckedBgColor',
+        borderColor: '$$disabledCheckedBorderColor'
       }
     }
   },
 
   'input:checked + &': {
     '&::before': {
-      borderColor: '$B500',
-      backgroundColor: '$B400'
-    },
-
-    '&::after': {
-      borderColor: 'white',
+      backgroundColor: '$$checkedBgColor',
+      borderColor: '$$checkedBorderColor'
     },
 
     '&:hover': {
       '&::before': {
-        borderColor: '$B400',
-        backgroundColor: '$B300'
-      },
-
-      '&::after': {
-        borderColor: 'white'
+        backgroundColor: '$$checkedHoverBgColor',
+        borderColor: '$$checkedHoverBorderColor'
       }
     }
   }

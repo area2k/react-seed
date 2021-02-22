@@ -13,17 +13,20 @@ export const Icon = styled(FontAwesomeIcon, {
       sm: {
         fontSize: '$sm'
       },
+      md: {
+        fontSize: '$md'
+      },
       lg: {
         fontSize: '$lg',
-        lineHeight: '28px'
       },
       xl: {
         fontSize: '$xl',
-        lineHeight: '28px'
       },
       xxl: {
         fontSize: '$xxl',
-        lineHeight: '28px'
+      },
+      xxxl: {
+        fontSize: '$xxxl',
       }
     }
   }

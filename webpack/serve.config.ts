@@ -1,3 +1,4 @@
+import DuplicatePackageCheckerPlugin from '@cerner/duplicate-package-checker-webpack-plugin'
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import webpack, { Configuration } from 'webpack'
 import {} from 'webpack-dev-server' // import for types
@@ -18,6 +19,7 @@ const serveConfig: Configuration = {
     firewall: false,
     historyApiFallback: true,
     host: 'localhost',
+    liveReload: false,    // live reload is handled by ReactRefreshPlugin()
     port: 8080
   },
   watchOptions: {
@@ -25,8 +27,8 @@ const serveConfig: Configuration = {
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    new ReactRefreshPlugin()
-    // new DuplicatePackageCheckerPlugin({ verbose: true })
+    new ReactRefreshPlugin(),
+    new DuplicatePackageCheckerPlugin({ verbose: true })
   ]
 }
 

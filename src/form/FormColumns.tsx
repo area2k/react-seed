@@ -6,7 +6,6 @@ const FormColumns = styled('div', {
 
   when: {
     mediaSmallDesktop: {
-      alignItems: 'end',
       columnGap: '1.25rem',
       display: 'grid',
       gridTemplateColumns: '1fr 1fr'

@@ -1,9 +1,9 @@
 import styled from '@/styles'
-import { ComponentProps } from 'react'
 
-const Target = styled('label', {
+const Option = styled('label', {
   $$bgColor: 'white',
   $$borderColor: '$colors$neutralLight',
+  $$indicatorColor: 'white',
   $$textColor: '$colors$textLight',
 
   $$hoverBgColor: 'white',
@@ -11,7 +11,7 @@ const Target = styled('label', {
 
   $$checkedBgColor: '$colors$themeDefault',
   $$checkedBorderColor: '$colors$themeDefault',
-  $$indicatorColor: 'white',
+  $$checkedIndicatorColor: 'white',
 
   $$checkedHoverBgColor: '$colors$themeDefault',
   $$checkedHoverBorderColor: '$colors$themeDefault',
@@ -62,11 +62,12 @@ const Target = styled('label', {
 
     backgroundColor: '$$indicatorColor',
     borderRadius: '$round',
+
+    transition: 'transform 300ms ease-in-out'
   },
 
   '&:hover': {
     '&::before': {
-      backgroundColor: '$$hoverBgColor',
       borderColor: '$$hoverBorderColor',
       boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor'
     }
@@ -85,7 +86,7 @@ const Target = styled('label', {
 
     '&::before': {
       backgroundColor: '$$disabledBgColor',
-      borderColor: '$$disabledBorderColor',
+      borderColor: '$$disabledBorderColor'
     },
 
     '&::after': {
@@ -126,62 +127,106 @@ const Target = styled('label', {
     },
 
     '&::after': {
-      backgroundColor: '$$indicatorColor',
+      backgroundColor: '$$checkedIndicatorColor'
     },
 
     '&:hover': {
       '&::before': {
         backgroundColor: '$$checkedHoverBgColor',
         borderColor: '$$checkedHoverBorderColor'
-      },
-
-      '&::after': {
-        backgroundColor: '$$indicatorColor'
       }
     }
+  },
+
+  variants: {
+    appearance: {
+      bullseye: {},
+      checkbox: {
+        $$disabledIndicatorColor: '$colors$neutralLighter',
+
+        '&::before': {
+          height: '19px',
+          margin: '2px 12px 1px 2px',
+          width: '19px',
+
+          borderRadius: '$lg'
+        },
+
+        '&::after': {
+          height: '10px',
+          width: '5px',
+
+          left: 9,
+          top: 5,
+
+          backgroundColor: 'transparent',
+          borderColor: '$$indicatorColor',
+          borderRadius: 0,
+          borderStyle: 'solid',
+          borderWidth: '0 2px 2px 0',
+
+          transform: 'rotate(43deg)'
+        },
+
+        'input[disabled] + &::after': {
+          backgroundColor: 'transparent',
+          borderColor: '$$disabledIndicatorColor'
+        },
+
+        'input[disabled]:checked + &::after': {
+          backgroundColor: 'transparent',
+          borderColor: '$$disabledCheckedIndicatorColor'
+        },
+
+        'input:checked + &::after': {
+          backgroundColor: 'transparent',
+          borderColor: '$$checkedIndicatorColor'
+        }
+      },
+      switch: {
+        $$indicatorColor: '$colors$neutralLight',
+
+        $$disabledIndicatorColor: '$colors$neutralLight',
+
+        '&::before': {
+          height: '21px',
+          margin: '1px 12px 0 2px',
+          width: '42px',
+
+          borderRadius: '$round'
+        },
+
+        '&::after': {
+          height: '12px',
+          width: '12px',
+
+          left: 6,
+          top: 5,
+
+          borderRadius: '$round',
+
+          transition: 'transform 300ms ease-in-out'
+        },
+
+        'input:checked + &::after': {
+          transform: 'translateX(22px)'
+        }
+      }
+    },
+    noMargin: {
+      true: {
+        '&::before': {
+          margin: '0 !important'
+        }
+      },
+      false: {}
+    }
+  },
+
+  defaultVariants: {
+    appearance: 'bullseye',
+    noMargin: false
   }
 })
 
-Target.displayName = 'Bullseye-Target'
-
-const Wrapper = styled('div', {
-  display: 'inline-block',
-  height: 24,
-
-  position: 'relative',
-
-  '> input': {
-    height: 1,
-    margin: 0,
-    pointerEvents: 'none',
-    width: 1,
-
-    opacity: 0,
-
-    left: 48,
-    position: 'absolute',
-    top: 24
-  }
-})
-
-Wrapper.displayName = 'Bullseye-Wrapper'
-
-type InputProps = ComponentProps<'input'>
-
-type Props = InputProps & {
-  id: string
-  label?: string
-}
-
-const Bullseye = ({ id, label, ...props }: Props) => {
-  return (
-    <Wrapper>
-      <input {...props} id={id} />
-      <Target htmlFor={id}>
-        {label}
-      </Target>
-    </Wrapper>
-  )
-}
-
-export default Bullseye
+export default Option

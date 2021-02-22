@@ -1,21 +1,28 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
+import { faBan, faCheck, faChevronDown, faQuestionCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-import Button from '@/elements/Button'
+import styled from '@/styles'
+
 import Card, { Body, Heading } from '@/elements/Card'
 import FormFooter from '@/elements/FormFooter'
+import Icon from '@/elements/Icon'
 import Table, { TableCell, TableHead, TableHeading, TableRow } from '@/elements/Table'
 import Text from '@/elements/Text'
 
+import Button from '@/components/Button'
 import Dropdown, { Content, Trigger } from '@/components/Dropdown'
+import LoadingButton from '@/components/LoadingButton'
 import Modal from '@/components/Modal'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
+import { Display, Body as BodyText, Heading as HeadingText, Subheading, Title, Small } from '@/components/Typography'
 
 import Form from '@/form'
-import CheckboxGroupField from '@/form/CheckboxGroupField'
+import FormColumns from '@/form/FormColumns'
 import MaskedInputField from '@/form/MaskedInputField'
-import RadioGroupField from '@/form/RadioGroupField'
-import SwitchField from '@/form/SwitchField'
+import MultiOptionGroupField from '@/form/MultiOptionGroupField'
+import OptionField from '@/form/OptionField'
+import SingleOptionGroupField from '@/form/SingleOptionGroupField'
 import TextField from '@/form/TextField'
 import TextSelectField from '@/form/TextSelectField'
 
@@ -29,7 +36,7 @@ type FormValues = {
 }
 
 const initialValues: FormValues = {
-  checkboxGroup: [], radioGroup: '', masked: '', switch: false, text: '', textSelect: ''
+  checkboxGroup: ['check2'], radioGroup: '', masked: '', switch: false, text: '', textSelect: ''
 }
 
 const Dashboard = () => {
@@ -55,21 +62,19 @@ const Dashboard = () => {
       <SingleColumnLayout>
         <Card>
           <Heading>
-            <Text size='lg' weight='medium'>
+            <Subheading>
               Testing modals
-            </Text>
+            </Subheading>
           </Heading>
           <Body>
-            <Button onClick={() => showModal()}>
-              Open up
-            </Button>
+            <Button text='Open modal' onClick={() => showModal()} />
           </Body>
         </Card>
         <Card css={{ marginTop: '2rem' }}>
           <Heading>
-            <Text size='lg' weight='medium'>
+            <Subheading>
               Table content
-            </Text>
+            </Subheading>
           </Heading>
           <Table>
             <TableHead>
@@ -124,9 +129,9 @@ const Dashboard = () => {
         </Card>
         <Card css={{ marginTop: '2rem' }}>
           <Heading>
-            <Text size='lg' weight='medium'>
+            <Subheading>
               Form elements
-            </Text>
+            </Subheading>
           </Heading>
           <Body>
             <Form
@@ -147,16 +152,31 @@ const Dashboard = () => {
                 <option value='opt2'>Option 2</option>
                 <option value='opt3'>Option 3</option>
               </TextSelectField>
-              <SwitchField fieldId='switch' label='Switch field' />
-              <RadioGroupField
-                fieldId='radioGroup'
-                label='Select the most important radio:'
-                options={[
-                  { label: 'Radio 1', value: 'radio1' },
-                  { label: 'Radio 2', value: 'radio2' },
-                  { label: 'Radio 3', value: 'radio3' },
-                ]}
+              <OptionField
+                appearance='switch'
+                fieldId='switch'
+                label='Switch field'
               />
+              <FormColumns>
+                <SingleOptionGroupField
+                  fieldId='radioGroup'
+                  label='Select the most important radio:'
+                  options={[
+                    { label: 'Radio 1', value: 'radio1' },
+                    { label: 'Radio 2', value: 'radio2' },
+                    { label: 'Radio 3', value: 'radio3', disabled: true },
+                  ]}
+                />
+                <MultiOptionGroupField
+                  fieldId='checkboxGroup'
+                  label='Select all that apply:'
+                  options={[
+                    { label: 'Checkbox 1', value: 'check1' },
+                    { label: 'Checkbox 2', value: 'check2', disabled: true },
+                    { label: 'Checkbox 3', value: 'check3' }
+                  ]}
+                />
+              </FormColumns>
               <MaskedInputField
                 required
                 fieldId='masked'
@@ -164,19 +184,12 @@ const Dashboard = () => {
                 mask='(000) 000-0000'
                 placeholder='Enter phone number'
               />
-              <CheckboxGroupField
-                fieldId='checkboxGroup'
-                label='Select all that apply:'
-                options={[
-                  { label: 'Checkbox 1', value: 'check1' },
-                  { label: 'Checkbox 2', value: 'check2' },
-                  { label: 'Checkbox 3', value: 'check3' }
-                ]}
-              />
               <FormFooter>
-                <Button type='submit'>
-                  Submit
-                </Button>
+                <Button
+                  iconLeft={faCheck}
+                  text='Submit'
+                  type='submit'
+                />
               </FormFooter>
             </Form>
           </Body>
@@ -190,9 +203,7 @@ const Dashboard = () => {
           <Body>
             <Dropdown id='test-dropdown'>
               <Trigger>
-                <Button>
-                  Open up
-                </Button>
+                <Button appearance='secondary' status='danger' text='Open it' />
               </Trigger>
               <Content align='below'>
                 <div style={{ padding: '1rem', width: '12rem' }}>

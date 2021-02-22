@@ -1,23 +1,27 @@
 import React from 'react'
 
+import styled from '@/styles'
+
 import Text from '@/elements/Text'
 
-import styled from '@/styles'
-import Version from './Version'
+import Version from '@/components/Version'
 
 const Wrapper = styled('footer', {
   alignItems: 'center',
   display: 'flex',
   gridArea: 'footer',
   justifyContent: 'space-between',
-  padding: '2rem'
+  marginTop: '64px',
+  padding: '32px',
+
+  backgroundColor: '$neutralA4'
 })
 
 const Footer = () => {
   return (
     <Wrapper>
-      <Version color='hint' size='sm' />
-      <Text color='hint' size='sm'>
+      <Version size='sm' />
+      <Text color='lighter' size='sm'>
         &copy; 2020 Area2K
       </Text>
     </Wrapper>

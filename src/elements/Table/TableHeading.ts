@@ -1,22 +1,22 @@
 import styled from '@/styles'
 
 const TableHeading = styled('th', {
-  padding: '0.875rem 0.75rem 0.75rem',
+  padding: '14px 12px 12px',
 
-  color: '$textHint',
+  color: '$textLighter',
 
   fontSize: '$sm',
-  fontWeight: 500,
+  fontWeight: '$medium',
   textAlign: 'left',
 
   verticalAlign: 'bottom',
 
   '&:first-child': {
-    paddingLeft: '1.25rem'
+    paddingLeft: '20px'
   },
 
   '&:last-child': {
-    paddingRight: '1.25rem'
+    paddingRight: '20px'
   }
 })
 

@@ -1,24 +1,24 @@
 import { useField } from '@area2k/use-form'
 import { ChangeEvent, ComponentProps, useCallback } from 'react'
 
-import Checkbox from '@/components/Checkbox'
 import FormElement from '@/components/FormElement'
+import Option from '@/components/Option'
 
 import Text from '@/elements/Text'
 
 import { removeAtIndex } from '@/util/array'
 
-type CheckboxProps = Omit<ComponentProps<typeof Checkbox>, 'checked' | 'id' | 'name' | 'value' | 'onChange'>
+type OptionProps = Omit<ComponentProps<typeof Option>, 'checked' | 'id' | 'name' | 'value' | 'onChange'>
+type OptionGroupOption = { disabled?: boolean, label: string, value: string }
 
-type RadioOption = { label: string, value: string }
-
-type Props = CheckboxProps & {
+type Props = OptionProps & {
   fieldId: string
   label?: string
-  options: RadioOption[]
+  multiSelect?: boolean
+  options: OptionGroupOption[]
 }
 
-const CheckboxGroupField = ({ fieldId, label, options, ...props }: Props) => {
+const MultiOptionGroupField = ({ appearance = 'checkbox', disabled, fieldId, label, multiSelect, options, ...props }: Props) => {
   const { value, setValue } = useField<string[]>(fieldId)
 
   const handleChange = useCallback((ev: ChangeEvent<HTMLInputElement>) => {
@@ -35,18 +35,20 @@ const CheckboxGroupField = ({ fieldId, label, options, ...props }: Props) => {
   return (
     <FormElement>
       {label &&
-        <div style={{ marginBottom: '0.75rem' }}>
-          <Text color='hint'>
+        <div style={{ margin: '0 6px 12px' }}>
+          <Text color={disabled ? 'lightest' : 'default'}>
             {label}
           </Text>
         </div>
       }
-      <div style={{ marginLeft: '2rem' }}>
+      <div style={{ marginLeft: '32px' }}>
         {options.map((option, index) => (
-          <div key={`${fieldId}${index}`} style={{ marginBottom: '0.75rem' }}>
-            <Checkbox
+          <div key={`${fieldId}${index}`} style={{ marginBottom: '12px' }}>
+            <Option
               {...props}
+              appearance={appearance}
               checked={value.includes(option.value)}
+              disabled={disabled || option.disabled}
               id={`${fieldId}${index}`}
               label={option.label}
               type='checkbox'
@@ -60,4 +62,4 @@ const CheckboxGroupField = ({ fieldId, label, options, ...props }: Props) => {
   )
 }
 
-export default CheckboxGroupField
+export default MultiOptionGroupField

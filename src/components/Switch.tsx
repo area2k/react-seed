@@ -2,10 +2,37 @@ import styled from '@/styles'
 import { ComponentProps } from 'react'
 
 const Track = styled('label', {
+  $$bgColor: 'white',
+  $$borderColor: '$colors$neutralLight',
+  $$ballColor: '$colors$neutralLighter',
+  $$textColor: '$colors$textLight',
+
+  $$hoverBgColor: 'white',
+  $$hoverBorderColor: '$colors$themeDefault',
+
+  $$checkedBgColor: '$colors$themeDefault',
+  $$checkedBorderColor: '$colors$themeDefault',
+  $$checkedBallColor: 'white',
+
+  $$checkedHoverBgColor: '$colors$themeDefault',
+  $$checkedHoverBorderColor: '$colors$themeDefault',
+
+  $$disabledBgColor: '$colors$neutralLighter',
+  $$disabledBorderColor: '$colors$neutralLighter',
+  $$disabledBallColor: '$colors$neutralLight',
+  $$disabledTextColor: '$colors$textLightest',
+
+  $$disabledCheckedBgColor: '$colors$neutralLight',
+  $$disabledCheckedBorderColor: '$colors$neutralLight',
+  $$disabledCheckedBallColor: 'white',
+
+  $$focusRingColor: '$colors$themeA24',
+
   display: 'inline-flex',
 
   position: 'relative',
 
+  color: '$$textColor',
   cursor: 'pointer',
 
   fontSize: '$md',
@@ -13,26 +40,28 @@ const Track = styled('label', {
   '&::before': {
     content: '""',
     display: 'block',
-    height: '18px',
-    margin: '2px 12px 2px 2px',
-    width: '48px',
+    height: '21px',
+    margin: '1px 12px 0 2px',
+    width: '42px',
 
-    backgroundColor: '$NA4',
-    border: '1px solid $NA48',
-    borderRadius: '$round'
+    backgroundColor: '$$bgColor',
+    border: '1px solid $$borderColor',
+    borderRadius: '$round',
+
+    transition: 'background-color 200ms ease, border-color 300ms ease, box-shadow 300ms ease'
   },
 
   '&::after': {
     content: '""',
     display: 'block',
-    height: '10px',
-    width: '10px',
+    height: '12px',
+    width: '12px',
 
-    left: 7,
+    left: 6,
     position: 'absolute',
-    top: 7,
+    top: 5,
 
-    backgroundColor: '$NA32',
+    backgroundColor: '$$ballColor',
     borderRadius: '$round',
 
     transition: 'transform 300ms ease-in-out'
@@ -40,51 +69,74 @@ const Track = styled('label', {
 
   '&:hover': {
     '&::before': {
-      borderColor: '$N600'
-    },
+      borderColor: '$$hoverBorderColor',
+      boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor'
+    }
+  },
 
-    '&::after': {
-      backgroundColor: '$NA48'
+  'input:focus + &': {
+    '&::before': {
+      borderColor: '$$hoverBorderColor',
+      boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor, 0 0 0px 3px $$focusRingColor'
     }
   },
 
   'input[disabled] + &': {
+    color: '$$disabledTextColor',
+    cursor: 'not-allowed',
+
     '&::before': {
-      backgroundColor: '$NA16',
-      cursor: 'not-allowed'
+      backgroundColor: '$$disabledBgColor',
+      borderColor: '$$disabledBorderColor'
+    },
+
+    '&::after': {
+      backgroundColor: '$$disabledBallColor'
     },
 
     '&:hover': {
       '&::before': {
-        borderColor: '$NA48'
-      },
+        backgroundColor: '$$disabledBgColor',
+        borderColor: '$$disabledBorderColor',
+        boxShadow: 'none'
+      }
+    }
+  },
 
-      '&::after': {
-        backgroundColor: '$NA48'
+  'input[disabled]:checked + &': {
+    '&::before': {
+      backgroundColor: '$$disabledCheckedBgColor',
+      borderColor: '$$disabledCheckedBorderColor',
+    },
+
+    '&::after': {
+      borderColor: '$$disabledCheckedBallColor'
+    },
+
+    '&:hover': {
+      '&::before': {
+        backgroundColor: '$$disabledCheckedBgColor',
+        borderColor: '$$disabledCheckedBorderColor'
       }
     }
   },
 
   'input:checked + &': {
     '&::before': {
-      backgroundColor: '$B500',
-      borderColor: '$B500'
+      backgroundColor: '$$checkedBgColor',
+      borderColor: '$$checkedBorderColor'
     },
 
     '&::after': {
-      backgroundColor: 'white',
+      backgroundColor: '$$checkedBallColor',
 
-      transform: 'translateX(30px)'
+      transform: 'translateX(22px)'
     },
 
     '&:hover': {
       '&::before': {
-        borderColor: '$B400',
-        backgroundColor: '$B400'
-      },
-
-      '&::after': {
-        backgroundColor: 'white'
+        backgroundColor: '$$checkedHoverBgColor',
+        borderColor: '$$checkedHoverBorderColor'
       }
     }
   }

@@ -3,13 +3,14 @@ import { Link as ReactRouterLink } from 'react-router-dom'
 import styled from '@/styles'
 
 const Link = styled(ReactRouterLink, {
-  color: '$B500',
+  color: '$themeDark',
 
   fontSize: '$md',
   textDecoration: 'none',
 
   '&:hover': {
-    color: '$B500',
+    backgroundColor: '$themeA4',
+    color: '$themeDark',
 
     textDecoration: 'underline'
   },

@@ -8,11 +8,11 @@ import useDisableBodyScroll from '@/hooks/useDisableBodyScroll'
 
 import Card, { Heading } from '@/elements/Card'
 import Icon from '@/elements/Icon'
+import IconicButton from '@/elements/IconicButton'
 import Overlay from '@/elements/Overlay'
-import Text from '@/elements/Text'
 
 import SingleColumnLayout from '@/components/SingleColumnLayout'
-import IconicButton from '@/elements/IconicButton'
+import { Subheading } from '@/components/Typography'
 
 const Wrapper = styled('div', {
   padding: '15vh 0'
@@ -34,14 +34,14 @@ const Modal: FC<Props> = ({ children, disableClickout = false, size = 'md', titl
   })
 
   return (
-    <Overlay>
+    <Overlay aria-modal aria-label={title} role='dialog'>
       <SingleColumnLayout size={size}>
         <Wrapper>
           <Card ref={clickoutRef} css={{ boxShadow: '$2' }}>
             <Heading>
-              <Text size='lg' weight='medium'>
+              <Subheading>
                 {title}
-              </Text>
+              </Subheading>
               <IconicButton size='sm' onClick={onRequestClose}>
                 <Icon fixedWidth icon={faTimes} />
               </IconicButton>

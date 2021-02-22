@@ -1,18 +1,18 @@
 import styled from '@/styles'
 
 const TableCell = styled('td', {
-  padding: '1rem',
+  padding: '16px',
 
   color: '$textDefault',
   fontSize: '$md',
-  lineHeight: '24px',
+  lineHeight: 1.5,
 
   '&:first-child': {
-    paddingLeft: '1.25rem'
+    paddingLeft: '20px'
   },
 
   '&:last-child': {
-    paddingRight: '1.25rem'
+    paddingRight: '20px'
   }
 })
 

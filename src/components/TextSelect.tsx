@@ -6,6 +6,8 @@ import styled from '@/styles'
 import Input from '@/elements/Input'
 
 const Wrapper = styled('div', {
+  $$chevronColor: '$colors$neutralDefault',
+
   width: '100%',
 
   position: 'relative',
@@ -13,14 +15,14 @@ const Wrapper = styled('div', {
   '&::after': {
     content: '""',
     display: 'block',
-    height: '6px',
-    width: '6px',
+    height: '8px',
+    width: '8px',
 
     position: 'absolute',
-    right: '1.25rem',
+    right: '24px',
     top: 'calc(50% - 6px)',
 
-    borderColor: '$N200',
+    borderColor: '$$chevronColor',
     borderStyle: 'solid',
     borderWidth: '0 2px 2px 0',
 
@@ -33,6 +35,12 @@ const Wrapper = styled('div', {
 Wrapper.displayName = 'TextSelect-Wrapper'
 
 const Select = styled(Input, {
+  $$textColor: '$colors$textDefault',
+  $$placeholderTextColor: '$colors$textLightest',
+
+  $$disabledTextColor: '$colors$textLighter',
+  $$disabledPlaceholderTextColor: '$colors$textLightest',
+
   paddingRight: '2rem',
 
   appearance: 'none',
@@ -45,17 +53,17 @@ const Select = styled(Input, {
   variants: {
     status: {
       empty: {
-        color: '$NA48',
+        color: '$$placeholderTextColor',
 
         '&[disabled]': {
-          color: '$NA32'
+          color: '$$disabledPlaceholderTextColor'
         }
       },
       selected: {
-        color: '$textDefault',
+        color: '$$textColor',
 
         '&[disabled]': {
-          color: '$textDisabled'
+          color: '$$disabledTextColor'
         }
       }
     }

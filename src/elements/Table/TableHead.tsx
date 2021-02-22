@@ -4,7 +4,7 @@ import TableRow from './TableRow'
 
 const TableHead = styled('thead', {
   [`> ${TableRow}`]: {
-    boxShadow: 'inset 0 -1px 0 0 $NA16',
+    boxShadow: 'inset 0 -1px 0 0 $colors$neutralA8',
 
     '&:hover': {
       backgroundColor: 'initial'

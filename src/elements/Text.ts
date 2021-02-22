@@ -4,57 +4,75 @@ const Text = styled('span', {
   color: '$textDefault',
 
   fontSize: '$md',
-  fontWeight: 400,
-  lineHeight: 1.71429,
+  fontWeight: '$normal',
+  lineHeight: 1.5,
+
+  '> strong': {
+    fontWeight: '$semi'
+  },
 
   variants: {
     color: {
-      hint: {
-        color: '$textHint'
-      },
-      primary: {
-        color: '$textPrimary'
+      default: {
+        color: '$textDefault'
       },
       light: {
         color: '$textLight'
       },
-      dark: {
-        color: '$textDark'
+      lighter: {
+        color: '$textLighter'
+      },
+      lightest: {
+        color: '$textLightest'
+      },
+      theme: {
+        color: '$themeDarker'
+      },
+      success: {
+        color: '$successDarker'
       },
       danger: {
-        color: '$textDanger'
+        color: '$dangerDarker'
+      },
+      inherit: {
+        color: 'inherit'
       }
     },
     size: {
       sm: {
         fontSize: '$sm'
       },
+      md: {
+        fontSize: '$md'
+      },
       lg: {
         fontSize: '$lg',
-        lineHeight: '28px'
       },
       xl: {
-        fontSize: '$xl',
-        lineHeight: '28px'
+        fontSize: '$xl'
       },
       xxl: {
-        fontSize: '$xxl',
-        lineHeight: '28px'
+        fontSize: '$xxl'
+      },
+      xxxl: {
+        fontSize: '$xxxl'
       },
       inherit: {
-        fontSize: 'inherit',
-        lineHeight: 'inherit'
+        fontSize: 'inherit'
       }
     },
     weight: {
+      normal: {
+        fontWeight: '$normal'
+      },
       medium: {
-        fontWeight: 500
+        fontWeight: '$medium'
       },
       semibold: {
-        fontWeight: 600
+        fontWeight: '$semi'
       },
       bold: {
-        fontWeight: 700
+        fontWeight: '$bold'
       },
       inherit: {
         fontWeight: 'inherit'

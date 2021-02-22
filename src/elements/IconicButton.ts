@@ -1,50 +1,38 @@
-import Icon from '@/elements/Icon'
-
 import styled from '@/styles'
 
-const IconicButton = styled('button', {
-  alignItems: 'center',
-  display: 'inline-flex',
-  justifyContent: 'center',
-  height: '38px',
-  width: '38px',
+import Button from '@/elements/Button'
 
-  backgroundColor: 'transparent',
-  border: 'none',
-  borderRadius: '$md',
-  color: '$textHint',
-  cursor: 'pointer',
-  outline: 'none',
+const IconicButton = styled(Button, {
+  $$boxSize: '36px',
+  $$fontSize: '$fontSizes$xl',
 
-  fontSize: '$lg',
+  height: '$$boxSize',
+  padding: 0,
+  width: '$$boxSize',
 
-  '&:hover': {
-    backgroundColor: '$NA8'
-  },
-
-  '&:focus': {
-    boxShadow: '$focus',
-  },
-
-  '&:active': {
-    backgroundColor: '$NA12'
-  },
+  fontSize: '$$fontSize',
+  lineHeight: '$$boxSize',
 
   variants: {
     size: {
-      sm: {
-        height: '28px',
-        width: '28px',
-
-        fontSize: '$lg'
+      xs: {
+        $$boxSize: '24px',
+        $$fontSize: '$fontSizes$md'
       },
-      md: {
-        height: '38px',
-        width: '38px',
-
-        fontSize: '$lg'
+      sm: {
+        $$boxSize: '28px',
+        $$fontSize: '$fontSizes$lg'
+      },
+      md: {},
+      lg: {
+        $$boxSize: '42px',
+        $$fontSize: '$fontSizes$xxl'
       }
     }
+  },
+
+  defaultVariants: {
+    size: 'md'
   }
 })
 

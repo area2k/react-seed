@@ -1,182 +1,152 @@
-const purples = {
-  P100: '#E5DFFB',
-  P200: '#CCC0F8',
-  P300: '#AB9CEC',
-  P400: '#8D7DD9',
-  P500: '#6554C0',
-  P600: '#4C3DA5',
-  P700: '#362A8A',
-  P800: '#231A6F',
-  P900: '#17105C'
+export const theme = {
+  themeInk: '#122166',
+  themeDarkest: '#1F3AB2',
+  themeDarker: '#2442CB',
+  themeDark: '#294BE5',
+  themeDefault: '#2D53FE',
+  themeLight: '#5775FE',
+  themeLighter: '#8198FE',
+  themeLightest: '#ABBAFF'
 }
 
-const purpleAlphas = {
-  PA4: 'rgba(101, 84, 192, 0.04)',
-  PA8: 'rgba(101, 84, 192, 0.08)',
-  PA16: 'rgba(101, 84, 192, 0.16)',
-  PA24: 'rgba(101, 84, 192, 0.24)',
-  PA32: 'rgba(101, 84, 192, 0.32)',
-  PA40: 'rgba(101, 84, 192, 0.40)',
-  PA48: 'rgba(101, 84, 192, 0.48)'
+export const themeAlphas = {
+  themeA48: 'rgba(45, 83, 254, 0.48)',
+  themeA32: 'rgba(45, 83, 254, 0.32)',
+  themeA24: 'rgba(45, 83, 254, 0.24)',
+  themeA16: 'rgba(45, 83, 254, 0.16)',
+  themeA12: 'rgba(45, 83, 254, 0.12)',
+  themeA8: 'rgba(45, 83, 254, 0.08)',
+  themeA4: 'rgba(45, 83, 254, 0.04)'
 }
 
-const greens = {
-  G100: '#85E1CB',
-  G200: '#66D9BE',
-  G300: '#47D1B1',
-  G400: '#29CAA4',
-  G500: '#0AC297',
-  G600: '#09AA84',
-  G700: '#089271',
-  G800: '#06795E',
-  G900: '#05614C'
+export const success = {
+  successDarkest: '#107163',
+  successDarker: '#128172',
+  successDark: '#159180',
+  successDefault: '#17a18e',
+  successLight: '#45b4a5',
+  successLighter: '#74c7bb',
+  successLightest: '#a2d9d2'
 }
 
-const greenAlphas = {
-  GA4: 'rgba(10, 194, 151, 0.04)',
-  GA8: 'rgba(10, 194, 151, 0.08)',
-  GA16: 'rgba(10, 194, 151, 0.16)',
-  GA24: 'rgba(10, 194, 151, 0.24)',
-  GA32: 'rgba(10, 194, 151, 0.32)',
-  GA40: 'rgba(10, 194, 151, 0.40)',
-  GA48: 'rgba(10, 194, 151, 0.48)'
+export const successAlphas = {
+  successA48: 'rgba(23, 161, 142, 0.48)',
+  successA32: 'rgba(23, 161, 142, 0.32)',
+  successA24: 'rgba(23, 161, 142, 0.24)',
+  successA16: 'rgba(23, 161, 142, 0.16)',
+  successA12: 'rgba(23, 161, 142, 0.12)',
+  successA8: 'rgba(23, 161, 142, 0.08)',
+  successA4: 'rgba(23, 161, 142, 0.04)'
 }
 
-const blues = {
-  B100: '#99B3FF',
-  B200: '#809FFF',
-  B300: '#668CFF',
-  B400: '#4D79FF',
-  B500: '#3366FF',
-  B600: '#2D59DF',
-  B700: '#264DBF',
-  B800: '#20409F',
-  B900: '#1A3380'
+export const warning = {
+  warningDarkest: '#1F3AB2',
+  warningDarker: '#2442CB',
+  warningDark: '#294BE5',
+  warningDefault: '#2D53FE',
+  warningLight: '#5775FE',
+  warningLighter: '#8198FE',
+  warningLightest: '#ABBAFF'
 }
 
-const blueAlphas = {
-  BA4: 'rgba(51, 102, 255, 0.04)',
-  BA8: 'rgba(51, 102, 255, 0.08)',
-  BA16: 'rgba(51, 102, 255, 0.16)',
-  BA24: 'rgba(51, 102, 255, 0.24)',
-  BA32: 'rgba(51, 102, 255, 0.32)',
-  BA40: 'rgba(51, 102, 255, 0.40)',
-  BA48: 'rgba(51, 102, 255, 0.48)'
+export const danger = {
+  dangerDarkest: '#B02A2A',
+  dangerDarker: '#CA3030',
+  dangerDark: '#E33636',
+  dangerDefault: '#FC3C3C',
+  dangerLight: '#FD6363',
+  dangerLighter: '#FD8A8A',
+  dangerLightest: '#FEB1B1'
 }
 
-const lightBlues = {
-  LB100: '#D7F4FE',
-  LB200: '#B0E6FE',
-  LB300: '#88D3FE',
-  LB400: '#6BC0FD',
-  LB500: '#3AA1FC',
-  LB600: '#2A7DD8',
-  LB700: '#1D5DB5',
-  LB800: '#124292',
-  LB900: '#0B2E78'
+export const dangerAlphas = {
+  dangerA48: 'rgba(252, 60, 60, 0.48)',
+  dangerA32: 'rgba(252, 60, 60, 0.32)',
+  dangerA24: 'rgba(252, 60, 60, 0.24)',
+  dangerA16: 'rgba(252, 60, 60, 0.16)',
+  dangerA12: 'rgba(252, 60, 60, 0.12)',
+  dangerA8: 'rgba(252, 60, 60, 0.08)',
+  dangerA4: 'rgba(252, 60, 60, 0.04)'
 }
 
-const lightBlueAlphas = {
-  LBA4: 'rgba(58, 161, 252, 0.04)',
-  LBA8: 'rgba(58, 161, 252, 0.08)',
-  LBA16: 'rgba(58, 161, 252, 0.16)',
-  LBA24: 'rgba(58, 161, 252, 0.24)',
-  LBA32: 'rgba(58, 161, 252, 0.32)',
-  LBA40: 'rgba(58, 161, 252, 0.40)',
-  LBA48: 'rgba(58, 161, 252, 0.48)'
-}
-
-const yellows = {
-  Y100: '#FFEAB6',
-  Y200: '#FFE5A4',
-  Y300: '#FFE092',
-  Y400: '#FFDA7F',
-  Y500: '#FFD56D',
-  Y600: '#DFBA5F',
-  Y700: '#BFA052',
-  Y800: '#9F8544',
-  Y900: '#806B37'
-}
-
-const yellowAlphas = {
-  YA4: 'rgba(255, 213, 109, 0.04)',
-  YA8: 'rgba(255, 213, 109, 0.08)',
-  YA16: 'rgba(255, 213, 109, 0.16)',
-  YA24: 'rgba(255, 213, 109, 0.24)',
-  YA32: 'rgba(255, 213, 109, 0.32)',
-  YA40: 'rgba(255, 213, 109, 0.40)',
-  YA48: 'rgba(255, 213, 109, 0.48)'
-}
-
-const reds = {
-  R100: '#FF8DA9',
-  R200: '#FF7094',
-  R300: '#FF537E',
-  R400: '#FF3769',
-  R500: '#FF1A53',
-  R600: '#DF1749',
-  R700: '#BF143E',
-  R800: '#9F1034',
-  R900: '#800D2A'
-}
-
-const redAlphas = {
-  RA4: 'rgba(255, 26, 83, 0.04)',
-  RA8: 'rgba(255, 26, 83, 0.08)',
-  RA16: 'rgba(255, 26, 83, 0.16)',
-  RA24: 'rgba(255, 26, 83, 0.24)',
-  RA32: 'rgba(255, 26, 83, 0.32)',
-  RA40: 'rgba(255, 26, 83, 0.40)',
-  RA48: 'rgba(255, 26, 83, 0.48)'
-}
-
-export const neutrals = {
-  N900: '#091E42',
-  N800: '#172B4D',
-  N700: '#253858',
-  N600: '#344563',
-  N500: '#42526E',
-  N400: '#505F79',
-  N300: '#5E6C84',
-  N200: '#6B778C',
-  N100: '#7A869A',
-  N90: '#8993A4',
-  N80: '#97A0AF',
-  N70: '#A5ADBA',
-  N60: '#B3BAC5',
-  N50: '#C1C7D0',
-  N40: '#DFE1E6',
-  N30: '#EBECF0',
-  N20: '#F4F5F7',
-  N10: '#FAFBFC',
-  N0: '#FFFFFF'
+export const netural = {
+  neutralDarkest: '#091E42',
+  neutralDarker: '#253858',
+  neutralDark: '#505F79',
+  neutralDefault: '#7A869A',
+  neutralLight: '#B3BAC5',
+  neutralLighter: '#DFE1E6',
+  neutralLightest: '#EBECF0',
+  neutralGhost: '#F4F5F7'
 }
 
 export const neutralAlphas = {
-  NA48: 'rgba(9, 30, 66, 0.48)',
-  NA40: 'rgba(9, 30, 66, 0.40)',
-  NA32: 'rgba(9, 30, 66, 0.32)',
-  NA24: 'rgba(9, 30, 66, 0.24)',
-  NA16: 'rgba(9, 30, 66, 0.16)',
-  NA12: 'rgba(9, 30, 66, 0.12)',
-  NA8: 'rgba(9, 30, 66, 0.08)',
-  NA4: 'rgba(9, 30, 66, 0.04)'
+  neutralA48: 'rgba(9, 30, 66, 0.48)',
+  neutralA32: 'rgba(9, 30, 66, 0.32)',
+  neutralA24: 'rgba(9, 30, 66, 0.24)',
+  neutralA16: 'rgba(9, 30, 66, 0.16)',
+  neutralA12: 'rgba(9, 30, 66, 0.12)',
+  neutralA8: 'rgba(9, 30, 66, 0.08)',
+  neutralA4: 'rgba(9, 30, 66, 0.04)'
+}
+
+export const text = {
+  textDefault: '#091E42',
+  textLight: '#344563',
+  textLighter: '#5E6C84',
+  textLightest: '#97A0AF'
+}
+
+export const whiteAlphas = {
+  whiteA96: 'rgba(255, 255, 255, 0.96)',
+  whiteA92: 'rgba(255, 255, 255, 0.92)',
+  whiteA88: 'rgba(255, 255, 255, 0.88)',
+  whiteA84: 'rgba(255, 255, 255, 0.84)',
+  whiteA76: 'rgba(255, 255, 255, 0.76)',
+  whiteA68: 'rgba(255, 255, 255, 0.68)',
+  whiteA52: 'rgba(255, 255, 255, 0.52)',
+  whiteA48: 'rgba(255, 255, 255, 0.48)',
+  whiteA32: 'rgba(255, 255, 255, 0.32)',
+  whiteA24: 'rgba(255, 255, 255, 0.24)',
+  whiteA16: 'rgba(255, 255, 255, 0.16)',
+  whiteA12: 'rgba(255, 255, 255, 0.12)',
+  whiteA8: 'rgba(255, 255, 255, 0.08)',
+  whiteA4: 'rgba(255, 255, 255, 0.04)'
 }
 
 export default {
-  ...purples,
-  ...purpleAlphas,
-  ...greens,
-  ...greenAlphas,
-  ...blues,
-  ...blueAlphas,
-  ...lightBlues,
-  ...lightBlueAlphas,
-  ...yellows,
-  ...yellowAlphas,
-  ...reds,
-  ...redAlphas,
-  ...neutrals,
+  ...theme,
+  ...themeAlphas,
+  ...success,
+  ...successAlphas,
+  ...warning,
+  ...danger,
+  ...dangerAlphas,
+  ...netural,
   ...neutralAlphas,
+  ...text,
+  ...whiteAlphas,
   COLORNAME: 'fuschia'
 }
+
+// export const neutrals = {
+//   N900: '#091E42',
+//   N800: '#172B4D',
+//   N700: '#253858',
+//   N600: '#344563',
+//   N500: '#42526E',
+//   N400: '#505F79',
+//   N300: '#5E6C84',
+//   N200: '#6B778C',
+//   N100: '#7A869A',
+//   N90: '#8993A4',
+//   N80: '#97A0AF',
+//   N70: '#A5ADBA',
+//   N60: '#B3BAC5',
+//   N50: '#C1C7D0',
+//   N40: '#DFE1E6',
+//   N30: '#EBECF0',
+//   N20: '#F4F5F7',
+//   N10: '#FAFBFC',
+//   N0: '#FFFFFF'
+// }

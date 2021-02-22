@@ -1,25 +1,32 @@
 import { createCss } from '@stitches/react'
 
 import colors from '@/styles/colors'
-import { systemFont } from '@/styles/typography'
+import fonts from '@/styles/typography'
 
-import light from '@/styles/themes/light'
+// import light from '@/styles/themes/light'
 
 const { styled, css, global } = createCss({
   theme: {
     colors: {
       ...colors,
-      ...light
+      // ...light
     },
     fonts: {
-      system: systemFont
+      ...fonts
     },
     fontSizes: {
       sm: '0.75rem',
       md: '0.875rem',
       lg: '1rem',
       xl: '1.25rem',
-      xxl: '1.5rem'
+      xxl: '1.5rem',
+      xxxl: '2rem'
+    },
+    fontWeights: {
+      normal: '400',
+      medium: '500',
+      semi: '600',
+      bold: '700'
     },
     radii: {
       none: '0px',
@@ -31,11 +38,11 @@ const { styled, css, global } = createCss({
     },
     shadows: {
       0: 'none',
-      1: `0 3px 6px ${colors.NA8}`,
-      2: `0 4px 8px ${colors.NA12}`,
-      3: `0 12px 24px ${colors.NA12}, 0 4px 8px ${colors.NA24}`,
-      4: `0 16px 32px ${colors.NA32}, 0 4px 8px ${colors.NA48}`,
-      focus: `0 0 0px 3px ${colors.BA32}`,
+      1: `0 3px 6px ${colors.neutralA8}`,
+      2: `0 4px 8px ${colors.neutralA12}`,
+      3: `0 12px 24px ${colors.neutralA12}, 0 4px 8px ${colors.neutralA24}`,
+      4: `0 16px 32px ${colors.neutralA32}, 0 4px 8px ${colors.neutralA48}`,
+      focus: `0 0 0px 3px ${colors.themeA48}`,
     },
     zIndices: {
       sidebar: '1000',
@@ -54,7 +61,7 @@ const { styled, css, global } = createCss({
 })
 
 global({
-  '*': {
+  '*, *::before, *::after': {
     boxSizing: 'border-box'
   },
   'html, body, #root': {
@@ -64,19 +71,19 @@ global({
     width: '100vw',
 
     fontSize: '1rem',
-    lineHeight: 1.71429,
+    lineHeight: 1.5,
 
-    WebkitTapHighlightColor: colors.BA32
+    WebkitTapHighlightColor: colors.themeA32
   },
   body: {
     margin: 0,
     WebkitOverflowScrolling: 'touch',
 
-    backgroundColor: '$N20',
-    color: 'black',
+    backgroundColor: '$neutralGhost',
+    color: '$textDefault',
     overflowY: 'auto',
 
-    fontFamily: '$system',
+    fontFamily: '$inter',
     fontWeight: 400,
     textRendering: 'optimizeLegibility',
 
@@ -88,7 +95,7 @@ global({
     margin: 0,
 
     fontSize: '1rem',
-    fontWeight: 400
+    fontWeight: '$normal'
   },
   small: {
     fontSize: '$sm'

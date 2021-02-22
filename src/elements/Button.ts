@@ -1,333 +1,338 @@
 import styled from '@/styles'
 
 const Button = styled('button', {
+  $$bgColor: '$colors$themeDefault',
+  $$borderColor: '$colors$themeDefault',
+  $$textColor: 'white',
+
+  $$hoverBgColor: '$colors$themeDark',
+  $$hoverBorderColor: '$colors$themeDark',
+
+  $$activeBgColor: '$colors$themeDarker',
+  $$activeBorderColor: '$colors$themeDarker',
+
+  $$disabledBgColor: '$colors$neutralLightest',
+  $$disabledBorderColor: '$colors$neutralLightest',
+  $$disabledTextColor: '$colors$textLightest',
+
+  $$focusRingColor: '$colors$themeA48',
+
   alignItems: 'center',
   display: 'inline-flex',
+  gap: '12px',
+  height: '36px',
   justifyContent: 'center',
-  padding: '0.25rem 1.5rem',
+  padding: '4px 24px',
 
-  backgroundColor: '$primaryDefault',
-  border: '1px solid transparent',
-  borderColor: 'transparent',
-  borderRadius: '$md',
-  color: '$textLight',
+  backgroundColor: '$$bgColor',
+  borderColor: '$$borderColor',
+  borderRadius: '$lg',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  color: '$$textColor',
   cursor: 'pointer',
   outline: 'none',
   overflow: 'hidden',
 
-  fontFamily: '-apple-system, system-ui',
-  fontSize: '0.875rem',
-  fontWeight: 600,
+  fontFamily: '$inter',
+  fontSize: '$md',
+  fontWeight: '$medium',
   lineHeight: '28px',
   textDecoration: 'none',
   whiteSpace: 'nowrap',
 
-  transition: 'background-color 100ms ease-out 0s',
-
-  '&:focus': {
-    boxShadow: '$focus'
-  },
+  transition: 'background-color 100ms ease-out 0s, box-shadow 300ms ease',
 
   '&:hover': {
-    backgroundColor: '$primaryHover'
+    backgroundColor: '$$hoverBgColor',
+    borderColor: '$$hoverBorderColor'
   },
 
   '&:active': {
-    backgroundColor: '$primaryActive'
+    backgroundColor: '$$activeBgColor',
+    borderColor: '$$activeBorderColor'
+  },
+
+  '&:focus-visible': {
+    boxShadow: '0 0 0px 3px $$focusRingColor'
   },
 
   '&[disabled]': {
-    backgroundColor: '$primaryDisabled',
-    color: '$textLightDisabled',
+    backgroundColor: '$$disabledBgColor',
+    borderColor: '$$disabledBorderColor',
+    color: '$$disabledTextColor',
     cursor: 'not-allowed',
 
     '&:hover': {
-      backgroundColor: '$primaryDisabled'
+      backgroundColor: '$$disabledBgColor',
+      borderColor: '$$disabledBorderColor'
     }
   },
 
   variants: {
     appearance: {
-      glass: {
-        backgroundColor: '$NA8',
-        color: '$textSubtle',
-        '&:hover': {
-          backgroundColor: '$BA16',
-          color: '$textPrimary'
-        },
-        '&:active': {
-          backgroundColor: '$primaryTransparentActive'
-        }
-      },
-      subtle: {
-        backgroundColor: 'transparent',
-        color: '$textHint',
-        '&:hover': {
-          backgroundColor: '$NA4',
-          color: '$textDefault'
-        },
-        '&:active': {
-          backgroundColor: '$NA8'
-        }
+      primary: {},
+      secondary: {
+        $$bgColor: '$colors$themeA12',
+        $$borderColor: 'transparent',
+        $$textColor: '$colors$themeDarkest',
+
+        $$hoverBgColor: '$colors$themeA16',
+        $$hoverBorderColor: 'transparent',
+
+        $$activeBgColor: '$colors$themeA24',
+        $$activeBorderColor: 'transparent'
       },
       outline: {
-        backgroundColor: '$primaryTransparentDefault',
-        borderColor: '$primaryTransparentDefaultBorder',
-        color: '$textPrimary',
-        '&:hover': {
-          backgroundColor: '$primaryTransparentHover',
-          borderColor: '$primaryTransparentHoverBorder'
-        },
-        '&:active': {
-          backgroundColor: '$primaryTransparentActive',
-          borderColor: '$primaryTransparentActiveBorder'
-        },
-        '&[disabled]': {
-          backgroundColor: '$primaryTransparentDisabled',
-          borderColor: '$primaryTransparentDisabledBorder',
-          color: '$textPrimaryDisabled',
-          '&:hover': {
-            backgroundColor: '$primaryTransparentDisabled',
-            borderColor: '$primaryTransparentDisabledBorder'
-          }
-        }
+        $$bgColor: 'transparent',
+        $$borderColor: '$colors$neutralLighter',
+        $$textColor: '$colors$textLight',
+
+        $$hoverBgColor: 'transparent',
+        $$hoverBorderColor: '$colors$neutralLight',
+
+        $$activeBgColor: '$colors$neutralA4',
+        $$activeBorderColor: '$colors$neutralLight',
+      },
+      clear: {
+        $$bgColor: 'transparent',
+        $$borderColor: 'transparent',
+        $$textColor: '$colors$textLight',
+
+        $$hoverBgColor: '$colors$neutralA4',
+        $$hoverBorderColor: 'transparent',
+
+        $$activeBgColor: '$colors$neutralA8',
+        $$activeBorderColor: 'transparent',
       }
     },
-    color: {
-      primary: {
-        backgroundColor: '$primaryDefault',
-        '&:hover': {
-          backgroundColor: '$primaryHover'
-        },
-        '&:active': {
-          backgroundColor: '$primaryActive'
-        },
-        '&[disabled]': {
-          backgroundColor: '$primaryDisabled',
-          color: '$textLightDisabled',
-          '&:hover': {
-            backgroundColor: '$primaryDisabled'
-          }
-        }
-      },
-      basic: {
-        backgroundColor: '$basicDefault',
-        color: '$textDark',
-        '&:hover': {
-          backgroundColor: '$basicHover'
-        },
-        '&:active': {
-          backgroundColor: '$basicActive'
-        },
-        '&[disabled]': {
-          backgroundColor: '$basicDisabled',
-          color: '$textDarkDisabled',
-          '&:hover': {
-            backgroundColor: '$basicDisabled'
-          }
-        }
-      },
-      warn: {
-        backgroundColor: '$warningDefault',
-        color: '$textDark',
-        '&:hover': {
-          backgroundColor: '$warningHover'
-        },
-        '&:active': {
-          backgroundColor: '$warningActive'
-        },
-        '&[disabled]': {
-          backgroundColor: '$warningDisabled',
-          color: '$textDarkDisabled',
-          '&:hover': {
-            backgroundColor: '$warningDisabled'
-          }
-        }
+    status: {
+      theme: {},
+      success: {
+        $$bgColor: '$colors$successDefault',
+        $$borderColor: '$colors$successDefault',
+        $$textColor: 'white',
+
+        $$hoverBgColor: '$colors$successDark',
+        $$hoverBorderColor: '$colors$successDark',
+
+        $$activeBgColor: '$colors$successDarker',
+        $$activeBorderColor: '$colors$successDarker',
+
+        $$focusRingColor: '$colors$successA48'
       },
       danger: {
-        backgroundColor: '$dangerDefault',
-        color: '$textLight',
-        '&:hover': {
-          backgroundColor: '$dangerHover'
-        },
-        '&:active': {
-          backgroundColor: '$dangerActive'
-        },
-        '&[disabled]': {
-          backgroundColor: '$dangerDisabled',
-          color: '$textLightDisabled',
-          '&:hover': {
-            backgroundColor: '$dangerDisabled'
-          }
-        }
+        $$bgColor: '$colors$dangerDefault',
+        $$borderColor: '$colors$dangerDefault',
+        $$textColor: 'white',
+
+        $$hoverBgColor: '$colors$dangerDark',
+        $$hoverBorderColor: '$colors$dangerDark',
+
+        $$activeBgColor: '$colors$dangerDarker',
+        $$activeBorderColor: '$colors$dangerDarker',
+
+        $$focusRingColor: '$colors$dangerA48'
       },
-      success: {
-        backgroundColor: '$successDefault',
-        color: 'white',
-        '&:hover': {
-          backgroundColor: '$successHover'
-        },
-        '&:active': {
-          backgroundColor: '$successActive'
-        },
-        '&[disabled]': {
-          backgroundColor: '$successDisabled',
-          color: '$textLightDisabled',
-          '&:hover': {
-            backgroundColor: '$successDisabled'
-          }
-        }
+      neutral: {
+        $$bgColor: '$colors$neutralDark',
+        $$borderColor: '$colors$neutralDark',
+        $$textColor: 'white',
+
+        $$hoverBgColor: '$colors$neutralDarker',
+        $$hoverBorderColor: '$colors$neutralDarker',
+
+        $$activeBgColor: '$colors$neutralDarkest',
+        $$activeBorderColor: '$colors$neutralDarkest'
       },
-      info: {
-        backgroundColor: '$infoDefault',
-        color: 'white',
-        '&:hover': {
-          backgroundColor: '$infoHover'
-        },
-        '&:active': {
-          backgroundColor: '$infoActive'
-        },
-        '&[disabled]': {
-          backgroundColor: '$infoDisabled',
-          color: '$textLightDisabled',
-          '&:hover': {
-            backgroundColor: '$infoDisabled'
-          }
-        }
+      'hi-contrast': {
+        $$bgColor: 'white',
+        $$borderColor: 'transparent',
+        $$textColor: '$colors$textDefault',
+
+        $$hoverBgColor: '$colors$whiteA92',
+        $$hoverBorderColor: 'transparent',
+
+        $$activeBgColor: '$colors$whiteA84',
+        $$activeBorderColor: 'transparent'
       }
     }
+  },
+
+  compoundVariants: [{
+    appearance: 'secondary',
+    status: 'success',
+    css: {
+      $$bgColor: '$colors$successA12',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$successDarkest',
+
+      $$hoverBgColor: '$colors$successA16',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$successA24',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'outline',
+    status: 'success',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: '$colors$successLighter',
+      $$textColor: '$colors$successDarker',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: '$colors$successLight',
+
+      $$activeBgColor: '$colors$successA4',
+      $$activeBorderColor: '$colors$successLight',
+    }
+  }, {
+    appearance: 'clear',
+    status: 'success',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$successDarker',
+
+      $$hoverBgColor: '$colors$successA8',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$successA12',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'secondary',
+    status: 'danger',
+    css: {
+      $$bgColor: '$colors$dangerA12',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$dangerDarkest',
+
+      $$hoverBgColor: '$colors$dangerA16',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$dangerA24',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'outline',
+    status: 'danger',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: '$colors$dangerLightest',
+      $$textColor: '$colors$dangerDark',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: '$colors$dangerLighter',
+
+      $$activeBgColor: '$colors$dangerA4',
+      $$activeBorderColor: '$colors$dangerLighter',
+    }
+  }, {
+    appearance: 'clear',
+    status: 'danger',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$dangerDark',
+
+      $$hoverBgColor: '$colors$dangerA8',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$dangerA12',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'secondary',
+    status: 'neutral',
+    css: {
+      $$bgColor: '$colors$neutralA8',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$neutralDarkest',
+
+      $$hoverBgColor: '$colors$neutralA12',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$neutralA16',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'outline',
+    status: 'neutral',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: '$colors$neutralLighter',
+      $$textColor: '$colors$textLight',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: '$colors$neutralLight',
+
+      $$activeBgColor: '$colors$neutralA4',
+      $$activeBorderColor: '$colors$neutralLight',
+    }
+  }, {
+    appearance: 'clear',
+    status: 'neutral',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$textLight',
+
+      $$hoverBgColor: '$colors$neutralA4',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$neutralA8',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'secondary',
+    status: 'hi-contrast',
+    css: {
+      $$bgColor: '$colors$whiteA16',
+      $$borderColor: 'transparent',
+      $$textColor: 'white',
+
+      $$hoverBgColor: '$colors$whiteA24',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$whiteA32',
+      $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'outline',
+    status: 'hi-contrast',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: '$colors$whiteA24',
+      $$textColor: 'white',
+
+      $$hoverBgColor: '$colors$whiteA4',
+      $$hoverBorderColor: '$colors$whiteA48',
+
+      $$activeBgColor: '$colors$whiteA16',
+      $$activeBorderColor: '$colors$whiteA48',
+    }
+  }, {
+    appearance: 'clear',
+    status: 'hi-contrast',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: 'white',
+
+      $$hoverBgColor: '$colors$whiteA12',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$whiteA24',
+      $$activeBorderColor: 'transparent',
+    }
+  }],
+
+  defaultVariants: {
+    appearance: 'primary',
+    status: 'theme'
   }
 })
-
-// //
-// //  Outline
-// //
-
-// Button.compoundVariant({
-//   appearance: 'outline', color: 'primary'
-// }, {
-//   backgroundColor: '$primaryTransparentDefault',
-//   borderColor: '$primaryTransparentDefaultBorder',
-//   color: '$textPrimary',
-//   '&:hover': {
-//     backgroundColor: '$primaryTransparentHover',
-//     borderColor: '$primaryTransparentHoverBorder'
-//   },
-//   '&:active': {
-//     backgroundColor: '$primaryTransparentActive',
-//     borderColor: '$primaryTransparentActiveBorder'
-//   },
-//   '&[disabled]': {
-//     backgroundColor: '$primaryTransparentDisabled',
-//     borderColor: '$primaryTransparentDisabledBorder',
-//     color: '$textPrimaryDisabled',
-//     '&:hover': {
-//       backgroundColor: '$primaryTransparentDisabled',
-//       borderColor: '$primaryTransparentDisabledBorder'
-//     }
-//   }
-// })
-
-// Button.compoundVariant({
-//   appearance: 'outline', color: 'basic',
-// }, {
-//   backgroundColor: '$basicTransparentDefault',
-//   borderColor: '$basicTransparentDefaultBorder',
-//   color: '$textDark',
-//   '&:hover': {
-//     backgroundColor: '$basicTransparentHover',
-//     borderColor: '$basicTransparentHoverBorder'
-//   },
-//   '&:active': {
-//     backgroundColor: '$basicTransparentActive',
-//     borderColor: '$basicTransparentActiveBorder'
-//   },
-//   '&[disabled]': {
-//     backgroundColor: '$basicTransparentDisabled',
-//     borderColor: '$basicTransparentDisabledBorder',
-//     color: '$textDisabled',
-//     '&:hover': {
-//       backgroundColor: '$basicTransparentDisabled',
-//       borderColor: '$basicTransparentDisabledBorder'
-//     }
-//   }
-// })
-
-// Button.compoundVariant({
-//   appearance: 'outline', color: 'success'
-// }, {
-//   backgroundColor: '$successTransparentDefault',
-//   borderColor: '$successTransparentDefaultBorder',
-//   color: '$textSuccess',
-//   '&:hover': {
-//     backgroundColor: '$successTransparentHover',
-//     borderColor: '$successTransparentHoverBorder'
-//   },
-//   '&:active': {
-//     backgroundColor: '$successTransparentActive',
-//     borderColor: '$successTransparentActiveBorder'
-//   },
-//   '&[disabled]': {
-//     backgroundColor: '$successTransparentDisabled',
-//     borderColor: '$successTransparentDisabledBorder',
-//     color: '$textSuccessDisabled',
-//     '&:hover': {
-//       backgroundColor: '$successTransparentDisabled',
-//       borderColor: '$successTransparentDisabledBorder'
-//     }
-//   }
-// })
-
-// Button.compoundVariant({
-//   appearance: 'outline', color: 'danger'
-// }, {
-//   backgroundColor: '$dangerTransparentDefault',
-//   borderColor: '$dangerTransparentDefaultBorder',
-//   color: '$textDanger',
-//   '&:hover': {
-//     backgroundColor: '$dangerTransparentHover',
-//     borderColor: '$dangerTransparentHoverBorder'
-//   },
-//   '&:active': {
-//     backgroundColor: '$dangerTransparentActive',
-//     borderColor: '$dangerTransparentActiveBorder'
-//   },
-//   '&[disabled]': {
-//     backgroundColor: '$dangerTransparentDisabled',
-//     borderColor: '$dangerTransparentDisabledBorder',
-//     color: '$textDangerDisabled',
-//     '&:hover': {
-//       backgroundColor: '$dangerTransparentDisabled',
-//       borderColor: '$dangerTransparentDisabledBorder'
-//     }
-//   }
-// })
-
-// Button.compoundVariant({
-//   appearance: 'outline', color: 'info'
-// }, {
-//   backgroundColor: '$infoTransparentDefault',
-//   borderColor: '$infoTransparentDefaultBorder',
-//   color: '$textInfo',
-//   '&:hover': {
-//     backgroundColor: '$infoTransparentHover',
-//     borderColor: '$infoTransparentHoverBorder'
-//   },
-//   '&:active': {
-//     backgroundColor: '$infoTransparentActive',
-//     borderColor: '$infoTransparentActiveBorder'
-//   },
-//   '&[disabled]': {
-//     backgroundColor: '$infoTransparentDisabled',
-//     borderColor: '$infoTransparentDisabledBorder',
-//     color: '$textInfoDisabled',
-//     '&:hover': {
-//       backgroundColor: '$infoTransparentDisabled',
-//       borderColor: '$infoTransparentDisabledBorder'
-//     }
-//   }
-// })
-
-Button.displayName = 'Button'
 
 export default Button

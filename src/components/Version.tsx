@@ -1,12 +1,12 @@
-import { StitchesProps } from '@stitches/react'
+import { ComponentProps } from 'react'
 
 import Text from '@/elements/Text'
 
 import Config from '@/config'
 
-const Version = (props: StitchesProps<typeof Text>) => {
+const Version = (props: ComponentProps<typeof Text>) => {
   return (
-    <Text color='hint' {...props}>
+    <Text color='lighter' {...props}>
       {Config.BUILD_VERSION}-{Config.BUILD_COMMIT} ({Config.BUILD_BRANCH})
     </Text>
   )

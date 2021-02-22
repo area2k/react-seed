@@ -1,11 +1,23 @@
 import styled from '@/styles'
 
 const TableRow = styled('tr', {
-  boxShadow: 'inset 0 -1px 0 0 $NA8',
-  cursor: 'pointer',
+  boxShadow: 'inset 0 -1px 0 0 $colors$neutralA8',
 
-  '&:hover': {
-    backgroundColor: '$NA4'
+  variants: {
+    clickable: {
+      true: {
+        cursor: 'pointer',
+
+        '&:hover': {
+          backgroundColor: '$neutralA4'
+        }
+      },
+      false: {}
+    }
+  },
+
+  defaultVariants: {
+    clickable: false
   }
 })
 

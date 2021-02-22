@@ -3,7 +3,7 @@ import styled from '@/styles'
 import Table from '@/elements/Table'
 
 const Card = styled('div', {
-  backgroundColor: '$N0',
+  backgroundColor: 'white',
   borderRadius: '$lg',
   boxShadow: '$1',
 

@@ -8,12 +8,12 @@ const Wrapper = styled('div', {
 
 const Label = styled('label', {
   display: 'block',
-  margin: '0 0.375rem 0.375rem',
+  margin: '0 6px 6px',
 
-  color: '$textHint',
+  color: '$textDefault',
 
   fontSize: '$sm',
-  fontWeight: 500
+  fontWeight: '$medium'
 })
 
 Wrapper.displayName = 'FormElement-Wrapper'

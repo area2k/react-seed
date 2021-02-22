@@ -1,38 +1,59 @@
 import styled from '@/styles'
 
 const Input = styled('input', {
-  padding: '0.375rem 0.625rem',
+  $$bgColor: 'white',
+  $$borderColor: '$colors$neutralLight',
+  $$textColor: '$colors$textDefault',
+  $$placeholderTextColor: '$colors$textLightest',
+
+  $$hoverBgColor: 'white',
+  $$hoverBorderColor: '$colors$themeDefault',
+
+  $$focusBorderColor: '$colors$themeDefault',
+  $$focusRingColor: '$colors$themeA24',
+
+  $$disabledBgColor: '$colors$neutralLightest',
+  $$disabledBorderColor: '$colors$neutralLight',
+  $$disabledTextColor: '$colors$textLight',
+  $$disabledPlaceholderTextColor: '$colors$textLightest',
+
+  padding: '4px 12px',
   width: '100%',
 
-  backgroundColor: '$NA4',
-  border: '1px solid $N40',
-  borderRadius: '$md',
-  color: '$textDefault',
+  backgroundColor: '$$bgColor',
+  border: '1px solid $$borderColor',
+  borderRadius: '$lg',
+  color: '$$textColor',
   outline: 'none',
 
   fontFamily: '$system',
-  fontSize: '0.875rem',
+  fontSize: '$md',
   lineHeight: '28px',
 
   transition: 'box-shadow 200ms ease-in-out',
 
+  '&:hover': {
+    backgroundColor: '$$hoverBgColor',
+    borderColor: '$$hoverBorderColor'
+  },
+
   '&:focus': {
-    borderColor: '$primaryActiveBorder',
-    boxShadow: '0 0 0px 3px $primaryFocusBorder'
+    borderColor: '$$focusBorderColor',
+    boxShadow: '0 0 0px 3px $$focusRingColor'
   },
 
   '&::-webkit-input-placeholder': {
-    color: '$NA48'
+    color: '$$placeholderTextColor'
   },
 
   '&[disabled]': {
-    backgroundColor: '$NA16',
-    borderColor: '$N50',
-    color: '$textDisabled',
+    backgroundColor: '$$disabledBgColor',
+    borderColor: '$$disabledBorderColor',
+    color: '$$disabledTextColor',
     cursor: 'not-allowed',
 
     '&::-webkit-input-placeholder': {
-      color: '$NA32'
+      color: '$$disabledPlaceholderTextColor'
     },
   },
 

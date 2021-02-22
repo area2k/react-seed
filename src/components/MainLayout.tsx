@@ -2,10 +2,10 @@ import { FC, ReactNode } from 'react'
 
 import styled from '@/styles'
 
-const NAVBAR_HEIGHT = '3rem'
-const MOBILE_NAVBAR_HEIGHT = '4rem'
+const NAVBAR_HEIGHT = '48px'
+const MOBILE_NAVBAR_HEIGHT = '64px'
 
-const SIDEBAR_WIDTH = '18rem'
+const SIDEBAR_WIDTH = '256px'
 
 const Wrapper = styled('main', {
   display: 'grid',
@@ -51,8 +51,8 @@ const SidebarContainer = styled('aside', {
   display: 'none',
   width: SIDEBAR_WIDTH,
 
-  backgroundColor: '$N30',
-  boxShadow: '1px 0 0 $NA12',
+  backgroundColor: 'white',
+  boxShadow: '0 1px 2px 0 $colors$neutralA12',
 
   bottom: 0,
   left: 0,
