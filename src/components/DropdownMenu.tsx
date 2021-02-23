@@ -8,6 +8,7 @@ import Text from '@/elements/Text'
 
 import Popover, { Props as PopoverProps } from '@/components/Popover'
 
+import { KeyNames } from '@/util/constants'
 import { pauseEvent } from '@/util/events'
 
 const Wrapper = styled('ul', {
@@ -74,9 +75,34 @@ const DropdownMenu = ({ align = 'top', children, disableCloseOnClick = false, fo
     if (!disableCloseOnClick) setClosed()
   }, [disableCloseOnClick])
 
+  const handleKeyCommands = useCallback((ev: React.KeyboardEvent<HTMLDivElement>) => {
+    // https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-12
+    switch (ev.key) {
+      case KeyNames.Escape:
+        ev.stopPropagation()
+        setClosed()
+        break;
+
+      // TODO: other keyboard interactions
+      // case KeyNames.Up:
+      //   // move focus up 1 item + wrap
+      //   break;
+
+      // case KeyNames.Down:
+      //   // move focus down 1 item + wrap
+      //   break;
+
+      // case KeyNames.Enter:
+      // case KeyNames.Space:
+      //   // activate currently focused element if any
+      //   break;
+    }
+  }, [])
+
   return (
     <div
       style={{ display: 'inline-block', position: 'relative' }}
+      onKeyDown={handleKeyCommands}
     >
       {cloneElement(Children.only(children), {
         'aria-haspopup': true,
