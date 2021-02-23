@@ -21,6 +21,6 @@ const TableRow = styled('tr', {
   }
 })
 
-TableRow.displayName = 'Table-TableRow'
+TableRow.displayName = 'stitches(Table.TableRow)'
 
 export default TableRow

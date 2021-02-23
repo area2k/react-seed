@@ -8,13 +8,15 @@ import Text from '@/elements/Text'
 
 import Dropdown, { Props as DropdownProps } from '@/components/Dropdown'
 
-import { KeyNames } from '@/util/constants'
+// import { KeyNames } from '@/util/constants'
 import { pauseEvent } from '@/util/events'
 
 const Wrapper = styled('ul', {
   display: 'block',
   padding: '4px 0'
 })
+
+Wrapper.displayName = 'stitches(DropdownMenu.Wrapper)'
 
 const Item = styled('li', {
   alignItems: 'center',
@@ -41,12 +43,17 @@ const Item = styled('li', {
   }
 })
 
+Item.displayName = 'stitches(DropdownMenu.Item)'
+
 const Separator = styled('li', {
+  display: 'block',
   height: '1px',
   margin: '6px 0',
 
   borderBottom: '1px solid $colors$neutralLightest'
 })
+
+Separator.displayName = 'stitches(DropdownMenu.Separator)'
 
 type MenuItem = { icon?: IconDefinition, text: string, onClick: () => void }
 

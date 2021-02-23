@@ -335,4 +335,6 @@ const Button = styled('button', {
   }
 })
 
+Button.displayName = 'stitches(Button)'
+
 export default Button

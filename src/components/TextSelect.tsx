@@ -32,7 +32,7 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'TextSelect-Wrapper'
+Wrapper.displayName = 'stitches(TextSelect.Wrapper)'
 
 const Select = styled(Input, {
   $$textColor: '$colors$textDefault',
@@ -70,7 +70,7 @@ const Select = styled(Input, {
   }
 })
 
-Select.displayName = 'TextSelect-Select'
+Select.displayName = 'stitches(TextSelect.Select)'
 
 type Props = StitchesProps<typeof Select>
 

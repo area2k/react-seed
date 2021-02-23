@@ -10,7 +10,7 @@ const Table = styled('table', {
   width: '100%'
 })
 
-Table.displayName = 'Table'
+Table.displayName = 'stitches(Table)'
 
 export { TableCell, TableHead, TableHeading, TableRow }
 export default Table

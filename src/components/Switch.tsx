@@ -142,7 +142,7 @@ const Track = styled('label', {
   }
 })
 
-Track.displayName = 'Switch-Track'
+Track.displayName = 'stitches(Switch.Track)'
 
 const Wrapper = styled('div', {
   display: 'inline-block',
@@ -164,7 +164,7 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'Switch-Wrapper'
+Wrapper.displayName = 'stitches(Switch.Wrapper)'
 
 type InputProps = ComponentProps<'input'>
 

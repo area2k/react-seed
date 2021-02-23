@@ -28,11 +28,18 @@ const IconicButton = styled(Button, {
         $$boxSize: '42px',
         $$fontSize: '$fontSizes$xxl'
       }
+    },
+    rounded: {
+      true: {
+        borderRadius: '$round'
+      },
+      false: {}
     }
   },
 
   defaultVariants: {
-    size: 'md'
+    size: 'md',
+    rounded: false
   }
 })
 

@@ -3,6 +3,8 @@ import styled from '@/styles'
 import Table from '@/elements/Table'
 
 const Card = styled('div', {
+  width: '100%',
+
   backgroundColor: 'white',
   borderRadius: '$lg',
   boxShadow: '$1',
@@ -29,9 +31,9 @@ const Body = styled('div', {
   }
 })
 
-Card.displayName = 'Card'
-Heading.displayName = 'Card-Heading'
-Body.displayName = 'Card-Body'
+Card.displayName = 'stitches(Card)'
+Heading.displayName = 'stitches(Card.Heading)'
+Body.displayName = 'stitches(Card.Body)'
 
 export { Body, Heading }
 export default Card

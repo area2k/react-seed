@@ -18,7 +18,7 @@ const Wrapper = styled('div', {
   color: 'white'
 })
 
-Wrapper.displayName = 'Navbar-Wrapper'
+Wrapper.displayName = 'stitches(Navbar.Wrapper)'
 
 const Branding = styled('div', {
   alignItems: 'center',
@@ -30,7 +30,7 @@ const Branding = styled('div', {
   overflow: 'hidden'
 })
 
-Branding.displayName = 'Navbar-Branding'
+Branding.displayName = 'stitches(Navbar.Branding)'
 
 const Navbar = () => {
   return (

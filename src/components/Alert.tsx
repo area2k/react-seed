@@ -27,7 +27,7 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'Alert-Wrapper'
+Wrapper.displayName = 'stitches(Alert.Wrapper)'
 
 const TextContent = styled('div', {
   display: 'flex',
@@ -36,7 +36,7 @@ const TextContent = styled('div', {
   paddingLeft: '1.5rem'
 })
 
-TextContent.displayName = 'Alert-TextContent'
+TextContent.displayName = 'stitches(Alert.TextContent)'
 
 type Props = StitchesProps<typeof Wrapper> & {
   description: string

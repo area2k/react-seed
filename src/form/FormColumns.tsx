@@ -53,6 +53,6 @@ const FormColumns = styled('div', {
   }
 })
 
-FormColumns.displayName = 'FormColumns'
+FormColumns.displayName = 'stitches(FormColumns)'
 
 export default FormColumns

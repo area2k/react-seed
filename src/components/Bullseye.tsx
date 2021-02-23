@@ -142,7 +142,7 @@ const Target = styled('label', {
   }
 })
 
-Target.displayName = 'Bullseye-Target'
+Target.displayName = 'stitches(Bullseye.Target)'
 
 const Wrapper = styled('div', {
   display: 'inline-block',
@@ -164,7 +164,7 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'Bullseye-Wrapper'
+Wrapper.displayName = 'stitches(Bullseye.Wrapper)'
 
 type InputProps = ComponentProps<'input'>
 

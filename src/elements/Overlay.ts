@@ -16,6 +16,6 @@ const Overlay = styled('div', {
   zIndex: '$overlay'
 })
 
-Overlay.displayName = 'Overlay'
+Overlay.displayName = 'stitches(Overlay)'
 
 export default Overlay

@@ -12,6 +12,6 @@ const TableHead = styled('thead', {
   }
 })
 
-TableHead.displayName = 'Table-TableHead'
+TableHead.displayName = 'stitches(Table.TableHead)'
 
 export default TableHead

@@ -84,7 +84,7 @@ const Wrapper = styled('div', {
   }]
 })
 
-Wrapper.displayName = 'Popover-Wrapper'
+Wrapper.displayName = 'stitches(Popover.Wrapper)'
 
 export type Props = ComponentProps<'div'> & Omit<StitchesVariants<typeof Wrapper>, 'status'> & {
   disableClickout?: boolean

@@ -16,8 +16,8 @@ const Label = styled('label', {
   fontWeight: '$medium'
 })
 
-Wrapper.displayName = 'FormElement-Wrapper'
-Label.displayName = 'FormElement-Label'
+Wrapper.displayName = 'stitches(FormElement.Wrapper)'
+Label.displayName = 'stitches(FormElement.Label)'
 
 type Props = {
   htmlFor?: string

@@ -138,7 +138,7 @@ const Box = styled('label', {
   }
 })
 
-Box.displayName = 'Checkbox-Box'
+Box.displayName = 'stitches(Checkbox.Box)'
 
 const Wrapper = styled('div', {
   display: 'inline-block',
@@ -160,7 +160,7 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'Checkbox-Wrapper'
+Wrapper.displayName = 'stitches(Checkbox.Wrapper)'
 
 type InputProps = ComponentProps<'input'>
 

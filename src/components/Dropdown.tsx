@@ -13,6 +13,8 @@ const Wrapper = styled('div', {
   boxShadow: '$3'
 })
 
+Wrapper.displayName = 'stitches(Dropdown.Wrapper)'
+
 type OmittedPopoverProps = Omit<PopoverProps, 'isOpen' | 'onRequestClose'>
 
 type ContentProps = {

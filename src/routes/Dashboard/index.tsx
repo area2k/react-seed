@@ -29,6 +29,7 @@ import { useState } from 'react'
 import Popover from '@/components/Popover'
 import DropdownMenu from '@/components/DropdownMenu'
 import Dropdown from '@/components/Dropdown'
+import Stack from '@/components/Stack'
 
 type FormValues = {
   checkboxGroup: string[]
@@ -64,197 +65,201 @@ const Dashboard = () => {
         </Text>
       </div>
       <SingleColumnLayout>
-        <Card>
-          <Heading>
-            <Subheading>
-              Testing modals
-            </Subheading>
-          </Heading>
-          <Body>
-            <Button text='Open modal' onClick={() => showModal()} />
-          </Body>
-        </Card>
-        <Card css={{ marginTop: '32px' }}>
-          <Heading>
-            <Subheading>
-              Testing tooltips
-            </Subheading>
-          </Heading>
-          <Body>
-            <Tooltip
-              align='middle'
-              justify='outside-right'
-              id='tooltip-test'
-              text='Click the button, it does nothing'
-            >
-              <Button text='Show tooltip' />
-            </Tooltip>
-          </Body>
-        </Card>
-        <Card css={{ marginTop: '32px' }}>
-          <Heading>
-            <Subheading>
-              Testing dropdown menu
-            </Subheading>
-          </Heading>
-          <Body>
-            <Dropdown
-              align='below'
-              id='dropdown-test'
-              Content={
-                () => (
-                  <>Hello world</>
-                )
-              }
-            >
-              <Button appearance='secondary' status='theme' text='Show filters' />
-            </Dropdown>
-            <DropdownMenu
-              align='below'
-              id='dropdown-menu-test'
-              items={[
-                [
-                  { icon: faUser, text: 'My profile', onClick: () => console.log('account') },
-                  { icon: faStar, text: 'My stars', onClick: () => console.log('stars') },
-                  { icon: faCog, text: 'Settings', onClick: () => console.log('settings') },
-                ],
-                [
-                  { icon: faSignOutAlt, text: 'Sign out', onClick: () => console.log('signout') }
-                ]
-              ]}
-            >
-              <Button
-                appearance='secondary'
-                status='neutral'
-                text='Show dropdown menu'
-              />
-            </DropdownMenu>
-          </Body>
-        </Card>
-        <Card css={{ marginTop: '2rem' }}>
-          <Heading>
-            <Subheading>
-              Table content
-            </Subheading>
-          </Heading>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableHeading style={{ width: '40%' }}>
-                  Name
-                </TableHeading>
-                <TableHeading style={{ width: '40%' }}>
-                  Email
-                </TableHeading>
-                <TableHeading style={{ width: '20%' }}>
-                  Admin?
-                </TableHeading>
-              </TableRow>
-            </TableHead>
-            <tbody>
-              <TableRow>
-                <TableCell>
-                  Andrew Rempe
-                </TableCell>
-                <TableCell>
-                  arempe@area2k.com
-                </TableCell>
-                <TableCell>
-                  Yes
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  Eric Ashman
-                </TableCell>
-                <TableCell>
-                  eashman@area2k.com
-                </TableCell>
-                <TableCell>
-                  Yes
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  Bill Story
-                </TableCell>
-                <TableCell>
-                  bstory@area2k.com
-                </TableCell>
-                <TableCell>
-                  No
-                </TableCell>
-              </TableRow>
-            </tbody>
-          </Table>
-        </Card>
-        <Card css={{ marginTop: '2rem' }}>
-          <Heading>
-            <Subheading>
-              Form elements
-            </Subheading>
-          </Heading>
-          <Body>
-            <Form
-              initialValues={initialValues}
-              onSubmit={handleSubmit}
-            >
-              <TextField
-                fieldId='text'
-                label='Text field'
-                placeholder='Text content'
-              />
-              <TextSelectField
-                fieldId='textSelect'
-                label='Text select field'
-                placeholder='Select an option...'
+        <Stack vertical gap={18}>
+          <Card>
+            <Heading>
+              <Subheading>
+                Testing modals
+              </Subheading>
+            </Heading>
+            <Body>
+              <Button text='Open modal' onClick={() => showModal()} />
+            </Body>
+          </Card>
+          <Card>
+            <Heading>
+              <Subheading>
+                Testing tooltips
+              </Subheading>
+            </Heading>
+            <Body>
+              <Tooltip
+                align='middle'
+                justify='outside-right'
+                id='tooltip-test'
+                text='Click the button, it does nothing'
               >
-                <option value='opt1'>Option 1</option>
-                <option value='opt2'>Option 2</option>
-                <option value='opt3'>Option 3</option>
-              </TextSelectField>
-              <OptionField
-                appearance='switch'
-                fieldId='switch'
-                label='Switch field'
-              />
-              <FormColumns>
-                <SingleOptionGroupField
-                  fieldId='radioGroup'
-                  label='Select the most important radio:'
-                  options={[
-                    { label: 'Radio 1', value: 'radio1' },
-                    { label: 'Radio 2', value: 'radio2' },
-                    { label: 'Radio 3', value: 'radio3', disabled: true },
+                <Button text='Show tooltip' />
+              </Tooltip>
+            </Body>
+          </Card>
+          <Card>
+            <Heading>
+              <Subheading>
+                Testing dropdown menu
+              </Subheading>
+            </Heading>
+            <Body>
+              <Stack>
+                <Dropdown
+                  align='below'
+                  id='dropdown-test'
+                  Content={
+                    () => (
+                      <>Hello world</>
+                    )
+                  }
+                >
+                  <Button appearance='secondary' status='theme' text='Show filters' />
+                </Dropdown>
+                <DropdownMenu
+                  align='below'
+                  id='dropdown-menu-test'
+                  items={[
+                    [
+                      { icon: faUser, text: 'My profile', onClick: () => console.log('account') },
+                      { icon: faStar, text: 'My stars', onClick: () => console.log('stars') },
+                      { icon: faCog, text: 'Settings', onClick: () => console.log('settings') },
+                    ],
+                    [
+                      { icon: faSignOutAlt, text: 'Sign out', onClick: () => console.log('signout') }
+                    ]
                   ]}
+                >
+                  <Button
+                    appearance='secondary'
+                    status='neutral'
+                    text='Show dropdown menu'
+                  />
+                </DropdownMenu>
+              </Stack>
+            </Body>
+          </Card>
+          <Card>
+            <Heading>
+              <Subheading>
+                Table content
+              </Subheading>
+            </Heading>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableHeading style={{ width: '40%' }}>
+                    Name
+                  </TableHeading>
+                  <TableHeading style={{ width: '40%' }}>
+                    Email
+                  </TableHeading>
+                  <TableHeading style={{ width: '20%' }}>
+                    Admin?
+                  </TableHeading>
+                </TableRow>
+              </TableHead>
+              <tbody>
+                <TableRow>
+                  <TableCell>
+                    Andrew Rempe
+                  </TableCell>
+                  <TableCell>
+                    arempe@area2k.com
+                  </TableCell>
+                  <TableCell>
+                    Yes
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    Eric Ashman
+                  </TableCell>
+                  <TableCell>
+                    eashman@area2k.com
+                  </TableCell>
+                  <TableCell>
+                    Yes
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    Bill Story
+                  </TableCell>
+                  <TableCell>
+                    bstory@area2k.com
+                  </TableCell>
+                  <TableCell>
+                    No
+                  </TableCell>
+                </TableRow>
+              </tbody>
+            </Table>
+          </Card>
+          <Card>
+            <Heading>
+              <Subheading>
+                Form elements
+              </Subheading>
+            </Heading>
+            <Body>
+              <Form
+                initialValues={initialValues}
+                onSubmit={handleSubmit}
+              >
+                <TextField
+                  fieldId='text'
+                  label='Text field'
+                  placeholder='Text content'
                 />
-                <MultiOptionGroupField
-                  fieldId='checkboxGroup'
-                  label='Select all that apply:'
-                  options={[
-                    { label: 'Checkbox 1', value: 'check1' },
-                    { label: 'Checkbox 2', value: 'check2', disabled: true },
-                    { label: 'Checkbox 3', value: 'check3' }
-                  ]}
+                <TextSelectField
+                  fieldId='textSelect'
+                  label='Text select field'
+                  placeholder='Select an option...'
+                >
+                  <option value='opt1'>Option 1</option>
+                  <option value='opt2'>Option 2</option>
+                  <option value='opt3'>Option 3</option>
+                </TextSelectField>
+                <OptionField
+                  appearance='switch'
+                  fieldId='switch'
+                  label='Switch field'
                 />
-              </FormColumns>
-              <MaskedInputField
-                required
-                fieldId='masked'
-                label='Phone number'
-                mask='(000) 000-0000'
-                placeholder='Enter phone number'
-              />
-              <FormFooter>
-                <Button
-                  iconLeft={faCheck}
-                  text='Submit'
-                  type='submit'
+                <FormColumns>
+                  <SingleOptionGroupField
+                    fieldId='radioGroup'
+                    label='Select the most important radio:'
+                    options={[
+                      { label: 'Radio 1', value: 'radio1' },
+                      { label: 'Radio 2', value: 'radio2' },
+                      { label: 'Radio 3', value: 'radio3', disabled: true },
+                    ]}
+                  />
+                  <MultiOptionGroupField
+                    fieldId='checkboxGroup'
+                    label='Select all that apply:'
+                    options={[
+                      { label: 'Checkbox 1', value: 'check1' },
+                      { label: 'Checkbox 2', value: 'check2', disabled: true },
+                      { label: 'Checkbox 3', value: 'check3' }
+                    ]}
+                  />
+                </FormColumns>
+                <MaskedInputField
+                  required
+                  fieldId='masked'
+                  label='Phone number'
+                  mask='(000) 000-0000'
+                  placeholder='Enter phone number'
                 />
-              </FormFooter>
-            </Form>
-          </Body>
-        </Card>
+                <FormFooter>
+                  <Button
+                    iconLeft={faCheck}
+                    text='Submit'
+                    type='submit'
+                  />
+                </FormFooter>
+              </Form>
+            </Body>
+          </Card>
+        </Stack>
       </SingleColumnLayout>
     </>
   )

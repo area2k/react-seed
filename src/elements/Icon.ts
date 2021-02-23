@@ -32,6 +32,6 @@ export const Icon = styled(FontAwesomeIcon, {
   }
 })
 
-Icon.displayName = 'Icon'
+Icon.displayName = 'stitches(Icon)'
 
 export default Icon

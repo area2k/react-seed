@@ -16,6 +16,6 @@ const TableCell = styled('td', {
   }
 })
 
-TableCell.displayName = 'Table-TableCell'
+TableCell.displayName = 'stitches(Table.TableCell)'
 
 export default TableCell

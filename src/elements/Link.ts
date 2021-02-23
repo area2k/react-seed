@@ -30,6 +30,6 @@ const Link = styled(ReactRouterLink, {
   }
 })
 
-Link.displayName = 'Link'
+Link.displayName = 'stitches(Link)'
 
 export default Link
