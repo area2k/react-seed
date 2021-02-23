@@ -247,14 +247,14 @@ const Button = styled('button', {
     appearance: 'secondary',
     status: 'neutral',
     css: {
-      $$bgColor: '$colors$neutralA8',
+      $$bgColor: '$colors$neutralA12',
       $$borderColor: 'transparent',
       $$textColor: '$colors$neutralDarkest',
 
-      $$hoverBgColor: '$colors$neutralA12',
+      $$hoverBgColor: '$colors$neutralA16',
       $$hoverBorderColor: 'transparent',
 
-      $$activeBgColor: '$colors$neutralA16',
+      $$activeBgColor: '$colors$neutralA24',
       $$activeBorderColor: 'transparent',
     }
   }, {

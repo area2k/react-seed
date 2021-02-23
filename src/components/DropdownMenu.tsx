@@ -1,24 +1,19 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { Children, cloneElement, Fragment, ReactElement, useCallback, useState } from 'react'
+import { Fragment, useCallback } from 'react'
 
 import styled from '@/styles'
 
 import Icon from '@/elements/Icon'
 import Text from '@/elements/Text'
 
-import Popover, { Props as PopoverProps } from '@/components/Popover'
+import Dropdown, { Props as DropdownProps } from '@/components/Dropdown'
 
 import { KeyNames } from '@/util/constants'
 import { pauseEvent } from '@/util/events'
 
 const Wrapper = styled('ul', {
   display: 'block',
-  minWidth: '100%',
-  padding: '4px 0',
-
-  backgroundColor: 'white',
-  borderRadius: '$lg',
-  boxShadow: '$3'
+  padding: '4px 0'
 })
 
 const Item = styled('li', {
@@ -53,37 +48,18 @@ const Separator = styled('li', {
   borderBottom: '1px solid $colors$neutralLightest'
 })
 
-type HoistedPopoverProps = Pick<PopoverProps, 'align' | 'disableClickout' | 'id' | 'justify' | 'size'>
-
 type MenuItem = { icon?: IconDefinition, text: string, onClick: () => void }
 
-type Props = HoistedPopoverProps & {
-  children: ReactElement<any, any>
+type Props = Omit<DropdownProps, 'Content'> & {
   disableCloseOnClick?: boolean
-  forceOpen?: boolean
   items: MenuItem[][]
 }
-
-const DropdownMenu = ({ align = 'top', children, disableCloseOnClick = false, forceOpen, items, justify = 'left', size = 'parent', ...rest }: Props) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleIsOpen = useCallback(() => setIsOpen((prevState) => !prevState), [])
-  const setClosed = useCallback(() => setIsOpen(false), [])
-
-  const closeAfter = useCallback((onClick: () => void) => () => {
-    onClick()
-    if (!disableCloseOnClick) setClosed()
-  }, [disableCloseOnClick])
-
+``
+const DropdownMenu = ({ disableCloseOnClick = false, items, ...props }: Props) => {
   const handleKeyCommands = useCallback((ev: React.KeyboardEvent<HTMLDivElement>) => {
     // https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-12
     switch (ev.key) {
-      case KeyNames.Escape:
-        ev.stopPropagation()
-        setClosed()
-        break;
-
-      // TODO: other keyboard interactions
+      // TODO: menu keyboard interactions
       // case KeyNames.Up:
       //   // move focus up 1 item + wrap
       //   break;
@@ -100,53 +76,44 @@ const DropdownMenu = ({ align = 'top', children, disableCloseOnClick = false, fo
   }, [])
 
   return (
-    <div
-      style={{ display: 'inline-block', position: 'relative' }}
+    <Dropdown
+      {...props}
       onKeyDown={handleKeyCommands}
-    >
-      {cloneElement(Children.only(children), {
-        'aria-haspopup': true,
-        'aria-expanded': forceOpen || isOpen,
-        onClick: pauseEvent(toggleIsOpen)
-      })}
-      <Popover
-        {...rest}
-        align={align}
-        isOpen={forceOpen || isOpen}
-        justify={justify}
-        role='menu'
-        size={size}
-        onRequestClose={setClosed}
-      >
-        <Wrapper role='menu'>
-          {items.map((group, groupIndex) => (
-            <Fragment key={`group-${groupIndex}`}>
-              {group.map((item, itemIndex) => (
-                <Item
-                  key={`item-${groupIndex}-${itemIndex}`}
-                  aria-label={item.text}
-                  role='menuitem'
-                  tabIndex={0}
-                  onClick={pauseEvent(closeAfter(item.onClick))}
-                >
-                  {item.icon &&
-                    <Text color='inherit' size='md'>
-                      <Icon fixedWidth icon={item.icon} />
+      Content={
+        ({ closeDropdown }) => (
+          <Wrapper role='menu'>
+            {items.map((group, groupIndex) => (
+              <Fragment key={`group-${groupIndex}`}>
+                {group.map((item, itemIndex) => (
+                  <Item
+                    key={`item-${groupIndex}-${itemIndex}`}
+                    aria-label={item.text}
+                    role='menuitem'
+                    tabIndex={0}
+                    onClick={pauseEvent(() => {
+                      item.onClick()
+                      if (!disableCloseOnClick) closeDropdown()
+                    })}
+                  >
+                    {item.icon &&
+                      <Text color='inherit' size='md'>
+                        <Icon fixedWidth icon={item.icon} />
+                      </Text>
+                    }
+                    <Text color='inherit' size='md' weight='inherit'>
+                      {item.text}
                     </Text>
-                  }
-                  <Text color='inherit' size='md' weight='inherit'>
-                    {item.text}
-                  </Text>
-                </Item>
-              ))}
-              {groupIndex < items.length - 1 &&
-                <Separator aria-hidden role='separator' />
-              }
-            </Fragment>
-          ))}
-        </Wrapper>
-      </Popover>
-    </div>
+                  </Item>
+                ))}
+                {groupIndex < items.length - 1 &&
+                  <Separator aria-hidden role='separator' />
+                }
+              </Fragment>
+            ))}
+          </Wrapper>
+        )
+      }
+    />
   )
 }
 

@@ -28,6 +28,7 @@ import TextSelectField from '@/form/TextSelectField'
 import { useState } from 'react'
 import Popover from '@/components/Popover'
 import DropdownMenu from '@/components/DropdownMenu'
+import Dropdown from '@/components/Dropdown'
 
 type FormValues = {
   checkboxGroup: string[]
@@ -43,8 +44,6 @@ const initialValues: FormValues = {
 }
 
 const Dashboard = () => {
-  const [isTooltipActive, setIsTooltipActive] = useState(false)
-
   const [showModal, hideModal] = useModal(() => (
     <Modal title='Test modal' onRequestClose={hideModal}>
       <div style={{ padding: '2rem' }}>
@@ -99,6 +98,17 @@ const Dashboard = () => {
             </Subheading>
           </Heading>
           <Body>
+            <Dropdown
+              align='below'
+              id='dropdown-test'
+              Content={
+                () => (
+                  <>Hello world</>
+                )
+              }
+            >
+              <Button appearance='secondary' status='theme' text='Show filters' />
+            </Dropdown>
             <DropdownMenu
               align='below'
               id='dropdown-menu-test'
@@ -113,7 +123,11 @@ const Dashboard = () => {
                 ]
               ]}
             >
-              <Button text='Show dropdown' />
+              <Button
+                appearance='secondary'
+                status='neutral'
+                text='Show dropdown menu'
+              />
             </DropdownMenu>
           </Body>
         </Card>
