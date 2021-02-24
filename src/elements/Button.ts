@@ -1,5 +1,7 @@
 import styled from '@/styles'
 
+import ButtonGroup from '@/elements/ButtonGroup'
+
 const Button = styled('button', {
   $$bgColor: '$colors$themeDefault',
   $$borderColor: '$colors$themeDefault',
@@ -69,6 +71,22 @@ const Button = styled('button', {
     }
   },
 
+  [`${ButtonGroup} &`]: {
+    borderRadius: 0
+  },
+
+  [`${ButtonGroup}>:first-child &, ${ButtonGroup} > &:first-child`]: {
+    borderRadius: '$lg 0 0 $lg'
+  },
+
+  [`${ButtonGroup}>:last-child &, ${ButtonGroup} > &:last-child`]: {
+    borderRadius: '0 $lg $lg 0'
+  },
+
+  [`${ButtonGroup}>:not(first-child) &, ${ButtonGroup} > &:not(:first-child)`]: {
+    marginLeft: '-1px'
+  },
+
   variants: {
     appearance: {
       primary: {},
@@ -85,13 +103,13 @@ const Button = styled('button', {
       },
       outline: {
         $$bgColor: 'transparent',
-        $$borderColor: '$colors$neutralLighter',
-        $$textColor: '$colors$textLight',
+        $$borderColor: '$colors$neutralLight',
+        $$textColor: '$colors$textDefault',
 
-        $$hoverBgColor: 'transparent',
+        $$hoverBgColor: '$colors$neutralA4',
         $$hoverBorderColor: '$colors$neutralLight',
 
-        $$activeBgColor: '$colors$neutralA4',
+        $$activeBgColor: '$colors$neutralA8',
         $$activeBorderColor: '$colors$neutralLight',
       },
       clear: {
@@ -178,14 +196,14 @@ const Button = styled('button', {
     status: 'success',
     css: {
       $$bgColor: 'transparent',
-      $$borderColor: '$colors$successLighter',
-      $$textColor: '$colors$successDarker',
+      $$borderColor: '$colors$successLight',
+      $$textColor: '$colors$successDarkest',
 
-      $$hoverBgColor: 'transparent',
-      $$hoverBorderColor: '$colors$successLight',
+      $$hoverBgColor: '$colors$successA8',
+      $$hoverBorderColor: '$colors$successDefault',
 
-      $$activeBgColor: '$colors$successA4',
-      $$activeBorderColor: '$colors$successLight',
+      $$activeBgColor: '$colors$successA12',
+      $$activeBorderColor: '$colors$successDefault',
     }
   }, {
     appearance: 'clear',
@@ -220,14 +238,14 @@ const Button = styled('button', {
     status: 'danger',
     css: {
       $$bgColor: 'transparent',
-      $$borderColor: '$colors$dangerLightest',
-      $$textColor: '$colors$dangerDark',
+      $$borderColor: '$colors$dangerLight',
+      $$textColor: '$colors$dangerDarker',
 
-      $$hoverBgColor: 'transparent',
-      $$hoverBorderColor: '$colors$dangerLighter',
+      $$hoverBgColor: '$colors$dangerA4',
+      $$hoverBorderColor: '$colors$dangerLight',
 
-      $$activeBgColor: '$colors$dangerA4',
-      $$activeBorderColor: '$colors$dangerLighter',
+      $$activeBgColor: '$colors$dangerA8',
+      $$activeBorderColor: '$colors$dangerLight',
     }
   }, {
     appearance: 'clear',
@@ -262,13 +280,13 @@ const Button = styled('button', {
     status: 'neutral',
     css: {
       $$bgColor: 'transparent',
-      $$borderColor: '$colors$neutralLighter',
-      $$textColor: '$colors$textLight',
+      $$borderColor: '$colors$neutralLight',
+      $$textColor: '$colors$textDefault',
 
-      $$hoverBgColor: 'transparent',
+      $$hoverBgColor: '$colors$neutralA4',
       $$hoverBorderColor: '$colors$neutralLight',
 
-      $$activeBgColor: '$colors$neutralA4',
+      $$activeBgColor: '$colors$neutralA8',
       $$activeBorderColor: '$colors$neutralLight',
     }
   }, {

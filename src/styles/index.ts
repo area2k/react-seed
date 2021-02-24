@@ -1,4 +1,4 @@
-import { createCss } from '@stitches/react'
+import { createCss, InternalCSS } from '@stitches/react'
 
 import colors from '@/styles/colors'
 import fonts from '@/styles/typography'
@@ -57,6 +57,12 @@ const { styled, css, global } = createCss({
     mediaSmallDesktop: '@media(min-width: 900px)',
     mediaDesktop: '@media(min-width: 1200px)',
     mediaLargeDesktop: '@media(min-width: 1800px)'
+  },
+  utils: {
+    boxSize: (_config) => (value: string | number) => ({
+      height: value,
+      width: value
+    })
   }
 })
 

@@ -1,27 +1,52 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { StitchesProps } from '@stitches/react'
+import { StitchesVariants } from '@stitches/react'
+import { ComponentPropsWithoutRef } from 'react'
 
 import styled from '@/styles'
 
 import Icon from '@/elements/Icon'
 import Text from '@/elements/Text'
 
+import Stack from '@/components/Stack'
+import { Body, Subheading } from '@/components/Typography'
+
 const Wrapper = styled('div', {
+  $$bgColor: '$colors$neutralA8',
+  $$borderColor: '$colors$neutralLight',
+  $$iconColor: '$colors$textDefault',
+
+  alignItems: 'flex-start',
   display: 'flex',
-  padding: '1rem 1.5rem',
+  gap: '1rem',
+  padding: '1rem',
 
-  backgroundColor: '$YA32',
-  borderRadius: '$md',
-
-  fontSize: '1.25rem',
+  backgroundColor: '$$bgColor',
+  border: '1px solid $$borderColor',
+  borderRadius: '$lg',
+  color: '$$iconColor',
 
   variants: {
     status: {
+      neutral: {},
+      theme: {
+        $$bgColor: '$colors$themeA8',
+        $$borderColor: '$colors$themeLightest',
+        $$iconColor: '$colors$themeDarker'
+      },
+      success: {
+        $$bgColor: '$colors$successA8',
+        $$borderColor: '$colors$successLightest',
+        $$iconColor: '$colors$successDarker'
+      },
       warning: {
-        backgroundColor: '$YA32'
+        $$bgColor: '$colors$warningA8',
+        $$borderColor: '$colors$warningLighter',
+        $$iconColor: '$colors$warningDarkest'
       },
       danger: {
-        backgroundColor: '$RA16'
+        $$bgColor: '$colors$dangerA8',
+        $$borderColor: '$colors$dangerLightest',
+        $$iconColor: '$colors$dangerDarker'
       }
     }
   }
@@ -29,16 +54,7 @@ const Wrapper = styled('div', {
 
 Wrapper.displayName = 'stitches(Alert.Wrapper)'
 
-const TextContent = styled('div', {
-  display: 'flex',
-  flex: 1,
-  flexDirection: 'column',
-  paddingLeft: '1.5rem'
-})
-
-TextContent.displayName = 'stitches(Alert.TextContent)'
-
-type Props = StitchesProps<typeof Wrapper> & {
+type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wrapper> & {
   description: string
   icon: IconDefinition
   title: string
@@ -47,17 +63,17 @@ type Props = StitchesProps<typeof Wrapper> & {
 const Alert = ({ description, icon, title, ...props }: Props) => {
   return (
     <Wrapper {...props}>
-      <div>
-        <Icon icon={icon} />
-      </div>
-      <TextContent>
-        <Text weight='semibold'>
-          {title}
-        </Text>
-        <Text size='sm'>
+      <Text color='inherit' size='lg'>
+        <Icon fixedWidth icon={icon} />
+      </Text>
+      <Stack vertical align='start' gap={4}>
+        <Subheading>
+          <strong>{title}</strong>
+        </Subheading>
+        <Body>
           {description}
-        </Text>
-      </TextContent>
+        </Body>
+      </Stack>
     </Wrapper>
   )
 }

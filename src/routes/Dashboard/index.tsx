@@ -1,9 +1,10 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
-import { faBan, faCheck, faChevronDown, faCog, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBan, faCheck, faChevronDown, faCog, faExclamationCircle, faInfoCircle, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import styled from '@/styles'
 
+import ButtonGroup from '@/elements/ButtonGroup'
 import Card, { Body, Heading } from '@/elements/Card'
 import FormFooter from '@/elements/FormFooter'
 import Icon from '@/elements/Icon'
@@ -30,6 +31,8 @@ import Popover from '@/components/Popover'
 import DropdownMenu from '@/components/DropdownMenu'
 import Dropdown from '@/components/Dropdown'
 import Stack from '@/components/Stack'
+import Alert from '@/components/Alert'
+import Tag from '@/components/Tag'
 
 type FormValues = {
   checkboxGroup: string[]
@@ -73,7 +76,11 @@ const Dashboard = () => {
               </Subheading>
             </Heading>
             <Body>
-              <Button text='Open modal' onClick={() => showModal()} />
+              <Stack>
+                <Tag text='Customer enabled' onDismiss={console.log} />
+                <Tag text='Tagged with critical' onDismiss={console.log} />
+                <Button text='Open modal' onClick={() => showModal()} />
+              </Stack>
             </Body>
           </Card>
           <Card>
@@ -83,13 +90,21 @@ const Dashboard = () => {
               </Subheading>
             </Heading>
             <Body>
+              <Alert
+                description='Something has gone wrong with your tooltips.'
+                icon={faExclamationCircle}
+                status='warning'
+                title='Tooltip problem'
+              />
+            </Body>
+            <Body>
               <Tooltip
                 align='middle'
                 justify='outside-right'
                 id='tooltip-test'
-                text='Click the button, it does nothing'
+                text='Button disengaged for your safety'
               >
-                <Button text='Show tooltip' />
+                <Button appearance='outline' text='Show tooltip' />
               </Tooltip>
             </Body>
           </Card>
@@ -100,7 +115,7 @@ const Dashboard = () => {
               </Subheading>
             </Heading>
             <Body>
-              <Stack>
+              <ButtonGroup>
                 <Dropdown
                   align='below'
                   id='dropdown-test'
@@ -110,8 +125,9 @@ const Dashboard = () => {
                     )
                   }
                 >
-                  <Button appearance='secondary' status='theme' text='Show filters' />
+                  <Button appearance='outline' text='Show filters' />
                 </Dropdown>
+                <Button appearance='outline' text='Save settings' />
                 <DropdownMenu
                   align='below'
                   id='dropdown-menu-test'
@@ -127,12 +143,11 @@ const Dashboard = () => {
                   ]}
                 >
                   <Button
-                    appearance='secondary'
-                    status='neutral'
+                    appearance='outline'
                     text='Show dropdown menu'
                   />
                 </DropdownMenu>
-              </Stack>
+              </ButtonGroup>
             </Body>
           </Card>
           <Card>

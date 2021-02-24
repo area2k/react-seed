@@ -40,13 +40,23 @@ export const successAlphas = {
 }
 
 export const warning = {
-  warningDarkest: '#1F3AB2',
-  warningDarker: '#2442CB',
-  warningDark: '#294BE5',
-  warningDefault: '#2D53FE',
-  warningLight: '#5775FE',
-  warningLighter: '#8198FE',
-  warningLightest: '#ABBAFF'
+  warningDarkest: '#b37839',
+  warningDarker: '#cc8941',
+  warningDark: '#e69a49',
+  warningDefault: '#ffab51',
+  warningLight: '#ffbc74',
+  warningLighter: '#ffcd97',
+  warningLightest: '#ffddb9'
+}
+
+export const warningAlphas = {
+  warningA48: 'rgba(255, 171, 81, 0.48)',
+  warningA32: 'rgba(255, 171, 81, 0.32)',
+  warningA24: 'rgba(255, 171, 81, 0.24)',
+  warningA16: 'rgba(255, 171, 81, 0.16)',
+  warningA12: 'rgba(255, 171, 81, 0.12)',
+  warningA8: 'rgba(255, 171, 81, 0.08)',
+  warningA4: 'rgba(255, 171, 81, 0.04)'
 }
 
 export const danger = {
@@ -120,6 +130,7 @@ export default {
   ...success,
   ...successAlphas,
   ...warning,
+  ...warningAlphas,
   ...danger,
   ...dangerAlphas,
   ...netural,

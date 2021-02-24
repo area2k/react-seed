@@ -69,6 +69,7 @@ type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wrapper> 
 }
 
 const Stack: FC<Props> = ({ horizontalGap = 8, gap, verticalGap = 8, style = {}, ...props }) => {
+  const alignDefault = props.vertical ? 'start' : 'center'
   const gapStyles = {
     columnGap: gap || verticalGap,
     rowGap: gap || horizontalGap
@@ -76,6 +77,7 @@ const Stack: FC<Props> = ({ horizontalGap = 8, gap, verticalGap = 8, style = {},
 
   return (
     <Wrapper
+      align={alignDefault}
       {...props}
       style={{ ...style, ...gapStyles }}
     />
