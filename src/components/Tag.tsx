@@ -51,6 +51,11 @@ const CloseButton = styled('button', {
 
   '&:hover': {
     backgroundColor: '$neutralA8'
+  },
+
+  focusPseudoElement: {
+    baseRadius: '0 $lg $lg 0',
+    element: 'after'
   }
 })
 

@@ -17,7 +17,7 @@ const Button = styled('button', {
   $$disabledBorderColor: '$colors$neutralLightest',
   $$disabledTextColor: '$colors$textLightest',
 
-  $$focusRingColor: '$colors$themeA48',
+  $$focusRingColor: '$colors$themeLight',
 
   alignItems: 'center',
   display: 'inline-flex',
@@ -34,7 +34,6 @@ const Button = styled('button', {
   color: '$$textColor',
   cursor: 'pointer',
   outline: 'none',
-  overflow: 'hidden',
 
   fontFamily: '$inter',
   fontSize: '$md',
@@ -55,10 +54,6 @@ const Button = styled('button', {
     borderColor: '$$activeBorderColor'
   },
 
-  '&:focus-visible': {
-    boxShadow: '0 0 0px 3px $$focusRingColor'
-  },
-
   '&[disabled]': {
     backgroundColor: '$$disabledBgColor',
     borderColor: '$$disabledBorderColor',
@@ -71,16 +66,35 @@ const Button = styled('button', {
     }
   },
 
+  focusPseudoElement: {
+    element: 'after',
+    baseRadius: '$lg',
+    borderWidth: 1,
+    ringColor: '$$focusRingColor'
+  },
+
   [`${ButtonGroup} &`]: {
-    borderRadius: 0
+    borderRadius: 0,
+
+    '&::after': {
+      borderRadius: 0
+    }
   },
 
   [`${ButtonGroup}>:first-child &, ${ButtonGroup} > &:first-child`]: {
-    borderRadius: '$lg 0 0 $lg'
+    borderRadius: '$lg 0 0 $lg',
+
+    '&::after': {
+      borderRadius: '$lg 0 0 $lg'
+    }
   },
 
   [`${ButtonGroup}>:last-child &, ${ButtonGroup} > &:last-child`]: {
-    borderRadius: '0 $lg $lg 0'
+    borderRadius: '0 $lg $lg 0',
+
+    '&::after': {
+      borderRadius: '0 $lg $lg 0'
+    }
   },
 
   [`${ButtonGroup}>:not(first-child) &, ${ButtonGroup} > &:not(:first-child)`]: {
@@ -137,7 +151,7 @@ const Button = styled('button', {
         $$activeBgColor: '$colors$successDarker',
         $$activeBorderColor: '$colors$successDarker',
 
-        $$focusRingColor: '$colors$successA48'
+        $$focusRingColor: '$colors$successDefault'
       },
       danger: {
         $$bgColor: '$colors$dangerDefault',
@@ -150,7 +164,7 @@ const Button = styled('button', {
         $$activeBgColor: '$colors$dangerDarker',
         $$activeBorderColor: '$colors$dangerDarker',
 
-        $$focusRingColor: '$colors$dangerA48'
+        $$focusRingColor: '$colors$dangerLight'
       },
       neutral: {
         $$bgColor: '$colors$neutralDark',
@@ -172,7 +186,9 @@ const Button = styled('button', {
         $$hoverBorderColor: 'transparent',
 
         $$activeBgColor: '$colors$whiteA84',
-        $$activeBorderColor: 'transparent'
+        $$activeBorderColor: 'transparent',
+
+        $$focusRingColor: 'white'
       }
     }
   },

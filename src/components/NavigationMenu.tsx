@@ -25,13 +25,13 @@ const Item = styled(NavLink, {
   alignItems: 'center',
   display: 'flex',
   gap: '20px',
-  padding: '10px 20px',
+  padding: '8px 20px',
 
   backgroundColor: 'transparent',
   borderRadius: '$lg',
   color: '$textLight',
 
-  fontWeight: '$normal',
+  fontWeight: '$medium',
   textDecoration: 'none',
 
   '& + &': {
@@ -51,6 +51,10 @@ const Item = styled(NavLink, {
     '&:hover': {
       backgroundColor: '$themeA16'
     }
+  },
+
+  focusPseudoElement: {
+    element: 'after'
   },
 
   variants: {

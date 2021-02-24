@@ -144,6 +144,7 @@ const Dashboard = () => {
                 >
                   <Button
                     appearance='outline'
+                    status='danger'
                     text='Show dropdown menu'
                   />
                 </DropdownMenu>

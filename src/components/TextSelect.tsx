@@ -1,9 +1,10 @@
-import { StitchesProps } from '@stitches/react'
-import { FC } from 'react'
+import { StitchesVariants } from '@stitches/react'
+import { ComponentPropsWithoutRef, FC } from 'react'
 
 import styled from '@/styles'
 
 import Input from '@/elements/Input'
+import Cover from '@/elements/Cover'
 
 const Wrapper = styled('div', {
   $$chevronColor: '$colors$neutralDefault',
@@ -32,8 +33,6 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'stitches(TextSelect.Wrapper)'
-
 const Select = styled(Input, {
   $$textColor: '$colors$textDefault',
   $$placeholderTextColor: '$colors$textLightest',
@@ -44,7 +43,11 @@ const Select = styled(Input, {
   paddingRight: '2rem',
 
   appearance: 'none',
+  background: 'none',
+  borderColor: 'transparent',
   cursor: 'pointer',
+
+  zIndex: 2,
 
   '&[disabled]': {
     opacity: 1
@@ -70,9 +73,19 @@ const Select = styled(Input, {
   }
 })
 
-Select.displayName = 'stitches(TextSelect.Select)'
+const FocusCover = styled(Cover, {
+  backgroundColor: 'white',
+  border: '1px solid $colors$neutralLight',
+  borderRadius: '$lg',
 
-type Props = StitchesProps<typeof Select>
+  focusPseudoElement: {
+    element: 'after',
+    activator: 'select:focus + &',
+    borderWidth: 1
+  }
+})
+
+type Props = ComponentPropsWithoutRef<'select'> & StitchesVariants<typeof Input>
 
 const TextSelect: FC<Props> = ({ children, ...props }) => {
   return (
@@ -80,8 +93,13 @@ const TextSelect: FC<Props> = ({ children, ...props }) => {
       <Select as='select' {...props}>
         {children}
       </Select>
+      <FocusCover />
     </Wrapper>
   )
 }
+
+Wrapper.displayName = 'stitches(TextSelect.Wrapper)'
+Select.displayName = 'stitches(TextSelect.Select)'
+FocusCover.displayName = 'stitches(TextSelect.FocusCover)'
 
 export default TextSelect

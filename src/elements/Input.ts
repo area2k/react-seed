@@ -26,7 +26,7 @@ const Input = styled('input', {
   color: '$$textColor',
   outline: 'none',
 
-  fontFamily: '$system',
+  fontFamily: '$inter',
   fontSize: '$md',
   lineHeight: '28px',
 
@@ -37,10 +37,10 @@ const Input = styled('input', {
     borderColor: '$$hoverBorderColor'
   },
 
-  '&:focus': {
-    borderColor: '$$focusBorderColor',
-    boxShadow: '0 0 0px 3px $$focusRingColor'
-  },
+  // '&:focus': {
+  //   borderColor: '$$focusBorderColor',
+  //   boxShadow: '0 0 0px 3px $$focusRingColor'
+  // },
 
   '&::-webkit-input-placeholder': {
     color: '$$placeholderTextColor'

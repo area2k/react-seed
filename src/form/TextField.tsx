@@ -1,11 +1,10 @@
 import { useField } from '@area2k/use-form'
-import { StitchesProps } from '@stitches/react'
-
-import Input from '@/elements/Input'
+import { ComponentPropsWithoutRef } from 'react'
 
 import FormElement from '@/components/FormElement'
+import TextInput from '@/components/TextInput'
 
-type InputProps = Omit<StitchesProps<typeof Input>, 'id' | 'value' | 'onChange'>
+type InputProps = Omit<ComponentPropsWithoutRef<typeof TextInput>, 'id' | 'value' | 'onChange'>
 
 type Props = InputProps & {
   fieldId: string
@@ -17,7 +16,7 @@ const TextField = ({ fieldId, label, ...props }: Props) => {
 
   return (
     <FormElement htmlFor={fieldId} label={label}>
-      <Input
+      <TextInput
         {...props}
         id={fieldId}
         name={fieldId}

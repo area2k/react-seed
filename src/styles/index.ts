@@ -48,7 +48,8 @@ const { styled, css, global } = createCss({
       sidebar: '1000',
       overlay: '10000',
       navbar: '1001',
-      popover: '2000'
+      popover: '2000',
+      tooltip: '2001'
     }
   },
   conditions: {
@@ -62,13 +63,47 @@ const { styled, css, global } = createCss({
     boxSize: (_config) => (value: string | number) => ({
       height: value,
       width: value
+    }),
+    focusPseudoElement: (_config) => ({ baseRadius = '$lg', element, ringColor = '$colors$themeLight', activator = '&:focus-visible', borderWidth = 0 }) => ({
+      [`&::${element}`]: {
+        content: '""',
+        display: 'block',
+        pointerEvents: 'none',
+        userSelect: 'none',
+
+        bottom: `-${1 + borderWidth}px`,
+        left: `-${1 + borderWidth}px`,
+        position: 'absolute',
+        right: `-${1 + borderWidth}px`,
+        top: `-${1 + borderWidth}px`,
+
+        borderRadius: baseRadius,
+        boxShadow: `0 0 0 -2px ${ringColor}`,
+
+        transition: 'box-shadow 300ms ease',
+        zIndex: 1
+      },
+
+      'input:focus + &': {
+        backgroundColor: 'red'
+      },
+
+      [activator]: {
+        outline: 0,
+
+        [`&::${element}`]: {
+          boxShadow: `0 0 0 2px ${ringColor}`,
+        }
+      }
     })
   }
 })
 
 global({
   '*, *::before, *::after': {
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+
+    position: 'relative'
   },
   'html, body, #root': {
     display: 'initial',
