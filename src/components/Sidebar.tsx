@@ -1,4 +1,4 @@
-import { faBug, faChartBar, faExclamationTriangle, faNetworkWired, faPlay, faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBug, faChartBar, faExclamationTriangle, faFilter, faNetworkWired, faPlay, faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
 
 import NavigationMenu from '@/components/NavigationMenu'
 
@@ -24,6 +24,12 @@ const Sidebar = () => {
           items: [
             { icon: faExclamationTriangle, text: 'Diagnostics', type: 'link', to: '/diagnostics' },
             { icon: faChartBar, text: 'Analytics', type: 'link', to: '/analytics' }
+          ]
+        },
+        {
+          title: 'Components',
+          items: [
+            { icon: faFilter, text: 'Filters', type: 'link', to: '/filters' }
           ]
         }
       ]}

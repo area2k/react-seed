@@ -8,9 +8,9 @@ import useDisableBodyScroll from '@/hooks/useDisableBodyScroll'
 
 import Card, { Heading } from '@/elements/Card'
 import Icon from '@/elements/Icon'
-import IconicButton from '@/elements/IconicButton'
 import Overlay from '@/elements/Overlay'
 
+import IconicButton from '@/components/IconicButton'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
 import { Subheading } from '@/components/Typography'
 
@@ -42,9 +42,13 @@ const Modal: FC<Props> = ({ children, disableClickout = false, size = 'md', titl
               <Subheading>
                 {title}
               </Subheading>
-              <IconicButton size='sm' onClick={onRequestClose}>
-                <Icon fixedWidth icon={faTimes} />
-              </IconicButton>
+              <IconicButton
+                appearance='clear'
+                icon={faTimes}
+                size='sm'
+                status='danger'
+                onClick={onRequestClose}
+              />
             </Heading>
             {children}
           </Card>

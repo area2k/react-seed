@@ -6,6 +6,7 @@ import RouterDebug from '@/components/RouterDebug'
 
 import Authenticated from '@/routes/Authenticated'
 import Dashboard from '@/routes/Dashboard'
+import Filters from '@/routes/FiltersDemo'
 import Login from '@/routes/Login'
 import Root from '@/routes/Root'
 
@@ -23,6 +24,7 @@ const App = () => {
             <Route element={<Root />}>
               <Route element={<Authenticated />}>
                 <Route element={<Dashboard />} path='/' />
+                <Route element={<Filters />} path='/filters' />
               </Route>
               <Route element={<Login />} path='login' />
             </Route>

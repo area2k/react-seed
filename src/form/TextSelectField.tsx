@@ -5,14 +5,16 @@ import FormElement from '@/components/FormElement'
 import TextSelect from '@/components/TextSelect'
 
 type TextSelectProps = Omit<ComponentProps<typeof TextSelect>, 'id' | 'status' | 'value' | 'onChange'>
+type TextSelectOption = { label: string, value: string }
 
 type Props = TextSelectProps & {
   fieldId: string
   label?: string
+  options: TextSelectOption[]
   placeholder?: string
 }
 
-const TextSelectField: FC<Props> = ({ children, fieldId, label, placeholder, ...props }) => {
+const TextSelectField = ({ children, fieldId, label, options, placeholder, ...props }: Props) => {
   const { value, setValue } = useField<string>(fieldId)
 
   return (
@@ -27,7 +29,11 @@ const TextSelectField: FC<Props> = ({ children, fieldId, label, placeholder, ...
         {placeholder &&
           <option disabled value=''>{placeholder}</option>
         }
-        {children}
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
       </TextSelect>
     </FormElement>
   )

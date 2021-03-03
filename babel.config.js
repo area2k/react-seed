@@ -16,7 +16,8 @@ export default function (api) {
     }]
   ]
 
-  if (process.env.NODE_ENV === 'development') {
+  // TODO: remove STORYBOOK check after https://github.com/pmmmwh/react-refresh-webpack-plugin/issues/308
+  if (process.env.NODE_ENV === 'development' && !process.env.STORYBOOK) {
     plugins.push(['react-refresh/babel'])
   }
 

@@ -2,10 +2,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import styled from '@/styles'
 
-import Icon from '@/elements/Icon'
 import Text from '@/elements/Text'
 
-import Button from '@/components/Button'
 import IconicButton from '@/components/IconicButton'
 
 const Wrapper = styled('div', {

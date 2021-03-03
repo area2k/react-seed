@@ -227,12 +227,13 @@ const Dashboard = () => {
                 <TextSelectField
                   fieldId='textSelect'
                   label='Text select field'
+                  options={[
+                    { label: 'Option 1', value: 'opt1' },
+                    { label: 'Option 2', value: 'opt2' },
+                    { label: 'Option 3', value: 'opt3' }
+                  ]}
                   placeholder='Select an option...'
-                >
-                  <option value='opt1'>Option 1</option>
-                  <option value='opt2'>Option 2</option>
-                  <option value='opt3'>Option 3</option>
-                </TextSelectField>
+                />
                 <OptionField
                   appearance='switch'
                   fieldId='switch'

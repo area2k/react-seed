@@ -37,6 +37,14 @@ const IconicButton = styled(Button, {
     }
   },
 
+  compoundVariants: [{
+    appearance: 'clear',
+    status: 'danger',
+    css: {
+      $$bgColor: 'fuchsia'
+    }
+  }],
+
   defaultVariants: {
     size: 'md',
     rounded: false
