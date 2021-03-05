@@ -10,7 +10,7 @@ const Label = styled('label', {
   display: 'block',
   margin: '0 6px 6px',
 
-  color: '$textDefault',
+  color: '$textLight',
 
   fontSize: '$sm',
   fontWeight: '$medium'

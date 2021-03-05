@@ -6,7 +6,6 @@ import styled from '@/styles'
 
 import ButtonGroup from '@/elements/ButtonGroup'
 import Card, { Body, Heading } from '@/elements/Card'
-import FormFooter from '@/elements/FormFooter'
 import Icon from '@/elements/Icon'
 import Table, { TableCell, TableHead, TableHeading, TableRow } from '@/elements/Table'
 import Text from '@/elements/Text'
@@ -20,6 +19,7 @@ import { Display, Body as BodyText, Heading as HeadingText, Subheading, Title, S
 
 import Form from '@/form'
 import FormColumns from '@/form/FormColumns'
+import FormFooter from '@/form/FormFooter'
 import MaskedInputField from '@/form/MaskedInputField'
 import MultiOptionGroupField from '@/form/MultiOptionGroupField'
 import OptionField from '@/form/OptionField'

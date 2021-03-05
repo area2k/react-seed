@@ -12,7 +12,7 @@ export default {
     appearance: {
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'outline', 'clear']
+        options: ['primary', 'secondary', 'outline', 'clear', 'plain']
       },
       defaultValue: 'primary'
     },
@@ -22,6 +22,11 @@ export default {
         options: ['theme', 'neutral', 'success', 'danger', 'hi-contrast']
       },
       defaultValue: 'theme'
+    }
+  },
+  parameters: {
+    backgrounds: {
+      default: 'white'
     }
   }
 } as Meta

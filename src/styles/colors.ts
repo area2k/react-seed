@@ -97,7 +97,8 @@ export const neutralAlphas = {
   neutralA16: 'rgba(9, 30, 66, 0.16)',
   neutralA12: 'rgba(9, 30, 66, 0.12)',
   neutralA8: 'rgba(9, 30, 66, 0.08)',
-  neutralA4: 'rgba(9, 30, 66, 0.04)'
+  neutralA4: 'rgba(9, 30, 66, 0.04)',
+  neutralA2: 'rgba(9, 30, 66, 0.02)'
 }
 
 export const text = {

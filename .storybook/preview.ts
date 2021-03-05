@@ -7,5 +7,10 @@ export const parameters = {
       { name: 'dark', value: '#091E42' },
       { name: 'black', value: '#000' }
     ]
+  },
+  docs: {
+    source: {
+      type: 'code'
+    }
   }
 }

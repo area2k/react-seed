@@ -105,16 +105,17 @@ global({
 
     position: 'relative'
   },
+  'html, body': {
+    fontSize: '1rem',
+    lineHeight: 1.5,
+
+    WebkitTapHighlightColor: colors.themeA32
+  },
   'html, body, #root': {
     display: 'initial',
     height: '100%',
     minHeight: '100%',
     width: '100vw',
-
-    fontSize: '1rem',
-    lineHeight: 1.5,
-
-    WebkitTapHighlightColor: colors.themeA32
   },
   body: {
     margin: 0,
@@ -131,6 +132,9 @@ global({
     '&.noscroll': {
       overflow: 'hidden'
     }
+  },
+  '#root': {
+    fontSize: '$md'
   },
   'p, h1, h2, h3, h4, h5': {
     margin: 0,

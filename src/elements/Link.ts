@@ -4,6 +4,7 @@ import styled from '@/styles'
 
 const Link = styled(ReactRouterLink, {
   color: '$themeDark',
+  outline: 'none',
 
   fontSize: '$md',
   textDecoration: 'none',
@@ -13,6 +14,13 @@ const Link = styled(ReactRouterLink, {
     color: '$themeDark',
 
     textDecoration: 'underline'
+  },
+
+  focusPseudoElement: {
+    element: 'after',
+    baseRadius: '$md',
+    borderWidth: 0,
+    ringColor: '$colors$themeLight'
   },
 
   variants: {

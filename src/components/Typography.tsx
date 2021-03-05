@@ -80,3 +80,16 @@ export const Small = (props: SpanProps) => {
     />
   )
 }
+
+export const Caption = (props: SpanProps) => {
+  return (
+    <Text
+      as='span'
+      color='light'
+      css={{ textTransform: 'uppercase' }}
+      size='sm'
+      weight='semibold'
+      {...props}
+    />
+  )
+}

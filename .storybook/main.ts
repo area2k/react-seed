@@ -14,12 +14,12 @@ export default {
   },
   typescript: {
     check: false,
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      compilerOptions: {
-        esModuleInterop: true
-      }
-    }
+    // reactDocgen: 'react-docgen-typescript',
+    // reactDocgenTypescriptOptions: {
+    //   compilerOptions: {
+    //     esModuleInterop: true
+    //   }
+    // }
   },
   // TODO: add back after https://github.com/pmmmwh/react-refresh-webpack-plugin/issues/308
   // reactOptions: { fastRefresh: true }

@@ -136,6 +136,36 @@ const Button = styled('button', {
 
         $$activeBgColor: '$colors$neutralA8',
         $$activeBorderColor: 'transparent',
+      },
+      plain: {
+        $$bgColor: 'transparent',
+        $$borderColor: 'transparent',
+        $$textColor: '$colors$themeDefault',
+
+        $$hoverBgColor: 'transparent',
+        $$hoverBorderColor: 'transparent',
+
+        $$activeBgColor: '$colors$neutralA8',
+        $$activeBorderColor: 'transparent',
+
+        height: '21px',
+        padding: '0 4px',
+
+        border: 'none',
+
+        fontWeight: '$normal',
+        lineHeight: 1.5,
+
+        '&:hover, &:focus-visible, &:active': {
+          textDecoration: 'underline'
+        },
+
+        focusPseudoElement: {
+          element: 'after',
+          baseRadius: '$lg',
+          borderWidth: 0,
+          ringColor: '$$focusRingColor'
+        }
       }
     },
     status: {
@@ -236,6 +266,20 @@ const Button = styled('button', {
       $$activeBorderColor: 'transparent',
     }
   }, {
+    appearance: 'plain',
+    status: 'success',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$successDarker',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$successA12',
+      $$activeBorderColor: 'transparent'
+    }
+  }, {
     appearance: 'secondary',
     status: 'danger',
     css: {
@@ -276,6 +320,20 @@ const Button = styled('button', {
 
       $$activeBgColor: '$colors$dangerA12',
       $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'plain',
+    status: 'danger',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$dangerDefault',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$dangerA12',
+      $$activeBorderColor: 'transparent'
     }
   }, {
     appearance: 'secondary',
@@ -320,6 +378,20 @@ const Button = styled('button', {
       $$activeBorderColor: 'transparent',
     }
   }, {
+    appearance: 'plain',
+    status: 'neutral',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: '$colors$textLight',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$neutralA8',
+      $$activeBorderColor: 'transparent'
+    }
+  }, {
     appearance: 'secondary',
     status: 'hi-contrast',
     css: {
@@ -360,6 +432,20 @@ const Button = styled('button', {
 
       $$activeBgColor: '$colors$whiteA24',
       $$activeBorderColor: 'transparent',
+    }
+  }, {
+    appearance: 'plain',
+    status: 'hi-contrast',
+    css: {
+      $$bgColor: 'transparent',
+      $$borderColor: 'transparent',
+      $$textColor: 'white',
+
+      $$hoverBgColor: 'transparent',
+      $$hoverBorderColor: 'transparent',
+
+      $$activeBgColor: '$colors$whiteA24',
+      $$activeBorderColor: 'transparent'
     }
   }],
 

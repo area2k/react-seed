@@ -1,5 +1,5 @@
 import { StitchesVariants } from '@stitches/react'
-import { ComponentPropsWithoutRef, FC } from 'react'
+import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
 import styled from '@/styles'
 
@@ -60,19 +60,17 @@ const Wrapper = styled('div', {
   }
 })
 
-Wrapper.displayName = 'stitches(Stack.Wrapper)'
-
-type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wrapper> & {
+export type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wrapper> & PropsWithChildren<{
   gap?: string | number
   horizontalGap?: string | number
   verticalGap?: string | number
-}
+}>
 
-const Stack: FC<Props> = ({ horizontalGap = 8, gap, verticalGap = 8, style = {}, ...props }) => {
+const Stack = ({ horizontalGap = 8, gap, verticalGap = 8, style = {}, ...props }: Props) => {
   const alignDefault = props.vertical ? 'start' : 'center'
   const gapStyles = {
-    columnGap: gap || verticalGap,
-    rowGap: gap || horizontalGap
+    columnGap: gap || horizontalGap,
+    rowGap: gap || verticalGap
   }
 
   return (
@@ -83,5 +81,8 @@ const Stack: FC<Props> = ({ horizontalGap = 8, gap, verticalGap = 8, style = {},
     />
   )
 }
+
+Stack.Wrapper = Wrapper
+Wrapper.displayName = 'stitches(Stack.Wrapper)'
 
 export default Stack
