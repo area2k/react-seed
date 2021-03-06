@@ -1,22 +1,14 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { ComponentProps, FC } from 'react'
 
-import styled from '@/styles'
-
 import useClickout from '@/hooks/useClickout'
 import useDisableBodyScroll from '@/hooks/useDisableBodyScroll'
 
-import Card, { Heading } from '@/elements/Card'
-import Icon from '@/elements/Icon'
 import Overlay from '@/elements/Overlay'
 
+import Card from '@/components/Card'
 import IconicButton from '@/components/IconicButton'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
-import { Subheading } from '@/components/Typography'
-
-const Wrapper = styled('div', {
-  padding: '15vh 0'
-})
 
 type Props = {
   disableClickout?: boolean
@@ -35,25 +27,24 @@ const Modal: FC<Props> = ({ children, disableClickout = false, size = 'md', titl
 
   return (
     <Overlay aria-modal aria-label={title} role='dialog'>
-      <SingleColumnLayout size={size}>
-        <Wrapper>
-          <Card ref={clickoutRef} css={{ boxShadow: '$2' }}>
-            <Heading>
-              <Subheading>
-                {title}
-              </Subheading>
+      <div style={{ padding: '72px 16px' }}>
+        <SingleColumnLayout size={size}>
+          <Card
+            ref={clickoutRef}
+            css={{ boxShadow: '$2' }}
+          >
+            <Card.Header title={title}>
               <IconicButton
                 appearance='clear'
                 icon={faTimes}
                 size='sm'
-                status='danger'
                 onClick={onRequestClose}
               />
-            </Heading>
+            </Card.Header>
             {children}
           </Card>
-        </Wrapper>
-      </SingleColumnLayout>
+        </SingleColumnLayout>
+      </div>
     </Overlay>
   )
 }

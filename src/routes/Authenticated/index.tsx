@@ -1,7 +1,7 @@
 import qs from 'query-string'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 
-import MainLayout from '@/components/MainLayout'
+import AppFrame from '@/components/AppFrame'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
@@ -25,13 +25,13 @@ const Authenticated = () => {
   }
 
   return (
-    <MainLayout
+    <AppFrame
       Footer={<Footer />}
       Navbar={<Navbar />}
       Sidebar={<Sidebar />}
     >
       <Outlet />
-    </MainLayout>
+    </AppFrame>
   )
 }
 

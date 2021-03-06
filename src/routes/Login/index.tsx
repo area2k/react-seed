@@ -2,25 +2,18 @@ import { SubmitHelpers } from '@area2k/use-form'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { useCallback } from 'react'
 
-import styled from '@/styles'
-
-import Button from '@/elements/Button'
 import Link from '@/elements/Link'
-import Text from '@/elements/Text'
 
+import Button from '@/components/Button'
 import Card from '@/components/Card'
-import SingleColumnLayout from '@/components/SingleColumnLayout'
+import Page from '@/components/Page'
+import Stack from '@/components/Stack'
+import { Body, Display } from '@/components/Typography'
 import Version from '@/components/Version'
 
 import Form from '@/form'
 import FormFooter from '@/form/FormFooter'
 import TextField from '@/form/TextField'
-import Stack from '@/components/Stack'
-import { Body, Display } from '@/components/Typography'
-
-const Wrapper = styled('div', {
-  padding: '64px 0'
-})
 
 type FormValues = { email: string, password: string }
 
@@ -37,17 +30,15 @@ const Login = () => {
   }, [])
 
   return (
-    <SingleColumnLayout size='sm'>
-      <Wrapper>
+    <Page size='xs'>
+      <div style={{ padding: '64px 0' }}>
         <Stack vertical gap={24}>
           <div style={{ padding: '0 12.5% 16px', width: '100%', textAlign: 'center' }}>
             <Display>
               Logo Image
             </Display>
           </div>
-          <Card
-            title='Sign in'
-          >
+          <Card title='Sign in'>
             <Card.Section>
               <Form
                 initialValues={initialValues}
@@ -73,9 +64,7 @@ const Login = () => {
                   <Link to='/forgot-password'>
                     Forgot password?
                   </Link>
-                  <Button>
-                    Sign in
-                  </Button>
+                  <Button text='Sign in' />
                 </FormFooter>
               </Form>
             </Card.Section>
@@ -94,8 +83,8 @@ const Login = () => {
             <Version size='sm' />
           </div>
         </Stack>
-      </Wrapper>
-    </SingleColumnLayout>
+      </div>
+    </Page>
   )
 }
 

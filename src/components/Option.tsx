@@ -27,7 +27,7 @@ const Wrapper = styled('div', {
 
 type OptionVariants = StitchesVariants<typeof OptionElement>
 
-type Props = ComponentProps<'input'> & OptionVariants & {
+export type Props = ComponentProps<'input'> & OptionVariants & {
   id: string
   label: string
   type?: 'checkbox' | 'radio'

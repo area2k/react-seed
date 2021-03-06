@@ -1,5 +1,6 @@
 import { createCss } from '@stitches/react'
 
+import breakpoints from '@/styles/breakpoints'
 import colors from '@/styles/colors'
 import fonts from '@/styles/typography'
 
@@ -53,11 +54,11 @@ const { styled, css, global } = createCss({
     }
   },
   conditions: {
-    mediaPhoneOnly: '@media(max-width: 559px)',
-    mediaTablet: '@media(min-width: 600px)',
-    mediaSmallDesktop: '@media(min-width: 900px)',
-    mediaDesktop: '@media(min-width: 1200px)',
-    mediaLargeDesktop: '@media(min-width: 1800px)'
+    mediaPhoneOnly: breakpoints.phoneOnly,
+    mediaTablet: breakpoints.tablet,
+    mediaSmallDesktop: breakpoints.smallDesktop,
+    mediaDesktop: breakpoints.desktop,
+    mediaLargeDesktop: breakpoints.largeDesktop
   },
   utils: {
     boxSize: (_config) => (value: string | number) => ({

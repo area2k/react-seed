@@ -80,7 +80,7 @@ type Props = {
   Sidebar: ReactNode
 }
 
-const MainLayout: FC<Props> = ({ children, Footer, Navbar, Sidebar }) => {
+const AppFrame: FC<Props> = ({ children, Footer, Navbar, Sidebar }) => {
   return (
     <Wrapper>
       <NavbarContainer>
@@ -99,4 +99,4 @@ const MainLayout: FC<Props> = ({ children, Footer, Navbar, Sidebar }) => {
   )
 }
 
-export default MainLayout
+export default AppFrame

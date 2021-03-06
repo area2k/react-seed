@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import { forwardRef, ForwardRefExoticComponent, PropsWithChildren, RefAttributes } from 'react'
 
 import styled from '@/styles'
 
@@ -31,12 +31,18 @@ export type Props = PropsWithChildren<{
   title?: HeaderProps['title']
 }>
 
-const Card = ({ actions, children, footerActions, sectioned, title }: Props) => {
+type CardType = ForwardRefExoticComponent<Props & RefAttributes<HTMLDivElement>> & {
+  Footer: typeof Footer
+  Header: typeof Header
+  Section: typeof Section
+}
+
+const Card = forwardRef<HTMLDivElement>(({ actions, children, footerActions, sectioned, title }: Props, ref) => {
   const hasHeader = title || (actions && actions.length > 0)
   const hasFooter = footerActions && footerActions.length > 0
 
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       {hasHeader &&
         <Header
           actions={actions}
@@ -56,7 +62,7 @@ const Card = ({ actions, children, footerActions, sectioned, title }: Props) => 
       }
     </Wrapper>
   )
-}
+}) as CardType
 
 Card.Footer = Footer
 Card.Header = Header

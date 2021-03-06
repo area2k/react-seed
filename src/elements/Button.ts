@@ -21,10 +21,10 @@ const Button = styled('button', {
 
   alignItems: 'center',
   display: 'inline-flex',
-  gap: '12px',
+  gap: '8px',
   height: '36px',
   justifyContent: 'center',
-  padding: '4px 24px',
+  padding: '4px 18px',
 
   backgroundColor: '$$bgColor',
   borderColor: '$$borderColor',

@@ -1,62 +1,17 @@
-import { FC } from 'react'
+import { StitchesVariants } from '@stitches/react'
+import { PropsWithChildren } from 'react'
 
-import styled from '@/styles'
+import SingleColumn from '@/elements/SingleColumn'
 
-const GUTTER_WIDTH = '1rem'
+export type Props = StitchesVariants<typeof SingleColumn>
 
-const Wrapper = styled('main', {
-  display: 'grid',
-  gridTemplateAreas: '"lgutter content rgutter"',
-  gridTemplateColumns: `${GUTTER_WIDTH} 1fr ${GUTTER_WIDTH}`,
-
-  when: {
-    mediaSmallDesktop: {
-      gridTemplateColumns: '1fr 40rem 1fr'
-    }
-  },
-
-  variants: {
-    size: {
-      sm: {
-        when: {
-          mediaSmallDesktop: {
-            gridTemplateColumns: '1fr 32rem 1fr'
-          }
-        }
-      },
-      md: {
-        when: {
-          mediaSmallDesktop: {
-            gridTemplateColumns: '1fr 40rem 1fr'
-          }
-        }
-      },
-      lg: {
-        when: {
-          mediaSmallDesktop: {
-            gridTemplateColumns: '1fr 48rem 1fr'
-          }
-        }
-      }
-    }
-  }
-})
-
-const Content = styled('div', {
-  gridArea: 'content'
-})
-
-type Props = {
-  size?: 'sm' | 'md' | 'lg'
-}
-
-const SingleColumnLayout: FC<Props> = ({ children, size = 'md' }) => {
+const SingleColumnLayout = ({ children, ...variants }: PropsWithChildren<Props>) => {
   return (
-    <Wrapper size={size}>
-      <Content>
+    <SingleColumn {...variants}>
+      <div style={{ gridArea: 'content' }}>
         {children}
-      </Content>
-    </Wrapper>
+      </div>
+    </SingleColumn>
   )
 }
 
