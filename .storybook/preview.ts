@@ -12,5 +12,6 @@ export const parameters = {
     source: {
       type: 'code'
     }
-  }
+  },
+  layout: 'centered'
 }

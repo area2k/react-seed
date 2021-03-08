@@ -57,7 +57,7 @@ Separator.displayName = 'stitches(DropdownMenu.Separator)'
 
 type MenuItem = { icon?: IconDefinition, text: string, onClick: () => void }
 
-type Props = Omit<DropdownProps, 'Content'> & {
+export type Props = Omit<DropdownProps, 'Content'> & {
   disableCloseOnClick?: boolean
   items: MenuItem[][]
 }

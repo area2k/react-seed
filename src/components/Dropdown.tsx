@@ -13,8 +13,6 @@ const Wrapper = styled('div', {
   boxShadow: '$3'
 })
 
-Wrapper.displayName = 'stitches(Dropdown.Wrapper)'
-
 type OmittedPopoverProps = Omit<PopoverProps, 'isOpen' | 'onRequestClose'>
 
 type ContentProps = {
@@ -28,7 +26,7 @@ export type Props = OmittedPopoverProps & {
   Content: FC<ContentProps>
 }
 
-const Dropdown = ({ align = 'top', children, forceOpen, justify = 'left', size = 'parent', Content, ...rest }: Props) => {
+const Dropdown = ({ align = 'below', children, forceOpen, justify = 'left', size = 'parent', Content, ...rest }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleIsOpen = useCallback(() => setIsOpen((prevState) => !prevState), [])
@@ -68,5 +66,8 @@ const Dropdown = ({ align = 'top', children, forceOpen, justify = 'left', size =
     </div>
   )
 }
+
+Dropdown.Wrapper = Wrapper
+Wrapper.displayName = 'stitches(Dropdown.Wrapper)'
 
 export default Dropdown

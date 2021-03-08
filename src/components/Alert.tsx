@@ -54,7 +54,7 @@ const Wrapper = styled('div', {
 
 Wrapper.displayName = 'stitches(Alert.Wrapper)'
 
-type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wrapper> & {
+export type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wrapper> & {
   description: string
   icon: IconDefinition
   title: string

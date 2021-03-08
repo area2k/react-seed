@@ -44,7 +44,7 @@ const Option = styled('label', {
     width: '18px',
 
     backgroundColor: '$$bgColor',
-    border: '1px solid $$borderColor',
+    border: '2px solid $$borderColor',
     borderRadius: '$round',
 
     transition: 'background-color 200ms ease, border-color 300ms ease, box-shadow 300ms ease'
@@ -69,14 +69,13 @@ const Option = styled('label', {
   '&:hover': {
     '&::before': {
       borderColor: '$$hoverBorderColor',
-      boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor'
     }
   },
 
   'input:focus + &': {
     '&::before': {
       borderColor: '$$hoverBorderColor',
-      boxShadow: 'inset 0 0 0px 1px $$hoverBorderColor, 0 0 0px 3px $$focusRingColor'
+      boxShadow: '0 0 0px 3px $$focusRingColor'
     }
   },
 

@@ -9,12 +9,23 @@ export default {
   title: 'Option',
   component: OptionComponent,
   argTypes: {
+    label: {
+      control: {
+        type: 'text'
+      }
+    },
     appearance: {
       control: {
         type: 'select',
         options: ['checkbox', 'bullseye', 'switch']
       },
       defaultValue: 'checkbox'
+    },
+    disabled: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   },
   parameters: {

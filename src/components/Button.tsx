@@ -16,13 +16,14 @@ export type Props = ComponentPropsWithoutRef<'button'> & ButtonVariants & {
   spinIconLeft?: boolean
 }
 
-export const Button: VFC<Props> = ({ css, hasPopover, iconLeft, iconRight, spinIconLeft = false, text, ...rest }) => {
-  const popoverCss = hasPopover ? { paddingRight: 0 } : {}
+export const Button: VFC<Props> = ({ "aria-haspopup": ariaHasPopup, css, hasPopover, iconLeft, iconRight, spinIconLeft = false, text, ...rest }) => {
+  const popoverCss = (hasPopover || ariaHasPopup) ? { paddingRight: 0 } : {}
   const customizedCss = css ? { ...css, ...popoverCss } : popoverCss
 
   return (
     <ButtonElement
       {...rest}
+      aria-haspopup={ariaHasPopup}
       css={customizedCss}
     >
       {iconLeft &&
@@ -32,7 +33,7 @@ export const Button: VFC<Props> = ({ css, hasPopover, iconLeft, iconRight, spinI
       {iconRight &&
         <Icon fixedWidth icon={iconRight} />
       }
-      {hasPopover &&
+      {(hasPopover || ariaHasPopup) &&
         <span style={{ paddingRight: '12px' }}>
           <Icon fixedWidth icon={faCaretDown} />
         </span>

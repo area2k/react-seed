@@ -54,7 +54,8 @@ const Wrapper = styled('div', {
     size: {
       auto: {},
       parent: {
-        minWidth: '100%'
+        // NOTE: if we dont add 1px, for some reason the opener shows through
+        minWidth: 'calc(100% + 1px)'
       },
       sm: {
         minWidth: '160px'

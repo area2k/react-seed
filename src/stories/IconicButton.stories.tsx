@@ -1,25 +1,21 @@
 import { Story, Meta } from '@storybook/react'
 
-import ButtonComponent, { Props } from '@/components/Button'
+import IconicButtonComponent, { Props } from '@/components/IconicButton'
+import { faPenAlt } from '@fortawesome/free-solid-svg-icons'
 
-export const Button: Story<Props> = (props) => <ButtonComponent {...props} />
-Button.args = { text: 'Click me' }
+export const IconicButton: Story<Props> = (props) => <IconicButtonComponent {...props} />
+IconicButton.args = { icon: faPenAlt }
 
 export default {
-  title: 'Button',
-  component: ButtonComponent,
+  title: 'Iconic Button',
+  component: IconicButtonComponent,
   argTypes: {
-    text: {
-      control: {
-        type: 'text'
-      }
-    },
     appearance: {
       control: {
         type: 'select',
         options: ['primary', 'secondary', 'outline', 'clear', 'plain']
       },
-      defaultValue: 'primary'
+      defaultValue: 'outline'
     },
     status: {
       control: {
@@ -28,17 +24,27 @@ export default {
       },
       defaultValue: 'theme'
     },
+    size: {
+      control: {
+        type: 'select',
+        options: ['xs', 'sm', 'md', 'lg']
+      },
+      defaultValue: 'md'
+    },
+    rounded: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     disabled: {
       control: {
         type: 'boolean'
       },
       defaultValue: false
     },
-    hasPopover: {
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
+    icon: {
+      control: false
     }
   },
   parameters: {
