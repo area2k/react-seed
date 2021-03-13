@@ -1,6 +1,8 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
 import { faBan, faCaretDown, faCheck, faChevronDown, faCog, faEllipsisH, faExclamationCircle, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+import { isValidElement } from 'react'
 
 import styled from '@/styles'
 
@@ -34,6 +36,8 @@ import Dropdown from '@/components/Dropdown'
 import Stack from '@/components/Stack'
 import Alert from '@/components/Alert'
 import Tag from '@/components/Tag'
+
+const CustomLink = styled(Link, { color: 'red' })
 
 type FormValues = {
   checkboxGroup: string[]
@@ -77,6 +81,7 @@ const Dashboard = () => {
           </Heading>
           <Body>
             <Stack>
+              {/* <CustomLink to='/abv'>Link</CustomLink> */}
               <Tag text='Customer enabled' onDismiss={console.log} />
               <Tag text='Tagged with critical' onDismiss={console.log} />
               <Button text='Open modal' onClick={() => showModal()} />

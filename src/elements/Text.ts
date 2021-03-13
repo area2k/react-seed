@@ -7,7 +7,7 @@ const Text = styled('span', {
   fontWeight: '$normal',
   lineHeight: 1.5,
 
-  '> strong': {
+  '& > strong': {
     fontWeight: '$semi'
   },
 

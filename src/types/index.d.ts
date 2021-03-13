@@ -16,6 +16,8 @@ export type ActionStatus = 'danger' | 'neutral' | 'success'
 export type RouterLocationDescriptor = Location | string
 
 export interface BaseAction {
+  dangerous?: boolean
+  icon?: IconDefinition
   id?: string
   label: string
 }
@@ -37,6 +39,10 @@ export interface AnchorAction extends BaseAction {
 }
 
 export interface CallbackAction extends BaseAction {
+  disabled?: boolean
+  isLoading?: boolean
+  loadingIcon?: IconDefinition
+  loadingLabel?: string
   onAction: () => void
 }
 

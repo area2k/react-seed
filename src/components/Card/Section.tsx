@@ -1,10 +1,10 @@
 import { ComponentPropsWithoutRef, PropsWithChildren, ReactNode } from 'react'
 
-import { PressableAction } from '@/types'
+import { GenericAction } from '@/types'
 
 import styled from '@/styles'
 
-import Button from '@/components/Button'
+import Action from '@/components/Action'
 import Stack from '@/components/Stack'
 import { Caption } from '@/components/Typography'
 
@@ -36,7 +36,7 @@ const Title = styled(Stack, {
 })
 
 export type Props = PropsWithChildren<{
-  actions?: PressableAction[]
+  actions?: GenericAction[]
   flush?: boolean
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
   subdued?: boolean
@@ -60,13 +60,10 @@ const Section = ({ actions, children, flush, subdued, title }: Props) => {
           {actions &&
             <Stack justify='end'>
               {actions.map((action, idx) => (
-                <Button
+                <Action
                   key={idx}
+                  action={action}
                   appearance='plain'
-                  disabled={action.disabled}
-                  status={action.status}
-                  text={action.label}
-                  onClick={action.onAction}
                 />
               ))}
             </Stack>

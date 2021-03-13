@@ -26,7 +26,7 @@ const Input = styled('input', {
   color: '$$textColor',
   outline: 'none',
 
-  fontFamily: '$inter',
+  fontFamily: '$system',
   fontSize: '$md',
   lineHeight: '28px',
 

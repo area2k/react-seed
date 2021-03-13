@@ -1,10 +1,10 @@
-import { ComponentPropsWithoutRef, PropsWithChildren, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
-import { PressableAction } from '@/types'
+import { GenericAction } from '@/types'
 
 import styled from '@/styles'
 
-import Button from '@/components/Button'
+import Action from '@/components/Action'
 import Stack from '@/components/Stack'
 
 const Wrapper = styled(Stack, {
@@ -12,28 +12,31 @@ const Wrapper = styled(Stack, {
 })
 
 export type Props = PropsWithChildren<{
-  actions?: PressableAction[]
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
-  title?: ReactNode
+  primaryAction?: GenericAction
+  secondaryActions?: GenericAction[]
 }>
 
-const Footer = ({ actions, children, justify }: Props) => {
+const Footer = ({ children, justify, primaryAction, secondaryActions }: Props) => {
   return (
     <Wrapper justify={justify}>
       {children}
-      {actions &&
+      {secondaryActions &&
         <Stack justify='end'>
-          {actions.map((action, idx) => (
-            <Button
+          {secondaryActions.map((action, idx) => (
+            <Action
               key={idx}
-              appearance={action.appearance}
-              disabled={action.disabled}
-              status={action.status}
-              text={action.label}
-              onClick={action.onAction}
+              action={action}
+              appearance='outline'
             />
           ))}
         </Stack>
+      }
+      {primaryAction &&
+        <Action
+          action={primaryAction}
+          appearance='primary'
+        />
       }
     </Wrapper>
   )

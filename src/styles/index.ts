@@ -7,6 +7,7 @@ import fonts from '@/styles/typography'
 // import light from '@/styles/themes/light'
 
 const { styled, css, global } = createCss({
+  insertMethod: 'append',
   theme: {
     colors: {
       ...colors,
@@ -85,10 +86,6 @@ const { styled, css, global } = createCss({
         zIndex: 1
       },
 
-      'input:focus + &': {
-        backgroundColor: 'red'
-      },
-
       [activator]: {
         outline: 0,
 
@@ -118,7 +115,7 @@ global({
     minHeight: '100%',
     width: '100vw',
   },
-  body: {
+  'body': {
     margin: 0,
     WebkitOverflowScrolling: 'touch',
 
@@ -126,7 +123,7 @@ global({
     color: '$textDefault',
     overflowY: 'auto',
 
-    fontFamily: '$inter',
+    fontFamily: '$system',
     fontWeight: 400,
     textRendering: 'optimizeLegibility',
 

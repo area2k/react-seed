@@ -38,6 +38,12 @@ const Wrapper = styled('div', {
         justifyContent: 'flex-start'
       }
     },
+    inline: {
+      true: {
+        width: 'auto'
+      },
+      false: {}
+    },
     vertical: {
       true: {
         flexDirection: 'column'
@@ -55,6 +61,7 @@ const Wrapper = styled('div', {
   defaultVariants: {
     align: 'center',
     justify: 'start',
+    inline: false,
     vertical: false,
     wrap: false
   }
@@ -69,8 +76,8 @@ export type Props = ComponentPropsWithoutRef<'div'> & StitchesVariants<typeof Wr
 const Stack = ({ horizontalGap = 8, gap, verticalGap = 8, style = {}, ...props }: Props) => {
   const alignDefault = props.vertical ? 'start' : 'center'
   const gapStyles = {
-    columnGap: gap || horizontalGap,
-    rowGap: gap || verticalGap
+    columnGap: gap || (gap === 0 ? 0 : horizontalGap),
+    rowGap: gap || (gap === 0 ? 0 : verticalGap)
   }
 
   return (

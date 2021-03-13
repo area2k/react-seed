@@ -6,7 +6,7 @@ import { ComponentPropsWithoutRef, VFC } from 'react'
 import ButtonElement from '@/elements/Button'
 import Icon from '@/elements/Icon'
 
-type ButtonVariants = StitchesVariants<typeof ButtonElement>
+export type ButtonVariants = StitchesVariants<typeof ButtonElement>
 
 export type Props = ComponentPropsWithoutRef<'button'> & ButtonVariants & {
   hasPopover?: boolean

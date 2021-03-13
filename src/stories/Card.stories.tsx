@@ -14,14 +14,14 @@ Simple.args = { title: 'Online dashboard', sectioned: true,
 
 export const FooterActions = Template.bind({})
 FooterActions.args = { title: 'Setup 2-factor auth for your account', sectioned: true,
-                       footerActions: [{
-                         appearance: 'outline',
+                       secondaryFooterActions: [{
                          label: 'Maybe later',
                          onAction: action('Maybe later')
-                       }, {
+                       }],
+                       primaryFooterAction: {
                          label: 'Enable now',
                          onAction: action('Enable now')
-                       }], children: (
+                       }, children: (
                         <Body>
                           Two-factor authentication adds an extra layer of security when logging in to your account. A special code will be required each time you log in, ensuring only you can access your account.
                         </Body>
@@ -44,8 +44,8 @@ export const SectionActions: Story<PropsWithChildren<Props>> = () => (
       label: 'Edit',
       onAction: action('Edit')
     }, {
+      dangerous: true,
       label: 'Remove',
-      status: 'danger',
       onAction: action('Remove')
     }]}
     title='Customer'

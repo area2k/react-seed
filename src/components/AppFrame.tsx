@@ -31,7 +31,7 @@ const NavbarContainer = styled('nav', {
 
   zIndex: '$navbar',
 
-  '> *': {
+  '& > *': {
     flex: 1
   },
 
@@ -63,7 +63,7 @@ const SidebarContainer = styled('aside', {
 
   zIndex: '$sidebar',
 
-  '> *': {
+  '& > *': {
     flex: 1
   },
 

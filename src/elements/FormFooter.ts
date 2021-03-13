@@ -6,7 +6,7 @@ const FormFooter = styled('div', {
   justifyContent: 'flex-end',
   marginTop: '1.75rem',
 
-  '> *': {
+  '& > *': {
     marginLeft: '1.25rem'
   }
 })

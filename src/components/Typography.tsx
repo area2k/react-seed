@@ -60,7 +60,7 @@ export const Subheading = (props: HeadingProps) => {
 export const Body = (props: ParagraphProps) => {
   return (
     <Text
-      as='h3'
+      as='p'
       color='default'
       size='md'
       weight='normal'

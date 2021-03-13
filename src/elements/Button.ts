@@ -35,7 +35,7 @@ const Button = styled('button', {
   cursor: 'pointer',
   outline: 'none',
 
-  fontFamily: '$inter',
+  fontFamily: '$system',
   fontSize: '$md',
   fontWeight: '$medium',
   lineHeight: '28px',
@@ -116,7 +116,7 @@ const Button = styled('button', {
         $$activeBorderColor: 'transparent'
       },
       outline: {
-        $$bgColor: 'transparent',
+        $$bgColor: 'white',
         $$borderColor: '$colors$neutralLight',
         $$textColor: '$colors$textDefault',
 

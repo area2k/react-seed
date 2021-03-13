@@ -11,7 +11,7 @@ const Wrapper = styled('div', {
 
   position: 'relative',
 
-  '> input': {
+  '& > input': {
     height: 1,
     margin: 0,
     pointerEvents: 'none',

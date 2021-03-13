@@ -1,13 +1,13 @@
 import { PropsWithChildren, ReactNode } from 'react'
 
-import { PrimaryAction, SecondaryAction } from '@/types'
+import { GenericAction } from '@/types'
 
 import styled from '@/styles'
 
+import Action from '@/components/Action'
 import SingleColumnLayout, { Props as SingleColumnLayoutProps } from '@/components/SingleColumnLayout'
+import Stack from '@/components/Stack'
 import { Title } from '@/components/Typography'
-import Stack from './Stack'
-import Button from './Button'
 
 const Header = styled('div', {
   alignItems: 'center',
@@ -18,8 +18,8 @@ const Header = styled('div', {
 })
 
 type Props = SingleColumnLayoutProps & {
-  primaryAction?: PrimaryAction
-  secondaryActions?: SecondaryAction[]
+  primaryAction?: GenericAction
+  secondaryActions?: GenericAction[]
   title?: ReactNode
 }
 
@@ -37,24 +37,17 @@ const Page = ({ secondaryActions, children, primaryAction, size = 'lg', title, .
             {secondaryActions &&
               <>
                 {secondaryActions.map((action) => (
-                  <Button
-                    hasPopover
-                    appearance='clear'
-                    iconLeft={action.icon}
-                    status={action.dangerous ? 'danger' : 'neutral'}
-                    text={action.label}
-                    onClick={action.onAction}
+                  <Action
+                    action={action}
+                    appearance='outline'
                   />
                 ))}
               </>
             }
             {primaryAction &&
-              <Button
+              <Action
+                action={primaryAction}
                 appearance='primary'
-                iconLeft={primaryAction.icon}
-                status={primaryAction.dangerous ? 'danger' : 'theme'}
-                text={primaryAction.label}
-                onClick={primaryAction.onAction}
               />
             }
           </Stack>

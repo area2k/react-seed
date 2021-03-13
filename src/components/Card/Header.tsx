@@ -1,10 +1,10 @@
 import { ComponentPropsWithoutRef, PropsWithChildren, ReactNode } from 'react'
 
-import { PressableAction } from '@/types'
+import { GenericAction } from '@/types'
 
 import styled from '@/styles'
 
-import Button from '@/components/Button'
+import Action from '@/components/Action'
 import Stack from '@/components/Stack'
 import { Subheading } from '@/components/Typography'
 
@@ -13,7 +13,7 @@ const Wrapper = styled(Stack, {
 })
 
 export type Props = PropsWithChildren<{
-  actions?: PressableAction[]
+  actions?: GenericAction[]
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
   title: ReactNode
 }>
@@ -31,13 +31,10 @@ const Header = ({ actions, children, justify = 'apart', title }: Props) => {
       {actions &&
         <Stack justify='end'>
           {actions.map((action, idx) => (
-            <Button
+            <Action
               key={idx}
+              action={action}
               appearance='plain'
-              disabled={action.disabled}
-              status={action.status}
-              text={action.label}
-              onClick={action.onAction}
             />
           ))}
         </Stack>

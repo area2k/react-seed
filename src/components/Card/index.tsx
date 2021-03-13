@@ -26,7 +26,8 @@ const Wrapper = styled('div', {
 
 export type Props = PropsWithChildren<{
   actions?: HeaderProps['actions']
-  footerActions?: FooterProps['actions']
+  primaryFooterAction?: FooterProps['primaryAction']
+  secondaryFooterActions?: FooterProps['secondaryActions']
   sectioned?: boolean
   title?: HeaderProps['title']
 }>
@@ -37,9 +38,9 @@ type CardType = ForwardRefExoticComponent<Props & RefAttributes<HTMLDivElement>>
   Section: typeof Section
 }
 
-const Card = forwardRef<HTMLDivElement>(({ actions, children, footerActions, sectioned, title }: Props, ref) => {
+const Card = forwardRef<HTMLDivElement>(({ actions, children, primaryFooterAction, secondaryFooterActions, sectioned, title }: Props, ref) => {
   const hasHeader = title || (actions && actions.length > 0)
-  const hasFooter = footerActions && footerActions.length > 0
+  const hasFooter = primaryFooterAction || (secondaryFooterActions && secondaryFooterActions.length > 0)
 
   return (
     <Wrapper ref={ref}>
@@ -57,7 +58,8 @@ const Card = forwardRef<HTMLDivElement>(({ actions, children, footerActions, sec
       }
       {hasFooter &&
         <Footer
-          actions={footerActions}
+          primaryAction={primaryFooterAction}
+          secondaryActions={secondaryFooterActions}
         />
       }
     </Wrapper>
