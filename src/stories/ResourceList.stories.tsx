@@ -43,7 +43,7 @@ export const ResourceList: Story<Props<DemoItem>> = (props) => <ResourceListComp
 ResourceList.args = { resourceName: { singular: 'user', plural: 'users' }, items, renderItem }
 
 export default {
-  title: 'Resource List',
+  title: 'Components/Resource List',
   component: ResourceListComponent,
   argTypes: {
     renderItem: {

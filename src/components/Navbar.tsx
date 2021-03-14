@@ -44,7 +44,7 @@ const Navbar = () => {
           appearance='clear'
           href='https://github.com/area2k/react-seed'
           icon={faGithub}
-          size='md'
+          size='lg'
           status='hi-contrast'
         />
       </div>

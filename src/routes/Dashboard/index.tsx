@@ -1,19 +1,18 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
-import { faBan, faCaretDown, faCheck, faChevronDown, faCog, faEllipsisH, faExclamationCircle, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBan, faCaretDown, faCheck, faChevronDown, faCog, faEllipsisH, faEllipsisV, faExclamationCircle, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { isValidElement } from 'react'
 
 import styled from '@/styles'
 
 import ButtonGroup from '@/elements/ButtonGroup'
-import Card, { Body, Heading } from '@/elements/Card'
 import Icon from '@/elements/Icon'
 import Table, { TableCell, TableHead, TableHeading, TableRow } from '@/elements/Table'
 import Text from '@/elements/Text'
 
 import Button from '@/components/Button'
-import LoadingButton from '@/components/LoadingButton'
+import Card from '@/components/Card'
 import Modal from '@/components/Modal'
 import Page from '@/components/Page'
 import SingleColumnLayout from '@/components/SingleColumnLayout'
@@ -55,9 +54,9 @@ const initialValues: FormValues = {
 const Dashboard = () => {
   const [showModal, hideModal] = useModal(() => (
     <Modal title='Test modal' onRequestClose={hideModal}>
-      <div style={{ padding: '2rem' }}>
+      <Card.Section>
         Test
-      </div>
+      </Card.Section>
     </Modal>
   ))
 
@@ -67,101 +66,76 @@ const Dashboard = () => {
 
   return (
     <Page
-      primaryAction={{ icon: faCheck, label: 'New model' }}
-      secondaryActions={[{ label: 'More' }]}
+      primaryAction={{ a11yLabel: 'Create new', icon: faCheck, label: 'Create new', onAction: () => {} }}
+      secondaryActions={[{ a11yLabel: 'More actions', label: 'More', onAction: () => {} }]}
       size='md'
       title='Dashboard'
     >
       <Stack vertical gap={18}>
-        <Card>
-          <Heading>
-            <Subheading>
-              Testing modals
-            </Subheading>
-          </Heading>
-          <Body>
-            <Stack>
-              {/* <CustomLink to='/abv'>Link</CustomLink> */}
-              <Tag text='Customer enabled' onDismiss={console.log} />
-              <Tag text='Tagged with critical' onDismiss={console.log} />
-              <Button text='Open modal' onClick={() => showModal()} />
-            </Stack>
-          </Body>
+        <Card sectioned title='Testing modals'>
+          <Stack>
+            <Tag text='Customer enabled' onDismiss={console.log} />
+            <Tag text='Tagged with critical' onDismiss={console.log} />
+            <Button a11yLabel='Open modal' onClick={() => showModal()} />
+          </Stack>
         </Card>
-        <Card>
-          <Heading>
-            <Subheading>
-              Testing tooltips
-            </Subheading>
-          </Heading>
-          <Body>
-            <Alert
-              description='Something has gone wrong with your tooltips.'
-              icon={faExclamationCircle}
-              status='warning'
-              title='Tooltip problem'
-            />
-          </Body>
-          <Body>
+        <Card sectioned title='Testing tooltips'>
+          <Stack vertical gap={20}>
+            <div style={{ width: '100%' }}>
+              <Alert
+                description='Something has gone wrong with your tooltips.'
+                icon={faExclamationCircle}
+                status='warning'
+                title='Tooltip problem'
+              />
+            </div>
             <Tooltip
               align='middle'
               justify='outside-right'
               id='tooltip-test'
               text='Button disengaged for your safety'
             >
-              <Button appearance='outline' text='Show tooltip' />
+              <Button appearance='outline' a11yLabel='Show tooltip' />
             </Tooltip>
-          </Body>
+          </Stack>
         </Card>
-        <Card>
-          <Heading>
-            <Subheading>
-              Testing dropdown menu
-            </Subheading>
-          </Heading>
-          <Body>
-            <ButtonGroup>
-              <Dropdown
-                align='below'
-                id='dropdown-test'
-                Content={
-                  () => (
-                    <>Hello world</>
-                  )
-                }
-              >
-                <Button appearance='outline' text='Show filters' />
-              </Dropdown>
-              <Button appearance='outline' text='Save settings' />
-              <DropdownMenu
-                align='below'
-                id='dropdown-menu-test'
-                items={[
-                  [
-                    { icon: faUser, text: 'My profile', onClick: () => console.log('account') },
-                    { icon: faStar, text: 'My stars', onClick: () => console.log('stars') },
-                    { icon: faCog, text: 'Settings', onClick: () => console.log('settings') },
-                  ],
-                  [
-                    { icon: faSignOutAlt, text: 'Sign out', onClick: () => console.log('signout') }
-                  ]
-                ]}
-              >
-                <Button
-                  appearance='outline'
-                  status='danger'
-                  text='Show dropdown menu'
-                />
-              </DropdownMenu>
-            </ButtonGroup>
-          </Body>
+        <Card sectioned title='Testing dropdown menu'>
+          <ButtonGroup>
+            <Dropdown
+              align='below'
+              id='dropdown-test'
+              Content={
+                () => (
+                  <>Hello world</>
+                )
+              }
+            >
+              <Button appearance='outline' a11yLabel='Show filters' />
+            </Dropdown>
+            <Button appearance='outline' a11yLabel='Save settings' />
+            <DropdownMenu
+              align='below'
+              actions={[
+                [
+                  { a11yLabel: 'My profile', icon: faUser, label: 'My profile', onAction: () => console.log('account') },
+                  { a11yLabel: 'My stars', icon: faStar, label: 'My stars', onAction: () => console.log('stars') },
+                  { a11yLabel: 'Settings', icon: faCog, label: 'Settings', onAction: () => console.log('settings') },
+                ],
+                [
+                  { a11yLabel: 'Sign out', icon: faSignOutAlt, label: 'Sign out', onAction: () => console.log('signout') }
+                ]
+              ]}
+              id='dropdown-menu-test'
+            >
+              <Button
+                a11yLabel='Show dropdown menu'
+                appearance='outline'
+                status='danger'
+              />
+            </DropdownMenu>
+          </ButtonGroup>
         </Card>
-        <Card>
-          <Heading>
-            <Subheading>
-              Table content
-            </Subheading>
-          </Heading>
+        <Card title='Table content'>
           <Table>
             <TableHead>
               <TableRow>
@@ -213,73 +187,66 @@ const Dashboard = () => {
             </tbody>
           </Table>
         </Card>
-        <Card>
-          <Heading>
-            <Subheading>
-              Form elements
-            </Subheading>
-          </Heading>
-          <Body>
-            <Form
-              initialValues={initialValues}
-              onSubmit={handleSubmit}
-            >
-              <TextField
-                fieldId='text'
-                label='Text field'
-                placeholder='Text content'
-              />
-              <TextSelectField
-                fieldId='textSelect'
-                label='Text select field'
+        <Card sectioned title='Form engine'>
+          <Form
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              fieldId='text'
+              label='Text field'
+              placeholder='Text content'
+            />
+            <TextSelectField
+              fieldId='textSelect'
+              label='Text select field'
+              options={[
+                { label: 'Option 1', value: 'opt1' },
+                { label: 'Option 2', value: 'opt2' },
+                { label: 'Option 3', value: 'opt3' }
+              ]}
+              placeholder='Select an option...'
+            />
+            <OptionField
+              appearance='switch'
+              fieldId='switch'
+              label='Switch field'
+            />
+            <FormColumns>
+              <SingleOptionGroupField
+                fieldId='radioGroup'
+                label='Select the most important radio:'
                 options={[
-                  { label: 'Option 1', value: 'opt1' },
-                  { label: 'Option 2', value: 'opt2' },
-                  { label: 'Option 3', value: 'opt3' }
+                  { label: 'Radio 1', value: 'radio1' },
+                  { label: 'Radio 2', value: 'radio2' },
+                  { label: 'Radio 3', value: 'radio3', disabled: true },
                 ]}
-                placeholder='Select an option...'
               />
-              <OptionField
-                appearance='switch'
-                fieldId='switch'
-                label='Switch field'
+              <MultiOptionGroupField
+                fieldId='checkboxGroup'
+                label='Select all that apply:'
+                options={[
+                  { label: 'Checkbox 1', value: 'check1' },
+                  { label: 'Checkbox 2', value: 'check2', disabled: true },
+                  { label: 'Checkbox 3', value: 'check3' }
+                ]}
               />
-              <FormColumns>
-                <SingleOptionGroupField
-                  fieldId='radioGroup'
-                  label='Select the most important radio:'
-                  options={[
-                    { label: 'Radio 1', value: 'radio1' },
-                    { label: 'Radio 2', value: 'radio2' },
-                    { label: 'Radio 3', value: 'radio3', disabled: true },
-                  ]}
-                />
-                <MultiOptionGroupField
-                  fieldId='checkboxGroup'
-                  label='Select all that apply:'
-                  options={[
-                    { label: 'Checkbox 1', value: 'check1' },
-                    { label: 'Checkbox 2', value: 'check2', disabled: true },
-                    { label: 'Checkbox 3', value: 'check3' }
-                  ]}
-                />
-              </FormColumns>
-              <MaskedInputField
-                required
-                fieldId='masked'
-                label='Phone number'
-                mask='(000) 000-0000'
-                placeholder='Enter phone number'
+            </FormColumns>
+            <MaskedInputField
+              required
+              fieldId='masked'
+              label='Phone number'
+              mask='(000) 000-0000'
+              placeholder='Enter phone number'
+            />
+            <FormFooter>
+              <Button
+                a11yLabel='Submit'
+                iconLeft={faCheck}
+                type='submit'
               />
-              <FormFooter>
-                <Button
-                  iconLeft={faCheck}
-                  text='Submit'
-                  type='submit'
-                />
-              </FormFooter>
-            </Form>
-          </Body>
+            </FormFooter>
+          </Form>
         </Card>
       </Stack>
     </Page>

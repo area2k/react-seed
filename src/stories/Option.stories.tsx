@@ -6,7 +6,7 @@ export const Option: Story<Props> = (props) => <OptionComponent {...props} id='s
 Option.args = { label: 'Select me' }
 
 export default {
-  title: 'Option',
+  title: 'Components/Option',
   component: OptionComponent,
   argTypes: {
     label: {

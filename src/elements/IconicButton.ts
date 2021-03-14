@@ -4,7 +4,7 @@ import Button from '@/elements/Button'
 
 const IconicButton = styled(Button, {
   $$boxSize: '36px',
-  $$fontSize: '$fontSizes$xl',
+  $$fontSize: '$fontSizes$lg',
 
   height: '$$boxSize',
   padding: 0,
@@ -16,7 +16,7 @@ const IconicButton = styled(Button, {
   variants: {
     size: {
       xs: {
-        $$boxSize: '24px',
+        $$boxSize: '21px',
         $$fontSize: '$fontSizes$md'
       },
       sm: {
@@ -25,6 +25,10 @@ const IconicButton = styled(Button, {
       },
       md: {},
       lg: {
+        $$boxSize: '36px',
+        $$fontSize: '$fontSizes$xl'
+      },
+      xl: {
         $$boxSize: '42px',
         $$fontSize: '$fontSizes$xxl'
       }

@@ -31,7 +31,7 @@ const Header = ({ actions, children, justify = 'apart', title }: Props) => {
       {actions &&
         <Stack justify='end'>
           {actions.map((action, idx) => (
-            <Action
+            <Action.Button
               key={idx}
               action={action}
               appearance='plain'

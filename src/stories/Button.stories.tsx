@@ -3,13 +3,30 @@ import { Story, Meta } from '@storybook/react'
 import ButtonComponent, { Props } from '@/components/Button'
 
 export const Button: Story<Props> = (props) => <ButtonComponent {...props} />
-Button.args = { text: 'Click me' }
+Button.args = { a11yLabel: 'Click me' }
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   component: ButtonComponent,
   argTypes: {
-    text: {
+    disabled: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    hasPopover: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    a11yLabel: {
+      control: {
+        type: 'text'
+      }
+    },
+    label: {
       control: {
         type: 'text'
       }
@@ -27,18 +44,6 @@ export default {
         options: ['theme', 'neutral', 'success', 'danger', 'hi-contrast']
       },
       defaultValue: 'theme'
-    },
-    disabled: {
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
-    },
-    hasPopover: {
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
     }
   },
   parameters: {

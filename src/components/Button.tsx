@@ -1,35 +1,61 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 import { StitchesVariants } from '@stitches/react'
 import { ComponentPropsWithoutRef, VFC } from 'react'
 
 import ButtonElement from '@/elements/Button'
 import Icon from '@/elements/Icon'
 
+import IconicButton from '@/components/IconicButton'
+
 export type ButtonVariants = StitchesVariants<typeof ButtonElement>
 
 export type Props = ComponentPropsWithoutRef<'button'> & ButtonVariants & {
+  a11yLabel: string
   hasPopover?: boolean
   iconLeft?: IconDefinition
   iconRight?: IconDefinition
-  text: string
-  spinIconLeft?: boolean
+  isLoading?: boolean
+  label?: string
+  loadingA11yLabel?: string
+  loadingIcon?: IconDefinition
+  loadingLabel?: string
 }
 
-export const Button: VFC<Props> = ({ "aria-haspopup": ariaHasPopup, css, hasPopover, iconLeft, iconRight, spinIconLeft = false, text, ...rest }) => {
+export const Button = ({ a11yLabel, "aria-haspopup": ariaHasPopup, css, disabled, hasPopover, iconLeft, iconRight, isLoading, label, loadingA11yLabel, loadingIcon = faCircleNotch, loadingLabel = 'Loading...', ...rest }: Props) => {
   const popoverCss = (hasPopover || ariaHasPopup) ? { paddingRight: 0 } : {}
   const customizedCss = css ? { ...css, ...popoverCss } : popoverCss
+
+  if (iconLeft && !label) {
+    return (
+      <IconicButton
+        {...rest}
+        a11yLabel={a11yLabel}
+        icon={iconLeft}
+        isLoading={isLoading}
+        loadingA11yLabel={loadingA11yLabel}
+        loadingIcon={loadingIcon}
+        size={rest.appearance === 'plain' ? 'xs' : undefined}
+      />
+    )
+  }
 
   return (
     <ButtonElement
       {...rest}
       aria-haspopup={ariaHasPopup}
+      aria-label={isLoading ? (loadingA11yLabel || a11yLabel) : a11yLabel}
       css={customizedCss}
+      disabled={isLoading || disabled}
     >
-      {iconLeft &&
-        <Icon fixedWidth spin={spinIconLeft} icon={iconLeft} />
+      {(isLoading || iconLeft) &&
+        <Icon
+          fixedWidth
+          spin={isLoading}
+          icon={isLoading ? loadingIcon : iconLeft!}
+        />
       }
-      {text}
+      {isLoading ? loadingLabel : label || a11yLabel}
       {iconRight &&
         <Icon fixedWidth icon={iconRight} />
       }

@@ -1,6 +1,8 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { Fragment, useCallback } from 'react'
 
+import { CallbackAction, GenericAction } from '@/types'
+
 import styled from '@/styles'
 
 import Icon from '@/elements/Icon'
@@ -8,42 +10,19 @@ import Text from '@/elements/Text'
 
 import Dropdown, { Props as DropdownProps } from '@/components/Dropdown'
 
+import Item from './Item'
+
 // import { KeyNames } from '@/util/constants'
-import { pauseEvent } from '@/util/events'
+import { noOp } from '@/util/actions'
 
 const Wrapper = styled('ul', {
   display: 'block',
-  padding: '4px 0'
+  padding: '4px 0',
+
+  listStyle: 'none'
 })
 
 Wrapper.displayName = 'stitches(DropdownMenu.Wrapper)'
-
-const Item = styled('li', {
-  alignItems: 'center',
-  display: 'flex',
-  gap: '16px',
-  padding: '4px 16px',
-
-  cursor: 'pointer',
-  outline: 'none',
-
-  lineHeight: 0,
-
-  '&:hover': {
-    backgroundColor: '$themeA8',
-    color: '$themeDarkest'
-  },
-
-  '&:active': {
-    backgroundColor: '$themeA12'
-  },
-
-  '&:focus-visible': {
-    backgroundColor: '$themeA24'
-  }
-})
-
-Item.displayName = 'stitches(DropdownMenu.Item)'
 
 const Separator = styled('li', {
   display: 'block',
@@ -55,14 +34,12 @@ const Separator = styled('li', {
 
 Separator.displayName = 'stitches(DropdownMenu.Separator)'
 
-type MenuItem = { icon?: IconDefinition, text: string, onClick: () => void }
-
 export type Props = Omit<DropdownProps, 'Content'> & {
+  actions: GenericAction[][]
   disableCloseOnClick?: boolean
-  items: MenuItem[][]
 }
 ``
-const DropdownMenu = ({ disableCloseOnClick = false, items, ...props }: Props) => {
+const DropdownMenu = ({ actions, disableCloseOnClick = false, ...props }: Props) => {
   const handleKeyCommands = useCallback((ev: React.KeyboardEvent<HTMLDivElement>) => {
     // https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-12
     switch (ev.key) {
@@ -89,30 +66,37 @@ const DropdownMenu = ({ disableCloseOnClick = false, items, ...props }: Props) =
       Content={
         ({ closeDropdown }) => (
           <Wrapper role='menu'>
-            {items.map((group, groupIndex) => (
+            {actions.map((group, groupIndex) => (
               <Fragment key={`group-${groupIndex}`}>
-                {group.map((item, itemIndex) => (
+                {/* {group.map((action, itemIndex) => (
                   <Item
                     key={`item-${groupIndex}-${itemIndex}`}
-                    aria-label={item.text}
+                    aria-label={action.label}
                     role='menuitem'
                     tabIndex={0}
                     onClick={pauseEvent(() => {
-                      item.onClick()
+                      action.onAction()
                       if (!disableCloseOnClick) closeDropdown()
                     })}
                   >
-                    {item.icon &&
+                    {action.icon &&
                       <Text color='inherit' size='md'>
-                        <Icon fixedWidth icon={item.icon} />
+                        <Icon fixedWidth icon={action.icon} />
                       </Text>
                     }
                     <Text color='inherit' size='md' weight='inherit'>
-                      {item.text}
+                      {action.label}
                     </Text>
                   </Item>
+                ))} */}
+                {group.map((action, itemIndex) => (
+                  <Item
+                    key={`item-${groupIndex}-${itemIndex}`}
+                    action={action}
+                    onAction={disableCloseOnClick ? noOp : closeDropdown}
+                  />
                 ))}
-                {groupIndex < items.length - 1 &&
+                {groupIndex < actions.length - 1 &&
                   <Separator aria-hidden role='separator' />
                 }
               </Fragment>

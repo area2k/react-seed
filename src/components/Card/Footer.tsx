@@ -24,7 +24,7 @@ const Footer = ({ children, justify, primaryAction, secondaryActions }: Props) =
       {secondaryActions &&
         <Stack justify='end'>
           {secondaryActions.map((action, idx) => (
-            <Action
+            <Action.Button
               key={idx}
               action={action}
               appearance='outline'
@@ -33,7 +33,7 @@ const Footer = ({ children, justify, primaryAction, secondaryActions }: Props) =
         </Stack>
       }
       {primaryAction &&
-        <Action
+        <Action.Button
           action={primaryAction}
           appearance='primary'
         />

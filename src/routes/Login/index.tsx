@@ -64,7 +64,7 @@ const Login = () => {
                   <Link to='/forgot-password'>
                     Forgot password?
                   </Link>
-                  <Button text='Sign in' />
+                  <Button a11yLabel='Sign in' />
                 </FormFooter>
               </Form>
             </Card.Section>

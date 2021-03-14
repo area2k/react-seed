@@ -75,7 +75,7 @@ const Item = ({ actions, children, media = null, persistActions = false, to }: P
         <ActionsDrawer persistent={persistActions}>
           <Stack inline>
             {actions.map((action) => (
-              <Action
+              <Action.Button
                 stopEvent
                 appearance={persistActions ? 'plain' : 'outline'}
                 action={action}

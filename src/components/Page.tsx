@@ -37,15 +37,15 @@ const Page = ({ secondaryActions, children, primaryAction, size = 'lg', title, .
             {secondaryActions &&
               <>
                 {secondaryActions.map((action) => (
-                  <Action
+                  <Action.Button
                     action={action}
-                    appearance='outline'
+                    appearance='clear'
                   />
                 ))}
               </>
             }
             {primaryAction &&
-              <Action
+              <Action.Button
                 action={primaryAction}
                 appearance='primary'
               />

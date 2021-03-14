@@ -1,5 +1,6 @@
 import { Icon, IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { Location } from 'history'
+import { LinkProps } from 'react-router-dom'
 
 // Fix imports of *.gql files in *.ts/tsx files
 // SEE: https://github.com/apollographql/graphql-tag/issues/59#issuecomment-531517814
@@ -13,13 +14,14 @@ declare module '*.gql' {
 export type ActionAppearance = 'primary' | 'secondary' | 'outline' | 'clear' | 'plain'
 export type ActionStatus = 'danger' | 'neutral' | 'success'
 
-export type RouterLocationDescriptor = Location | string
+export type RouterLocationDescriptor = LinkProps['to']
 
 export interface BaseAction {
+  a11yLabel: string
   dangerous?: boolean
   icon?: IconDefinition
   id?: string
-  label: string
+  label?: string
 }
 
 export interface Action extends BaseAction {
@@ -30,6 +32,8 @@ export interface Action extends BaseAction {
 }
 
 export interface LinkAction extends BaseAction {
+  end?: boolean
+  navigational?: boolean
   to: RouterLocationDescriptor
 }
 

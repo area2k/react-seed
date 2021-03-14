@@ -4,10 +4,10 @@ import Button from '@/components/Button'
 import DropdownComponent, { Props } from '@/components/Dropdown'
 
 export const Dropdown: Story<Props> = (props) => <DropdownComponent {...props} />
-Dropdown.args = { Content: () => <div style={{ padding: '24px' }}>Dropdown content</div>, children: <Button text='Open dropdown' /> }
+Dropdown.args = { Content: () => <div style={{ padding: '24px' }}>Dropdown content</div>, children: <Button a11yLabel='Open dropdown' /> }
 
 export default {
-  title: 'Dropdown',
+  title: 'Components/Dropdown',
   component: DropdownComponent,
   argTypes: {
     align: {

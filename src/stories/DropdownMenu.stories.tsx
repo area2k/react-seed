@@ -1,26 +1,31 @@
-import { faCog, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faDollarSign, faExternalLinkAlt, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { action } from '@storybook/addon-actions'
 import { Story, Meta } from '@storybook/react'
 
 import Button from '@/components/Button'
 import DropdownMenuComponent, { Props } from '@/components/DropdownMenu'
 
-const items: Props['items'] = [
+const actions: Props['actions'] = [
   [{
-    icon: faUser, text: 'Profile', onClick: action('profile')
+    icon: faUser, label: 'Profile', onAction: action('profile')
   }, {
-    icon: faCog, text: 'Settings', onClick: action('settings')
+    icon: faCog, label: 'Settings', onAction: action('settings')
+  }, {
+    icon: faDollarSign, label: 'Upgrade', onAction: () => undefined, disabled: true
   }],
   [{
-    icon: faSignOutAlt, text: 'Sign out', onClick: action('signOut')
+    icon: faSignOutAlt, label: 'Sign out', onAction: action('signOut')
+  }],
+  [{
+    icon: faExternalLinkAlt, label: 'View docs', href: 'https://google.com', external: true
   }]
 ]
 
 export const DropdownMenu: Story<Props> = (props) => <DropdownMenuComponent {...props} />
-DropdownMenu.args = { items, children: <Button text='Open dropdown' /> }
+DropdownMenu.args = { actions, children: <Button a11yLabel='Open dropdown' /> }
 
 export default {
-  title: 'Dropdown Menu',
+  title: 'Components/Dropdown Menu',
   component: DropdownMenuComponent,
   argTypes: {
     align: {

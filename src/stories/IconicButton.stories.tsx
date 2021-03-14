@@ -7,9 +7,21 @@ export const IconicButton: Story<Props> = (props) => <IconicButtonComponent {...
 IconicButton.args = { icon: faPenAlt }
 
 export default {
-  title: 'Iconic Button',
+  title: 'Components/Iconic Button',
   component: IconicButtonComponent,
   argTypes: {
+    rounded: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    disabled: {
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     appearance: {
       control: {
         type: 'select',
@@ -31,17 +43,10 @@ export default {
       },
       defaultValue: 'md'
     },
-    rounded: {
+    a11yLabel: {
       control: {
-        type: 'boolean'
-      },
-      defaultValue: false
-    },
-    disabled: {
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
+        type: 'text'
+      }
     },
     icon: {
       control: false

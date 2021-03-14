@@ -6,8 +6,15 @@ import fonts from '@/styles/typography'
 
 // import light from '@/styles/themes/light'
 
+type FocusPseudoElementProps = {
+  baseRadius?: string,
+  element: 'after' | 'before',
+  ringColor?: string
+  activator?: string
+  borderWidth?: number
+}
+
 const { styled, css, global } = createCss({
-  insertMethod: 'append',
   theme: {
     colors: {
       ...colors,
@@ -66,7 +73,7 @@ const { styled, css, global } = createCss({
       height: value,
       width: value
     }),
-    focusPseudoElement: (_config) => ({ baseRadius = '$lg', element, ringColor = '$colors$themeLight', activator = '&:focus-visible', borderWidth = 0 }) => ({
+    focusPseudoElement: (_config) => ({ baseRadius = '$lg', element, ringColor = '$colors$themeLight', activator = '&:focus-visible', borderWidth = 0 }: FocusPseudoElementProps) => ({
       [`&::${element}`]: {
         content: '""',
         display: 'block',
@@ -94,7 +101,8 @@ const { styled, css, global } = createCss({
         }
       }
     })
-  }
+  },
+  insertMethod: 'append'
 })
 
 global({

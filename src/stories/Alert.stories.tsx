@@ -7,7 +7,7 @@ export const Alert: Story<Props> = (props) => <AlertComponent {...props} />
 Alert.args = { title: 'Alert title', description: 'A description of the problem or message for the user.', icon: faInfoCircle }
 
 export default {
-  title: 'Alert',
+  title: 'Components/Alert',
   component: AlertComponent,
   argTypes: {
     icon: {

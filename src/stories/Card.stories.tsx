@@ -15,10 +15,12 @@ Simple.args = { title: 'Online dashboard', sectioned: true,
 export const FooterActions = Template.bind({})
 FooterActions.args = { title: 'Setup 2-factor auth for your account', sectioned: true,
                        secondaryFooterActions: [{
+                         a11yLabel: 'Maybe later',
                          label: 'Maybe later',
                          onAction: action('Maybe later')
                        }],
                        primaryFooterAction: {
+                         a11yLabel: 'Enable 2-factor auth',
                          label: 'Enable now',
                          onAction: action('Enable now')
                        }, children: (
@@ -30,6 +32,7 @@ FooterActions.args = { title: 'Setup 2-factor auth for your account', sectioned:
 export const HeaderActions = Template.bind({})
 HeaderActions.args = { title: 'Product variants', sectioned: true,
                        actions: [{
+                         a11yLabel: 'Add product variant',
                          label: 'Add variant',
                          onAction: action('Add variant')
                        }], children: (
@@ -41,9 +44,11 @@ HeaderActions.args = { title: 'Product variants', sectioned: true,
 export const SectionActions: Story<PropsWithChildren<Props>> = () => (
   <CardComponent
     actions={[{
+      a11yLabel: 'Edit customer',
       label: 'Edit',
       onAction: action('Edit')
     }, {
+      a11yLabel: 'Remove customer',
       dangerous: true,
       label: 'Remove',
       onAction: action('Remove')
@@ -61,7 +66,11 @@ export const SectionActions: Story<PropsWithChildren<Props>> = () => (
       </Stack>
     </CardComponent.Section>
     <CardComponent.Section
-      actions={[{ label: 'Change', onAction: action('Change address') }]}
+      actions={[{
+        a11yLabel: 'Change primary address',
+        label: 'Change',
+        onAction: action('Change address')
+      }]}
       title='Primary address'
     >
       <Stack vertical gap={2}>
@@ -80,7 +89,7 @@ export const SectionActions: Story<PropsWithChildren<Props>> = () => (
 )
 
 export default {
-  title: 'Card',
+  title: 'Components/Card',
   component: CardComponent,
   argTypes: {
     children: {
