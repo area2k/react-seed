@@ -74,8 +74,8 @@ const Dashboard = () => {
       <Stack vertical gap={18}>
         <Card sectioned title='Testing modals'>
           <Stack>
-            <Tag text='Customer enabled' onDismiss={console.log} />
-            <Tag text='Tagged with critical' onDismiss={console.log} />
+            <Tag label='Customer enabled' onRemove={console.log} />
+            <Tag label='Tagged with critical' onRemove={console.log} />
             <Button a11yLabel='Open modal' onClick={() => showModal()} />
           </Stack>
         </Card>

@@ -59,19 +59,20 @@ const CloseButton = styled('button', {
   }
 })
 
-type Props = {
-  text: string
-  onDismiss?: () => void
+export type Props = {
+  disabled?: boolean
+  label: string
+  onRemove?: () => void
 }
 
-const Tag = ({ text, onDismiss }: Props) => {
+const Tag = ({ disabled, label, onRemove }: Props) => {
   return (
     <Wrapper>
       <TextWrapper>
-        {text}
+        {label}
       </TextWrapper>
-      {onDismiss &&
-        <CloseButton onClick={onDismiss}>
+      {!disabled && onRemove &&
+        <CloseButton disabled={disabled} onClick={onRemove}>
           <Icon fixedWidth icon={faTimes} />
         </CloseButton>
       }
