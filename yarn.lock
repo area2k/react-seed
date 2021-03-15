@@ -3279,6 +3279,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-slider@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-slider/-/react-slider-1.1.1.tgz#b6ac88d926cdb1a8565e81d9e1521190191898bc"
+  integrity sha512-SfP4L/QIFdAcypcMTX4nWVTt5bGjtMJtBMOkok4yn+x8gaMrgvgDF4MhkJmxIZFOn+m2iYNSXasA4KoGf6nevw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-syntax-highlighter@11.0.5":
   version "11.0.5"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-11.0.5.tgz#0d546261b4021e1f9d85b50401c0a42acb106087"
@@ -9842,6 +9849,11 @@ react-router@6.0.0-beta.0:
   integrity sha512-VgMdfpVcmFQki/LZuLh8E/MNACekDetz4xqft+a6fBZvvJnVqKbLqebF7hyoawGrV1HcO5tVaUang2Og4W2j1Q==
   dependencies:
     prop-types "^15.7.2"
+
+react-slider@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-1.1.4.tgz#08b55f9be3e04cc10ae00cc3aedb6891dffe9bf3"
+  integrity sha512-lL/MvzFcDue0ztdJItwLqas2lOy8Gg46eCDGJc4cJGldThmBHcHfGQePgBgyY1SEN95OwsWAakd3SuI8RyixDQ==
 
 react-syntax-highlighter@^13.5.3:
   version "13.5.3"
