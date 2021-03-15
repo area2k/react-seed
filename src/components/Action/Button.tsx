@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom'
 import { CommonProps } from './types'
 
 import Button, { ButtonVariants } from '@/components/Button'
+import DropdownMenu from '@/components/DropdownMenu'
+import { PopoverVariants } from '@/components/Popover'
 
-import { isAnchorAction, isCallbackAction, isLinkAction } from '@/util/actions'
+import { isActionList, isAnchorAction, isCallbackAction, isLinkAction } from '@/util/actions'
 import { pauseEvent, stopEvent as stopEventFn } from '@/util/events'
 
 export type Props = CommonProps & ButtonVariants & {
+  listAlign?: PopoverVariants['align']
+  listJustify?: PopoverVariants['justify']
+  listSize?: PopoverVariants['size']
   stopEvent?: boolean
 }
 
-const ActionButton = ({ action, stopEvent = false, status, ...rest }: Props) => {
+const ActionButton = ({ action, appearance, stopEvent = false, status, ...listProps }: Props) => {
   const commonProps = {
-    ...rest,
+    appearance,
     a11yLabel: action.a11yLabel,
     iconLeft: action.icon,
     id: action.id,
@@ -51,6 +56,19 @@ const ActionButton = ({ action, stopEvent = false, status, ...rest }: Props) => 
         to={action.to}
         onClick={stopEvent ? stopEventFn : undefined}
       />
+    )
+  } else if (isActionList(action)) {
+    return (
+      <DropdownMenu
+        size='sm'
+        {...listProps}
+        actions={action.actions}
+      >
+        <Button
+          {...commonProps}
+          disabled={action.disabled}
+        />
+      </DropdownMenu>
     )
   } else {
     return null

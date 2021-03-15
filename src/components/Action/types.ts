@@ -1,5 +1,5 @@
-import { GenericAction } from '@/types'
+import { GenericActionOrList } from '@/types'
 
 export type CommonProps = {
-  action: GenericAction
+  action: GenericActionOrList
 }

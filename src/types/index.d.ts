@@ -24,13 +24,6 @@ export interface BaseAction {
   label?: string
 }
 
-export interface Action extends BaseAction {
-  href?: string
-  external?: boolean
-  to?: RouterLocationDescriptor
-  onAction?: () => void
-}
-
 export interface LinkAction extends BaseAction {
   end?: boolean
   navigational?: boolean
@@ -52,33 +45,9 @@ export interface CallbackAction extends BaseAction {
 
 export type GenericAction = AnchorAction | CallbackAction | LinkAction
 
-export interface DisableableAction extends Action {
+export interface ActionList extends BaseAction {
+  actions: GenericAction[][]
   disabled?: boolean
 }
 
-export interface DangerousAction extends Action {
-  dangerous?: boolean
-}
-
-export interface IconableAction extends Action {
-  icon?: IconDefinition
-}
-
-export interface LoadableAction extends Action {
-  isLoading?: boolean
-  loadingIcon?: IconDefinition
-  loadingLabel?: string
-}
-
-export interface SecondaryAction
-  extends Action,
-    DisableableAction,
-    DangerousAction,
-    IconableAction {}
-
-export interface PrimaryAction
-  extends Action,
-    DisableableAction,
-    DangerousAction,
-    IconableAction,
-    LoadableAction {}
+export type GenericActionOrList = GenericAction | ActionList

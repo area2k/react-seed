@@ -68,27 +68,6 @@ const DropdownMenu = ({ actions, disableCloseOnClick = false, ...props }: Props)
           <Wrapper role='menu'>
             {actions.map((group, groupIndex) => (
               <Fragment key={`group-${groupIndex}`}>
-                {/* {group.map((action, itemIndex) => (
-                  <Item
-                    key={`item-${groupIndex}-${itemIndex}`}
-                    aria-label={action.label}
-                    role='menuitem'
-                    tabIndex={0}
-                    onClick={pauseEvent(() => {
-                      action.onAction()
-                      if (!disableCloseOnClick) closeDropdown()
-                    })}
-                  >
-                    {action.icon &&
-                      <Text color='inherit' size='md'>
-                        <Icon fixedWidth icon={action.icon} />
-                      </Text>
-                    }
-                    <Text color='inherit' size='md' weight='inherit'>
-                      {action.label}
-                    </Text>
-                  </Item>
-                ))} */}
                 {group.map((action, itemIndex) => (
                   <Item
                     key={`item-${groupIndex}-${itemIndex}`}

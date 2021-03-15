@@ -1,6 +1,6 @@
 import { PropsWithChildren, ReactNode } from 'react'
 
-import { GenericAction } from '@/types'
+import { GenericAction, GenericActionOrList } from '@/types'
 
 import styled from '@/styles'
 
@@ -19,7 +19,7 @@ const Header = styled('div', {
 
 type Props = SingleColumnLayoutProps & {
   primaryAction?: GenericAction
-  secondaryActions?: GenericAction[]
+  secondaryActions?: GenericActionOrList[]
   title?: ReactNode
 }
 

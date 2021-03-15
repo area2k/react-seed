@@ -1,10 +1,10 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { faCheck, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faCog, faDollarSign, faExternalLinkAlt, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { action } from '@storybook/addon-actions'
 import { Story, Meta } from '@storybook/react'
 
-import { AnchorAction, BaseAction, CallbackAction, GenericAction, LinkAction } from '@/types'
+import { ActionList, AnchorAction, BaseAction, CallbackAction, GenericAction, LinkAction } from '@/types'
 
 import ActionComponent, { Props } from '@/components/Action'
 
@@ -45,6 +45,28 @@ const anchorAction: AnchorAction = {
 
 export const ExternalLink = Template.bind({})
 ExternalLink.args = { a11yLabel: 'Open new tab to google.com', action: anchorAction, label: 'External link', icon: faGoogle }
+
+const listAction: ActionList = {
+  a11yLabel: 'User menu options',
+  actions: [
+    [{
+      a11yLabel: 'Go to profile', icon: faUser, label: 'Profile', onAction: action('profile')
+    }, {
+      a11yLabel: 'Go to settings', icon: faCog, label: 'Settings', onAction: action('settings')
+    }, {
+      a11yLabel: 'Upgrade account', icon: faDollarSign, label: 'Upgrade', onAction: () => undefined, disabled: true
+    }],
+    [{
+      a11yLabel: 'Sign out', icon: faSignOutAlt, label: 'Sign out', onAction: action('signOut')
+    }],
+    [{
+      a11yLabel: 'View documentation', icon: faExternalLinkAlt, label: 'View docs', href: 'https://google.com', external: true
+    }]
+  ]
+}
+
+export const List = Template.bind({})
+List.args = { a11yLabel: 'User menu options', action: listAction, label: 'Click to open', icon: faCheck }
 
 export default {
   title: 'Components/Action/Button',

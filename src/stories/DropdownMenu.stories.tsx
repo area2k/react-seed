@@ -7,17 +7,17 @@ import DropdownMenuComponent, { Props } from '@/components/DropdownMenu'
 
 const actions: Props['actions'] = [
   [{
-    icon: faUser, label: 'Profile', onAction: action('profile')
+    a11yLabel: 'Go to profile', icon: faUser, label: 'Profile', onAction: action('profile')
   }, {
-    icon: faCog, label: 'Settings', onAction: action('settings')
+    a11yLabel: 'Go to settings', icon: faCog, label: 'Settings', onAction: action('settings')
   }, {
-    icon: faDollarSign, label: 'Upgrade', onAction: () => undefined, disabled: true
+    a11yLabel: 'Upgrade account', icon: faDollarSign, label: 'Upgrade', onAction: () => undefined, disabled: true
   }],
   [{
-    icon: faSignOutAlt, label: 'Sign out', onAction: action('signOut')
+    a11yLabel: 'Sign out', icon: faSignOutAlt, label: 'Sign out', onAction: action('signOut')
   }],
   [{
-    icon: faExternalLinkAlt, label: 'View docs', href: 'https://google.com', external: true
+    a11yLabel: 'View documentation', icon: faExternalLinkAlt, label: 'View docs', href: 'https://google.com', external: true
   }]
 ]
 
