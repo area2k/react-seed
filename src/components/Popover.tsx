@@ -58,13 +58,13 @@ const Wrapper = styled('div', {
         minWidth: 'calc(100% + 1px)'
       },
       sm: {
-        minWidth: '160px'
+        minWidth: '180px'
       },
       md: {
-        minWidth: '240px'
+        minWidth: '220px'
       },
       lg: {
-        minWidth: '320px'
+        minWidth: '300px'
       }
     },
     status: {

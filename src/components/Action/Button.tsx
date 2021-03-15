@@ -11,15 +11,13 @@ import { isActionList, isAnchorAction, isCallbackAction, isLinkAction } from '@/
 import { pauseEvent, stopEvent as stopEventFn } from '@/util/events'
 
 export type Props = CommonProps & ButtonVariants & {
-  listAlign?: PopoverVariants['align']
-  listJustify?: PopoverVariants['justify']
-  listSize?: PopoverVariants['size']
+  listOptions?: PopoverVariants
   stopEvent?: boolean
 }
 
-const ActionButton = ({ action, appearance, stopEvent = false, status, ...listProps }: Props) => {
+const ActionButton = ({ action, listOptions = {}, stopEvent = false, status, ...rest }: Props) => {
   const commonProps = {
-    appearance,
+    ...rest,
     a11yLabel: action.a11yLabel,
     iconLeft: action.icon,
     id: action.id,
@@ -61,7 +59,7 @@ const ActionButton = ({ action, appearance, stopEvent = false, status, ...listPr
     return (
       <DropdownMenu
         size='sm'
-        {...listProps}
+        {...listOptions}
         actions={action.actions}
       >
         <Button
