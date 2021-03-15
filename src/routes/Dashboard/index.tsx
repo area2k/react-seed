@@ -1,6 +1,6 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
-import { faBan, faCaretDown, faCheck, faChevronDown, faCog, faEllipsisH, faEllipsisV, faExclamationCircle, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBan, faCaretDown, faCheck, faChevronDown, faCog, faDollarSign, faEllipsisH, faEllipsisV, faExclamationCircle, faExternalLinkAlt, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { isValidElement } from 'react'
 
@@ -106,7 +106,7 @@ const Dashboard = () => {
               id='dropdown-test'
               Content={
                 () => (
-                  <>Hello world</>
+                  <>Filters are here</>
                 )
               }
             >
@@ -115,15 +115,22 @@ const Dashboard = () => {
             <Button appearance='outline' a11yLabel='Save settings' />
             <DropdownMenu
               align='below'
+              justify='right'
+              size='sm'
               actions={[
-                [
-                  { a11yLabel: 'My profile', icon: faUser, label: 'My profile', onAction: () => console.log('account') },
-                  { a11yLabel: 'My stars', icon: faStar, label: 'My stars', onAction: () => console.log('stars') },
-                  { a11yLabel: 'Settings', icon: faCog, label: 'Settings', onAction: () => console.log('settings') },
-                ],
-                [
-                  { a11yLabel: 'Sign out', icon: faSignOutAlt, label: 'Sign out', onAction: () => console.log('signout') }
-                ]
+                [{
+                  a11yLabel: 'Go to profile', icon: faUser, label: 'Profile', onAction: () => console.log('profile')
+                }, {
+                  a11yLabel: 'Go to settings', icon: faCog, label: 'Settings', onAction: () => console.log('settings')
+                }, {
+                  a11yLabel: 'Upgrade account', icon: faDollarSign, label: 'Upgrade', onAction: () => undefined, disabled: true
+                }],
+                [{
+                  a11yLabel: 'Sign out', icon: faSignOutAlt, label: 'Sign out', onAction: () => console.log('signOut')
+                }],
+                [{
+                  a11yLabel: 'View documentation', icon: faExternalLinkAlt, label: 'View docs', href: 'https://google.com', external: true
+                }]
               ]}
               id='dropdown-menu-test'
             >

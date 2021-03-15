@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
-import { GenericAction } from '@/types'
+import { GenericAction, GenericActionOrList } from '@/types'
 
 import styled from '@/styles'
 
@@ -14,7 +14,7 @@ const Wrapper = styled(Stack, {
 export type Props = PropsWithChildren<{
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
   primaryAction?: GenericAction
-  secondaryActions?: GenericAction[]
+  secondaryActions?: GenericActionOrList[]
 }>
 
 const Footer = ({ children, justify, primaryAction, secondaryActions }: Props) => {

@@ -15,10 +15,10 @@ const Wrapper = styled('div', {
   variants: {
     align: {
       above: {
-        bottom: 'calc(50% + 24px)'
+        bottom: 'calc(100% + 4px)'
       },
       below: {
-        top: 'calc(50% + 24px)'
+        top: 'calc(100% + 4px)'
       },
       bottom: {
         bottom: 'calc(50% - 24px)'

@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, PropsWithChildren, ReactNode } from 'react'
 
-import { GenericAction } from '@/types'
+import { GenericActionOrList } from '@/types'
 
 import styled from '@/styles'
 
@@ -36,7 +36,7 @@ const Title = styled(Stack, {
 })
 
 export type Props = PropsWithChildren<{
-  actions?: GenericAction[]
+  actions?: GenericActionOrList[]
   flush?: boolean
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
   subdued?: boolean

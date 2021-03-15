@@ -1,12 +1,8 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { Fragment, useCallback } from 'react'
 
-import { CallbackAction, GenericAction } from '@/types'
+import { GenericAction } from '@/types'
 
 import styled from '@/styles'
-
-import Icon from '@/elements/Icon'
-import Text from '@/elements/Text'
 
 import Dropdown, { Props as DropdownProps } from '@/components/Dropdown'
 

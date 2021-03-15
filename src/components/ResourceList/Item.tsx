@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
-import { GenericAction, RouterLocationDescriptor } from '@/types'
+import { GenericActionOrList, RouterLocationDescriptor } from '@/types'
 
 import styled from '@/styles'
 
@@ -51,8 +51,10 @@ const ActionsDrawer = styled('div', {
   }
 })
 
+const listOptions = { justify: 'right' } as const
+
 export type Props = {
-  actions?: GenericAction[]
+  actions?: GenericActionOrList[]
   media?: ReactNode
   persistActions?: boolean
   to: RouterLocationDescriptor
@@ -79,6 +81,7 @@ const Item = ({ actions, children, media = null, persistActions = false, to }: P
                 stopEvent
                 appearance={persistActions ? 'plain' : 'outline'}
                 action={action}
+                listOptions={listOptions}
               />
             ))}
           </Stack>

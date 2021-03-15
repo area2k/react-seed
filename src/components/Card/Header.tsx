@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, PropsWithChildren, ReactNode } from 'react'
 
-import { GenericAction } from '@/types'
+import { GenericActionOrList } from '@/types'
 
 import styled from '@/styles'
 
@@ -13,7 +13,7 @@ const Wrapper = styled(Stack, {
 })
 
 export type Props = PropsWithChildren<{
-  actions?: GenericAction[]
+  actions?: GenericActionOrList[]
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
   title: ReactNode
 }>
