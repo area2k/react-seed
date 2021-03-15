@@ -31,7 +31,7 @@ export type Props = {
   max: number
   min: number
   minDistance?: number
-  step: number
+  step?: number
   value: number[]
   onChange: (value: number[]) => void
 }
@@ -60,7 +60,8 @@ const RangeSlider = ({ ariaValueText, marks = false, onChange, ...props }: Props
   return (
     <Wrapper>
       <ReactSlider
-        minDistance={1}
+        minDistance={props.step || 1}
+        step={1}
         {...props}
         pearling
         ariaValuetext={getValueText}

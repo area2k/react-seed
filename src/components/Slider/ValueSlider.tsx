@@ -27,7 +27,7 @@ export type Props = {
   marks?: boolean | number[] | number
   max: number
   min: number
-  step: number
+  step?: number
   value: number
   onChange: (value: number) => void
 }
@@ -56,6 +56,7 @@ const ValueSlider = ({ ariaValueText, marks = false, onChange, ...props }: Props
   return (
     <Wrapper>
       <ReactSlider
+        step={1}
         {...props}
         ariaValuetext={getValueText}
         marks={marks}

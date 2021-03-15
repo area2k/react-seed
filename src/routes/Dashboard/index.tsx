@@ -35,6 +35,8 @@ import Dropdown from '@/components/Dropdown'
 import Stack from '@/components/Stack'
 import Alert from '@/components/Alert'
 import Tag from '@/components/Tag'
+import ValueSliderField from '@/form/ValueSliderField'
+import RangeSliderField from '@/form/RangeSliderField'
 
 const CustomLink = styled(Link, { color: 'red' })
 
@@ -42,13 +44,16 @@ type FormValues = {
   checkboxGroup: string[]
   radioGroup: string
   masked: string
+  rangeValue: number[]
   switch: boolean
   text: string
   textSelect: string
+  valueSlider: number
 }
 
 const initialValues: FormValues = {
-  checkboxGroup: ['check2'], radioGroup: '', masked: '', switch: false, text: '', textSelect: ''
+  checkboxGroup: ['check2'], radioGroup: '', masked: '', rangeValue: [1, 4],
+  switch: false, text: '', textSelect: '', valueSlider: 0
 }
 
 const Dashboard = () => {
@@ -246,10 +251,30 @@ const Dashboard = () => {
               mask='(000) 000-0000'
               placeholder='Enter phone number'
             />
+            <FormColumns>
+              <ValueSliderField
+                marks
+                ariaLabel='Value slider'
+                ariaValueText={({ value }) => `Value: ${value}`}
+                fieldId='sliderValue'
+                label='Value slider'
+                min={0}
+                max={9}
+              />
+              <RangeSliderField
+                ariaLabel='Range slider'
+                ariaValueText={({ valueNow }) => `Value: ${valueNow}`}
+                fieldId='rangeValue'
+                label='Range slider'
+                min={0}
+                max={9}
+              />
+            </FormColumns>
             <FormFooter>
               <Button
                 a11yLabel='Submit'
                 iconLeft={faCheck}
+                label='Submit'
                 type='submit'
               />
             </FormFooter>
