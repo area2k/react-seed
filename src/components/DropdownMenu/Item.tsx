@@ -13,6 +13,8 @@ import { isAnchorAction, isCallbackAction, isLinkAction } from '@/util/actions'
 import { pauseEvent } from '@/util/events'
 
 const Wrapper = styled('button', {
+  $$focusRingColor: '$colors$themeLight',
+
   alignItems: 'baseline',
   all: 'unset',
   boxSizing: 'border-box',
@@ -26,14 +28,16 @@ const Wrapper = styled('button', {
 
   lineHeight: 0,
   textDecoration: 'none',
+  whiteSpace: 'nowrap',
 
   focusPseudoElement: {
     element: 'after',
     borderRadius: 0,
-    borderWidth: 0
+    borderWidth: 0,
+    ringColor: '$$focusRingColor'
   },
 
-  '&:hover': {
+  '&:hover, &:focus-visible': {
     backgroundColor: '$themeA8',
     color: '$themeDarkest'
   },
@@ -42,13 +46,25 @@ const Wrapper = styled('button', {
     backgroundColor: '$themeA12'
   },
 
-  '&:focus-visible': {
-    backgroundColor: '$themeA24'
-  },
-
   '&[disabled]': {
     backgroundColor: '$neutralLightest',
     color: '$textLightest'
+  },
+
+  variants: {
+    dangerous: {
+      true: {
+        $$focusRingColor: '$colors$dangerLight',
+
+        color: '$dangerDefault',
+
+        '&:hover, &:focus-visible': {
+          backgroundColor: '$dangerA8',
+          color: '$dangerDefault'
+        }
+      },
+      false: {}
+    }
   }
 })
 
@@ -63,6 +79,7 @@ const Item = ({ action, onAction }: Props) => {
       <li>
         <Wrapper
           as='a'
+          dangerous={action.dangerous}
           href={action.href}
           target={action.external ? '_blank' : undefined}
           rel={action.external ? 'noopener noreferrer' : undefined}
@@ -83,6 +100,7 @@ const Item = ({ action, onAction }: Props) => {
     return (
       <li>
         <Wrapper
+          dangerous={action.dangerous}
           disabled={action.disabled || action.isLoading}
           onClick={pauseEvent(() => {
             action.onAction()
@@ -116,6 +134,7 @@ const Item = ({ action, onAction }: Props) => {
         <li>
           <Wrapper
             as={NavLink}
+            dangerous={action.dangerous}
             end={action.end}
             to={action.to}
             onClick={onAction}
@@ -136,6 +155,7 @@ const Item = ({ action, onAction }: Props) => {
         <li>
           <Wrapper
             as={Link}
+            dangerous={action.dangerous}
             to={action.to}
             onClick={onAction}
           >

@@ -48,7 +48,7 @@ export default {
   argTypes: {
     renderItem: {
       table: {
-        disabled: true
+        disable: true
       }
     },
     isLoading: {

@@ -148,7 +148,8 @@ const Button = styled('button', {
         $$activeBgColor: '$colors$neutralA8',
         $$activeBorderColor: 'transparent',
 
-        height: '21px',
+        gap: 4,
+        height: 21,
         padding: '0 4px',
 
         border: 'none',

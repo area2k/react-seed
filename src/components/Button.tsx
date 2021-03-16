@@ -60,7 +60,7 @@ export const Button = ({ a11yLabel, "aria-haspopup": ariaHasPopup, css, disabled
         <Icon fixedWidth icon={iconRight} />
       }
       {(hasPopover || ariaHasPopup) &&
-        <span style={{ paddingRight: '12px' }}>
+        <span style={{ paddingRight: rest.appearance === 'plain' ? 2 : 12 }}>
           <Icon fixedWidth icon={faCaretDown} />
         </span>
       }

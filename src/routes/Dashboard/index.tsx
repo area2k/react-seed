@@ -1,6 +1,6 @@
 import { FieldErrorMap, SubmitHelpers } from '@area2k/use-form'
 import useModal from '@area2k/use-modal'
-import { faBan, faCaretDown, faCheck, faChevronDown, faCog, faDollarSign, faEllipsisH, faEllipsisV, faExclamationCircle, faExternalLinkAlt, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBan, faCaretDown, faCaretLeft, faCheck, faChevronDown, faChevronLeft, faCog, faDollarSign, faEllipsisH, faEllipsisV, faExclamationCircle, faExternalLinkAlt, faInfoCircle, faPen, faQuestionCircle, faSignOutAlt, faStar, faTrashAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { isValidElement } from 'react'
 
@@ -37,6 +37,7 @@ import Alert from '@/components/Alert'
 import Tag from '@/components/Tag'
 import ValueSliderField from '@/form/ValueSliderField'
 import RangeSliderField from '@/form/RangeSliderField'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 const CustomLink = styled(Link, { color: 'red' })
 
