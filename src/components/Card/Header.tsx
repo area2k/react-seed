@@ -15,7 +15,7 @@ const Wrapper = styled(Stack, {
 export type Props = PropsWithChildren<{
   actions?: GenericActionOrList[]
   justify?: ComponentPropsWithoutRef<typeof Stack>['justify']
-  title: ReactNode
+  title?: ReactNode
 }>
 
 const Header = ({ actions, children, justify = 'apart', title }: Props) => {

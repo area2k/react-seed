@@ -14,7 +14,7 @@ type FocusPseudoElementProps = {
   borderWidth?: number
 }
 
-const { styled, css, global } = createCss({
+const { styled, css, global, keyframes } = createCss({
   theme: {
     colors: {
       ...colors,
@@ -186,5 +186,5 @@ global({
 //   return `rgba(${rgbParts[0]}, ${rgbParts[1]}, ${rgbParts[2]}, ${rgbParts[3]})`
 // }
 
-export { css }
+export { css, keyframes }
 export default styled

@@ -1,13 +1,15 @@
 import { PropsWithChildren, ReactNode } from 'react'
 
-import { GenericAction, GenericActionOrList } from '@/types'
-
 import styled from '@/styles'
 
-import Action from '@/components/Action'
 import SingleColumnLayout, { Props as SingleColumnLayoutProps } from '@/components/SingleColumnLayout'
 import Stack from '@/components/Stack'
 import { Title } from '@/components/Typography'
+
+import Action from './Action'
+import Display from './Display'
+
+const defaultTitle = <Display type='title' />
 
 const Header = styled('div', {
   alignItems: 'center',
@@ -17,14 +19,14 @@ const Header = styled('div', {
   padding: '32px 0 0'
 })
 
-type Props = SingleColumnLayoutProps & {
-  primaryAction?: GenericAction
-  secondaryActions?: GenericActionOrList[]
+export type Props = SingleColumnLayoutProps & {
+  primaryAction?: boolean
+  secondaryActions?: number
   title?: ReactNode
 }
 
-const Page = ({ secondaryActions, children, primaryAction, size = 'lg', title, ...variants }: PropsWithChildren<Props>) => {
-  const hasHeader = title || primaryAction || (secondaryActions && secondaryActions.length > 0)
+const Page = ({ secondaryActions = 0, children, primaryAction = false, size = 'lg', title = defaultTitle, ...variants }: PropsWithChildren<Props>) => {
+  const hasHeader = title || primaryAction || secondaryActions > 0
 
   return (
     <SingleColumnLayout size={size} {...variants}>
@@ -37,21 +39,15 @@ const Page = ({ secondaryActions, children, primaryAction, size = 'lg', title, .
             : {title}
           }
           <Stack gap={8} justify='end'>
-            {secondaryActions &&
+            {secondaryActions > 0 &&
               <>
-                {secondaryActions.map((action) => (
-                  <Action.Button
-                    action={action}
-                    appearance='clear'
-                  />
+                {Array.from({ length: secondaryActions }, () => (
+                  <Action />
                 ))}
               </>
             }
             {primaryAction &&
-              <Action.Button
-                action={primaryAction}
-                appearance='primary'
-              />
+              <Action />
             }
           </Stack>
         </Header>
@@ -64,6 +60,6 @@ const Page = ({ secondaryActions, children, primaryAction, size = 'lg', title, .
 }
 
 Page.Header = Header
-Header.displayName = 'stitches(Page.Header)'
+Header.displayName = 'stitches(Skeleton.Page.Header)'
 
 export default Page
