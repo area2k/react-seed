@@ -61,12 +61,8 @@ const { styled, css, global, keyframes } = createCss({
       tooltip: '2001'
     }
   },
-  conditions: {
-    mediaPhoneOnly: breakpoints.phoneOnly,
-    mediaTablet: breakpoints.tablet,
-    mediaSmallDesktop: breakpoints.smallDesktop,
-    mediaDesktop: breakpoints.desktop,
-    mediaLargeDesktop: breakpoints.largeDesktop
+  media: {
+    ...breakpoints
   },
   utils: {
     boxSize: (_config) => (value: string | number) => ({
@@ -102,7 +98,7 @@ const { styled, css, global, keyframes } = createCss({
       }
     })
   },
-  insertMethod: 'append'
+  insertionMethod: 'append'
 })
 
 global({

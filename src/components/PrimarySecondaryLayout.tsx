@@ -9,12 +9,10 @@ const Wrapper = styled('div', {
   gridTemplateAreas: '"primary" "secondary"',
   gridTemplateRows: 'auto auto',
 
-  when: {
-    mediaSmallDesktop: {
-      gridTemplateAreas: '"primary secondary"',
-      gridTemplateRows: 'auto',
-      gridTemplateColumns: '1fr 320px'
-    }
+  '@smallDesktop': {
+    gridTemplateAreas: '"primary secondary"',
+    gridTemplateRows: 'auto',
+    gridTemplateColumns: '1fr 320px'
   },
 
   variants: {
@@ -22,11 +20,9 @@ const Wrapper = styled('div', {
       true: {
         gridTemplateAreas: '"secondary" "primary"',
 
-        when: {
-          mediaSmallDesktop: {
-            gridTemplateAreas: '"secondary primary"',
-            gridTemplateColumns: '320px 1fr'
-          }
+        '@smallDesktop': {
+          gridTemplateAreas: '"secondary primary"',
+          gridTemplateColumns: '320px 1fr'
         }
       },
       false: {}

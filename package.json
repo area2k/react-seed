@@ -23,7 +23,7 @@
     "@fortawesome/free-regular-svg-icons": "5.15.1",
     "@fortawesome/free-solid-svg-icons": "5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@stitches/react": "0.1.0-canary.16",
+    "@stitches/react": "0.1.4",
     "core-js": "~3.6.5",
     "graphql": "^15.4.0",
     "history": "5",
