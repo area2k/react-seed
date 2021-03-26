@@ -17,21 +17,24 @@ const Wrapper = styled('div', {
 })
 
 export type Props = {
+  error?: boolean
   icon?: IconDefinition
   text: string
   title?: string
 }
 
-const EmptyState = ({ icon = faQuestionCircle, text, title }: Props) => {
+const EmptyState = ({ error = false, icon = faQuestionCircle, text, title }: Props) => {
   return (
     <Wrapper>
       <Stack vertical align='center' gap={16} justify='center'>
-        <Text size='xxxl'>
+        <Text color={error ? 'danger' : 'default'} size='xxxl'>
           <Icon fixedWidth icon={icon} />
         </Text>
         <div style={{ textAlign: 'center' }}>
           {title &&
-            <Subheading>{title}</Subheading>
+            <Subheading color={error ? 'danger' : 'default'}>
+              {title}
+            </Subheading>
           }
           <Body color='light'>{text}</Body>
         </div>
