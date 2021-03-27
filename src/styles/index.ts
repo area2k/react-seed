@@ -7,11 +7,12 @@ import fonts from '@/styles/typography'
 // import light from '@/styles/themes/light'
 
 type FocusPseudoElementProps = {
-  baseRadius?: string,
-  element: 'after' | 'before',
-  ringColor?: string
   activator?: string
+  baseRadius?: string,
   borderWidth?: number
+  element: 'after' | 'before',
+  inset: number | string
+  ringColor?: string
 }
 
 const { styled, css, global, keyframes } = createCss({
@@ -69,10 +70,11 @@ const { styled, css, global, keyframes } = createCss({
       height: value,
       width: value
     }),
-    focusPseudoElement: (_config) => ({ baseRadius = '$lg', element, ringColor = '$colors$themeLight', activator = '&:focus-visible', borderWidth = 0 }: FocusPseudoElementProps) => ({
+    focusPseudoElement: (_config) => ({ baseRadius = '$lg', element, ringColor = '$colors$themeLight', activator = '&:focus-visible', borderWidth = 0, inset = 0 }: FocusPseudoElementProps) => ({
       [`&::${element}`]: {
-        content: '""',
+        content: '',
         display: 'block',
+        margin: inset,
         pointerEvents: 'none',
         userSelect: 'none',
 

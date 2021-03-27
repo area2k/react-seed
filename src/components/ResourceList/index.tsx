@@ -10,13 +10,30 @@ import LoadingState from '@/components/LoadingState'
 import Header, { Props as HeaderProps } from './Header'
 import Item from './Item'
 
+const ListWrapper = styled('div', {
+  variants: {
+    hasItems: {
+      true: {
+        minHeight: 'initial'
+      },
+      false: {
+        minHeight: 128
+      }
+    }
+  },
+
+  defaultVariants: {
+    hasItems: false
+  }
+})
+
 const List = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%'
 })
 
-// const defaultEmptyState = <EmptyState title='No items' text='No items were found.' />
+const defaultEmptyState = <EmptyState title='No items' text='No items were found.' />
 const defaultLoadingState = <LoadingState overlayColor='white' />
 
 export type Props<T> = {
@@ -28,7 +45,7 @@ export type Props<T> = {
   renderItem: (item: T) => ReactNode
 }
 
-const ResourceList = <T extends any>({ emptyState, isLoading, loadingState = defaultLoadingState, items, resourceName, renderItem }: Props<T>) => {
+const ResourceList = <T extends any>({ emptyState = defaultEmptyState, isLoading, loadingState = defaultLoadingState, items, resourceName, renderItem }: Props<T>) => {
   const hasHeader = resourceName
 
   return (
@@ -39,7 +56,7 @@ const ResourceList = <T extends any>({ emptyState, isLoading, loadingState = def
           resourceName={resourceName}
         />
       }
-      <div style={{ minHeight: items.length > 0 ? 'initial' : '128px' }}>
+      <ListWrapper hasItems={items.length > 0}>
         {items.length > 0
           ? <List>
               <div>
@@ -53,7 +70,7 @@ const ResourceList = <T extends any>({ emptyState, isLoading, loadingState = def
             {loadingState}
           </Cover>
         }
-      </div>
+      </ListWrapper>
     </>
   )
 }
@@ -61,6 +78,7 @@ const ResourceList = <T extends any>({ emptyState, isLoading, loadingState = def
 ResourceList.List = List
 List.displayName = 'stitches(ResourceList.List)'
 
+ResourceList.Header = Header
 ResourceList.Item = Item
 
 export default ResourceList

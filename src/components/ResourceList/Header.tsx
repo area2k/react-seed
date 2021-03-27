@@ -27,7 +27,7 @@ const Header = ({ items, resourceName }: Props) => {
   return (
     <Wrapper>
       {resourceName &&
-        <Body weight='medium'>
+        <Body>
           Showing {items.length} {items.length === 1 ? resourceName.singular : resourceName.plural}
         </Body>
       }
