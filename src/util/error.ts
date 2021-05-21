@@ -3,10 +3,20 @@ import { SubmitHelpers } from '@area2k/use-form'
 import { faFire, faQuestionCircle, faUnlink } from '@fortawesome/free-solid-svg-icons'
 import { GraphQLError } from 'graphql'
 
+import { FormError } from '@/types'
+
 import debug from '@/util/debug'
 
-type ErrorHandler = (error: GraphQLError) => void
-type HandlerMap = Record<string, ErrorHandler>
+export type ErrorHandler = (error: GraphQLError) => void
+export type HandlerMap = Record<string, ErrorHandler>
+
+export const isApolloError = (err: any): err is ApolloError => (
+  (!!(err as ApolloError).graphQLErrors) || (!!(err as ApolloError).networkError)
+)
+
+export const hasGraphQLErrors = (err: ApolloError) => (
+  err.graphQLErrors && err.graphQLErrors.length > 0
+)
 
 export const handleGraphQLError = (error: ApolloError, handlers: HandlerMap) => {
   debug.log('[handleGraphQLError]', error)
@@ -66,5 +76,29 @@ export const handleUncaughtError = (error: any, setFormError: SubmitHelpers['set
       title: 'Unknown error',
       status: 'danger'
     })
+  }
+}
+
+type FormErrorHandler = (err: GraphQLError) => FormError
+type ErrorMap = { [code: string]: FormErrorHandler } & { all?: FormErrorHandler }
+
+type HandleMutatationFormErrorArgs = {
+  errorMap?: ErrorMap
+  setFormError: SubmitHelpers['setFormError']
+}
+
+export const handleMutationFormError = (err: any, { errorMap, setFormError }: HandleMutatationFormErrorArgs) => {
+  const handlerMap: HandlerMap = {}
+
+  if (errorMap) {
+    Object.keys(errorMap).forEach((key) => {
+      handlerMap[key] = (err) => setFormError(key, errorMap[key](err))
+    })
+  }
+
+  if (isApolloError(err) && hasGraphQLErrors(err)) {
+    handleGraphQLError(err, handlerMap)
+  } else {
+    handleUncaughtError(err, setFormError)
   }
 }

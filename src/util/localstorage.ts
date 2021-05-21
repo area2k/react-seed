@@ -5,6 +5,9 @@ export const DEBUG_FLAG_KEY = 'debug'
 
 export default {
   clear: () => localStorage.clear(),
+  clearAuth: () => (
+    [ACCESS_TOKEN_KEY, DEVICE_TOKEN_KEY].forEach((key) => localStorage.removeItem(key))
+  ),
   get: (key: string) => localStorage.getItem(key),
   set: (key: string, value: string) => localStorage.setItem(key, value),
   remove: (key: string) => localStorage.removeItem(key),
@@ -17,6 +20,7 @@ export default {
 
     return values
   },
+  multiRemove: (keys: string[]) => keys.forEach((key) => localStorage.removeItem(key)),
   multiSet: (map: Record<string, string>) => {
     Object.keys(map).forEach((key) => {
       localStorage.setItem(key, map[key])
